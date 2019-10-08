@@ -1,0 +1,13 @@
+type Resource 
+	@model
+{
+	id: ID!
+	resourceType: ResourceType
+}
+
+enum ResourceType{
+	PANORAMA
+	SITE
+	TOUR
+	JOURNEY
+}

@@ -1,0 +1,19 @@
+{
+    "develop": {
+        "awscloudformation": {
+            "AuthRoleName": "frontend-develop-20191002134826-authRole",
+            "UnauthRoleArn": "arn:aws:iam::112531233990:role/frontend-develop-20191002134826-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::112531233990:role/frontend-develop-20191002134826-authRole",
+            "Region": "eu-west-1",
+            "DeploymentBucketName": "frontend-develop-20191002134826-deployment",
+            "UnauthRoleName": "frontend-develop-20191002134826-unauthRole",
+            "StackName": "frontend-develop-20191002134826",
+            "StackId": "arn:aws:cloudformation:eu-west-1:112531233990:stack/frontend-develop-20191002134826/e7a8eb50-e512-11e9-aa96-02c03455965c"
+        },
+        "categories": {
+            "auth": {
+                "frontendfc0c3fd0": {}
+            }
+        }
+    }
+}
