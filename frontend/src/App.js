@@ -1,6 +1,12 @@
 import React from 'react';
+import Amplify from '@aws-amplify/core';
+import { AWSAppSyncClient, AUTH_TYPE } from 'aws-appsync';
+import config from './aws-exports';
 import logo from './logo.svg';
 import './App.css';
+
+Amplify.configure(config);
+console.log(config);
 
 function App() {
   return (

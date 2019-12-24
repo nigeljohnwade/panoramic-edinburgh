@@ -1,8 +1,7 @@
-type Resource 
-	@model
-{
+type Resource @model {
 	id: ID!
-	resourceType: ResourceType
+	type: ResourceType!
+	title: String
 }
 
 enum ResourceType{
