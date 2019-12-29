@@ -1,10 +1,11 @@
-// eslint-disable
+/* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
 export const getResource = `query GetResource($id: ID!) {
   getResource(id: $id) {
     id
-    resourceType
+    type
+    title
   }
 }
 `;
@@ -16,7 +17,9 @@ export const listResources = `query ListResources(
   listResources(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      resourceType
+      type
+      title
+      owner
     }
     nextToken
   }

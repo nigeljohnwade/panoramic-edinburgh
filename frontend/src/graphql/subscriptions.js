@@ -1,24 +1,27 @@
-// eslint-disable
+/* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
 export const onCreateResource = `subscription OnCreateResource {
   onCreateResource {
     id
-    resourceType
+    type
+    title
   }
 }
 `;
 export const onUpdateResource = `subscription OnUpdateResource {
   onUpdateResource {
     id
-    resourceType
+    type
+    title
   }
 }
 `;
 export const onDeleteResource = `subscription OnDeleteResource {
   onDeleteResource {
     id
-    resourceType
+    type
+    title
   }
 }
 `;
