@@ -6,6 +6,7 @@ export const getResource = `query GetResource($id: ID!) {
     id
     type
     title
+    owner
   }
 }
 `;
@@ -19,6 +20,7 @@ export const listResources = `query ListResources(
       id
       type
       title
+      owner
     }
     nextToken
   }

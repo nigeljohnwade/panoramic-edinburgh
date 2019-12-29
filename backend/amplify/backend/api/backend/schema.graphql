@@ -1,12 +1,18 @@
-type Resource @model {
-	id: ID!
-	type: ResourceType!
-	title: String
+type Resource
+    @model
+    @auth(rules: [
+        {allow: owner},
+		{allow: private, operations: [read]}
+	])
+{
+    id: ID!
+    type: ResourceType!
+    title: String
 }
 
 enum ResourceType{
-	PANORAMA
-	SITE
-	TOUR
-	JOURNEY
+    PANORAMA
+    SITE
+    TOUR
+    JOURNEY
 }

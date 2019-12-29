@@ -9,6 +9,7 @@ export const createResource = `mutation CreateResource(
     id
     type
     title
+    owner
   }
 }
 `;
@@ -20,6 +21,7 @@ export const updateResource = `mutation UpdateResource(
     id
     type
     title
+    owner
   }
 }
 `;
@@ -31,6 +33,7 @@ export const deleteResource = `mutation DeleteResource(
     id
     type
     title
+    owner
   }
 }
 `;
