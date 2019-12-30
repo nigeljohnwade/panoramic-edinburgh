@@ -1,22 +1,23 @@
-.App {
-  text-align: center;
+:root {
+    --white: #e2dddd;
+    --black: #292930;
+    --saltire-blue: rgb(45, 35, 209);
+    --blog-details-background: rgb(230, 230, 240);
+    --post-details-background: rgb(230, 230, 240);
+    --comment-details-background: rgb(230, 230, 240);
+    --placeholder-background: rgb(180, 180, 190);
+    --body-copy: 1rem;
+    --base-unit: 1rem;
+    --base-padding: 1rem 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
+.header {
+    background-color: var(--saltire-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+.link {
+    color: var(--white);
 }
