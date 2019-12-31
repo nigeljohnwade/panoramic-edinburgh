@@ -1,9 +1,14 @@
 import React from 'react';
 
-const CreateResource = () =>{
+import apiCalls from '../../api/utilities';
+
+const CreateResource = () => {
     return (
-        <form>
-            <div className='form-group'>
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            apiCalls.createResource();
+        }}>
+            <div className='input-group'>
                 <label htmlFor='title'>
                     Title
                 </label>
@@ -27,8 +32,11 @@ const CreateResource = () =>{
                     <option value='TOUR'>Tour</option>
                 </select>
             </div>
+            <div className='input-group'>
+                <button type="submit">Create</button>
+            </div>
         </form>
-    )
+    );
 };
 
 export default CreateResource;

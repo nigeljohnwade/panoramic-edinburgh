@@ -5,6 +5,7 @@ import {
     Link
 } from "react-router-dom";
 import CreateResource from './components/pages/CreateResource';
+import ViewResources from './components/pages/ViewResources';
 
 
 const Routes = () =>{
@@ -24,7 +25,16 @@ const Routes = () =>{
                     >
                         New Resource
                     </Link>
+                    <Link
+                        className="link"
+                        to="/view-resources"
+                    >
+                        View Resources
+                    </Link>
                 </header>
+            </Route>
+            <Route path='/view-resources'>
+                <ViewResources/>
             </Route>
             <Route path='/create-resource'>
                 <CreateResource/>
