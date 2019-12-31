@@ -30,8 +30,8 @@ const calls = {
             return listResources.items;
         });
     },
-    createResource: (fields) => {
-        client.mutate({
+    createResource: async (fields) => {
+        return await client.mutate({
             mutation: gql(mutations.createResource),
             variables: {
                 input: {
@@ -40,6 +40,7 @@ const calls = {
             }
         }).then(({data: {createResource}}) => {
             console.log(createResource);
+            return createResource;
         });
     },
     updateResource: () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Link
+    Link,
 } from "react-router-dom";
 import CreateResource from './components/pages/CreateResource';
 import ViewResources from './components/pages/ViewResources';
@@ -33,7 +33,7 @@ const Routes = () =>{
                     </Link>
                 </header>
             </Route>
-            <Route path='/view-resources'>
+            <Route exact path={['/', '/view-resources']}>
                 <ViewResources/>
             </Route>
             <Route path='/create-resource'>
