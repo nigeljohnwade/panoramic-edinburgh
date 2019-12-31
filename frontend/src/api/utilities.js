@@ -30,13 +30,12 @@ const calls = {
             return listResources.items;
         });
     },
-    createResource: () => {
+    createResource: (fields) => {
         client.mutate({
             mutation: gql(mutations.createResource),
             variables: {
                 input: {
-                    type: 'PANORAMA',
-                    title: 'Nigel\'s House'
+                    ...fields
                 }
             }
         }).then(({data: {createResource}}) => {

@@ -17,6 +17,9 @@
     min-height: 0;
 }
 
+input{
+    border: none;
+}
 body{
     background-color: var(--light-grey);
     color: var(--black);
@@ -62,19 +65,66 @@ body{
     color: var(--white);
 }
 
-.panel{
+/* Layout */
+/* Stack classes from, https://every-layout.dev */
+.stack {
+    --space: 1.5rem;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack > * + * {
+    margin-top: var(--space);
+}
+
+/* Row classes, based on stack but horizontal rather than vertical */
+.row {
+    --space: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.row  > *{
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.row + .row{
+    margin-top: var(--space)
+}
+
+.row > * + * {
+    margin-left: var(--space);
+}
+
+/* Layout utilities */
+.flex-filler {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.flex-wrap{
     flex-wrap: wrap;
 }
 
+.panel{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+}
+
 .resource{
-    flex-basis: 24rem;
+    flex-basis: 23.8rem;
     flex-grow: 0;
     flex-shrink: 0;
     height: 12rem;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
+/* Card */
 .card{
     display: flex;
     height: 100%;
@@ -93,9 +143,61 @@ body{
 }
 
 .card-footer{
+    width: calc(100% - 1rem);
     position: absolute;
-    width: 100%;
     bottom: 0.5rem;
     border-top: var(--light-grey) 1px solid;
+    background-color: var(--white);
+}
 
+/* Forms */
+input[type=radio]{
+    width: 1rem;
+    height: 1rem;
+}
+
+input[type=radio] + input[type=radio]{
+    margin-left: 1rem;
+}
+
+button{
+    padding: 1rem;
+    min-width: 5rem;
+}
+
+.input-group{
+    position: relative;
+    --label-height: 1rem;
+    --input-height: 3rem;
+    --input-padding: 0.75rem;
+    --label-offset: -1.5rem;
+}
+
+.input-group input{
+    height: var(--input-height);
+    padding: var(--input-padding);
+    background-color: var(--light-grey);
+}
+
+.input-group label{
+    position: absolute;
+    height: var(--label-height);
+    top: var(--input-padding);
+    left: var(--input-padding);
+    transition: top 0.3s ease-in-out;
+    background-color: var(--light-grey);
+}
+
+.input-group input:focus + label{
+    top: var(--label-offset);
+}
+
+.input-group input:not([value=""]) + label{
+    top: var(--label-offset);
+}
+
+.radio-group{
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
