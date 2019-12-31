@@ -1,14 +1,54 @@
 :root {
-    --white: #e2dddd;
+    --light-grey: #e2dddd;
+    --mid-grey: #999999;
     --black: #292930;
+    --white: #f9f9ff;
     --saltire-blue: rgb(45, 35, 209);
-    --blog-details-background: rgb(230, 230, 240);
-    --post-details-background: rgb(230, 230, 240);
-    --comment-details-background: rgb(230, 230, 240);
-    --placeholder-background: rgb(180, 180, 190);
     --body-copy: 1rem;
     --base-unit: 1rem;
     --base-padding: 1rem 2rem;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+    min-height: 0;
+}
+
+body{
+    background-color: var(--light-grey);
+    color: var(--black);
+    font-size: 1rem;
+}
+
+.h1{
+    font-size: 3.177rem;
+}
+
+.h2{
+    font-size: 2.618rem;
+}
+
+.h3{
+    font-size: 1.963rem;
+}
+
+.h4{
+    font-size: 1.618rem;
+}
+
+.h5{
+    font-size:  1.214rem;
+}
+
+.bigger{
+    font-size: 1.214em;
+}
+
+.smaller{
+    font-size: .75em;
 }
 
 .header {
@@ -20,4 +60,42 @@
 
 .link {
     color: var(--white);
+}
+
+.panel{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.resource{
+    flex-basis: 24rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 12rem;
+    padding: 1rem;
+}
+
+.card{
+    display: flex;
+    height: 100%;
+    background-color: var(--white);
+    border: var(--mid-grey) 1px solid;
+}
+
+.card-content{
+    width: 100%;
+    position: relative;
+    padding: 0.5rem;
+}
+
+.card-header{
+    border-bottom: var(--light-grey) 1px solid;
+}
+
+.card-footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0.5rem;
+    border-top: var(--light-grey) 1px solid;
+
 }
