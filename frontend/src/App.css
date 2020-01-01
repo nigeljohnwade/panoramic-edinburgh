@@ -100,21 +100,19 @@ body{
     flex-shrink: 1;
 }
 
+.flex-expander{
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
 .flex-wrap{
     flex-wrap: wrap;
 }
 
 .panel{
+    position: relative;
     display: flex;
     flex-wrap: wrap;
-    padding: 0.5rem;
-}
-
-.resource{
-    flex-basis: 23.8rem;
-    flex-grow: 0;
-    flex-shrink: 0;
-    height: 12rem;
     padding: 0.5rem;
 }
 
@@ -249,5 +247,31 @@ button{
 
 .create-resource{
     --space: 3rem;
+}
+
+.panel.master{
+    flex-basis: 48.6rem;
+}
+
+.panel.detail{
+    flex-basis: 72rem;
+}
+
+.panel-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.detail{
+    background-color: var(--white);
+}
+
+.resource{
+    flex-basis: 23.8rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 12rem;
+    padding: 0.5rem;
 }
 
