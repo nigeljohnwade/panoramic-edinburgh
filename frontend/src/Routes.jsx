@@ -12,7 +12,7 @@ const Routes = () =>{
     return(
         <Router>
             <Route path='/'>
-                <header className="header">
+                <header className="header stack">
                     <Link
                         className="link"
                         to="/"

@@ -14,7 +14,7 @@ const ViewResources = () => {
     }, []);
 
     return (
-        <div className='panel'>
+        <div className='panel flex-filler'>
             {
                 resources.length > 0 &&
                 resources.map(item => (

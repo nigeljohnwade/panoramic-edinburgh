@@ -17,9 +17,14 @@
     min-height: 0;
 }
 
+html, body{
+    height: 100%;
+}
+
 input{
     border: none;
 }
+
 body{
     background-color: var(--light-grey);
     color: var(--black);
@@ -52,17 +57,6 @@ body{
 
 .smaller{
     font-size: .75em;
-}
-
-.header {
-    background-color: var(--saltire-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.link {
-    color: var(--white);
 }
 
 /* Layout */
@@ -165,7 +159,11 @@ button{
     min-width: 5rem;
 }
 
-.input-group{
+.form-group{
+    border-bottom: var(--black) 2px solid;
+}
+
+.input-group {
     position: relative;
     --label-height: 1rem;
     --input-height: 3rem;
@@ -196,8 +194,60 @@ button{
     top: var(--label-offset);
 }
 
+.select-group{
+    position: relative;
+    --label-height: 1rem;
+    --select-height: 3rem;
+    --input-padding: 0.75rem;
+    --label-offset: -1.5rem;
+}
+
+.select-group select{
+    height: var(--select-height);
+}
+
+.select-group label{
+    position: absolute;
+    height: var(--label-height);
+    top: var(--label-offset);
+    left: var(--input-padding);
+    background-color: var(--light-grey);
+}
+
 .radio-group{
     height: 100%;
     display: flex;
     align-items: center;
 }
+
+/* Application */
+#root{
+    height: 100%;
+}
+
+.app{
+    height:100%;
+    --space: 0;
+    align-items: stretch;
+}
+
+.header{
+    display: flex;
+    flex-basis: 6rem;
+    align-items: stretch;
+    justify-content: flex-start;
+    background-color: var(--saltire-blue);
+}
+
+.header .link{
+    min-height: 6rem;
+}
+
+.link{
+    color: var(--white);
+}
+
+.create-resource{
+    --space: 3rem;
+}
+

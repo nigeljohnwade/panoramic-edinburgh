@@ -29,7 +29,7 @@ const CreateResource = () => {
             {
                 !fetching && !completed &&
                 <form
-                    className='stack'
+                    className='stack create-resource'
                     onSubmit={(e) => {
                         setFetching(true);
                         e.preventDefault();
@@ -43,7 +43,7 @@ const CreateResource = () => {
                     }}
                 >
                     <h1>Create New Resource</h1>
-                    <div className='input-group'>
+                    <div className='form-group input-group'>
                         <input
                             type='text'
                             name='title'
@@ -61,7 +61,7 @@ const CreateResource = () => {
                             Title
                         </label>
                     </div>
-                    <div className='form-group'>
+                    <div className='form-group select-group'>
                         <select
                             name='type'
                             id='title'
@@ -84,7 +84,7 @@ const CreateResource = () => {
                             Type
                         </label>
                     </div>
-                    <div className='input-group'>
+                    <div className='form group button-group'>
                         <button type="submit">Create</button>
                     </div>
                 </form>
