@@ -36,10 +36,7 @@ const ViewResources = ({
                         <div className={`card${selectedCard === item.id ? ' card-selected' : ''}`}>
                             <div className='card-content'>
                                 <div className='card-header'>
-                                    <Link
-                                        // onClick={() => setSelectedCard(item.id)}
-                                        to={`/view-resources/view-resource/${item.id}`}
-                                    >
+                                    <Link to={`/view-resources/view-resource/${item.id}`}>
                                         <h3 className='h4'>{item.title}</h3>
                                     </Link>
                                 </div>
