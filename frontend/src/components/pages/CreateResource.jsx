@@ -3,7 +3,9 @@ import React, {
     useState,
 } from 'react';
 import { Redirect } from 'react-router-dom';
+
 import apiCalls from '../../api/utilities';
+import Fetching from '../organisms/Fetching';
 
 const formStateReducer = (state, action) => {
     switch (action.type) {
@@ -88,6 +90,10 @@ const CreateResource = () => {
                         <button type="submit">Create</button>
                     </div>
                 </form>
+            }
+            {
+                fetching &&
+                    <Fetching/>
             }
             {
                 completed &&
