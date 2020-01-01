@@ -3,14 +3,14 @@ import {
     BrowserRouter as Router,
     Route,
     Link,
-} from "react-router-dom";
+} from 'react-router-dom';
 import CreateResource from './components/pages/CreateResource';
 import ViewResources from './components/pages/ViewResources';
 import ViewResource from './components/pages/ViewResource';
 
 
-const Routes = () =>{
-    return(
+const Routes = () => {
+    return (
         <Router>
             <Route path='/'>
                 <header className="header stack">
@@ -18,33 +18,40 @@ const Routes = () =>{
                         className="link"
                         to="/"
                     >
-                        Home
+                        <span>
+                            Home
+                        </span>
                     </Link>
                     <Link
                         className="link"
                         to="/create-resource"
                     >
-                        New Resource
+                        <span>
+                            New Resource
+                        </span>
                     </Link>
                     <Link
                         className="link"
                         to="/view-resources"
                     >
-                        View Resources
+                        <span>
+                            View Resources
+                        </span>
                     </Link>
                 </header>
             </Route>
-            <Route path='/view-resources'>
+            <Route exact path='/view-resources'>
                 <ViewResources/>
             </Route>
             <Route path='/view-resources/view-resource/:id'>
+                <ViewResources/>
                 <ViewResource/>
             </Route>
             <Route path='/create-resource'>
                 <CreateResource/>
             </Route>
         </Router>
-    )
+    );
 };
 
 export default Routes;
