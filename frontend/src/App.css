@@ -9,7 +9,7 @@
     --base-padding: 1rem 2rem;
 }
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -17,45 +17,45 @@
     min-height: 0;
 }
 
-html, body{
+html, body {
     height: 100%;
 }
 
-input{
+input {
     border: none;
 }
 
-body{
+body {
     background-color: var(--light-grey);
     color: var(--black);
     font-size: 1rem;
 }
 
-.h1{
+.h1 {
     font-size: 3.177rem;
 }
 
-.h2{
+.h2 {
     font-size: 2.618rem;
 }
 
-.h3{
+.h3 {
     font-size: 1.963rem;
 }
 
-.h4{
+.h4 {
     font-size: 1.618rem;
 }
 
-.h5{
-    font-size:  1.214rem;
+.h5 {
+    font-size: 1.214rem;
 }
 
-.bigger{
+.bigger {
     font-size: 1.214em;
 }
 
-.smaller{
+.smaller {
     font-size: .75em;
 }
 
@@ -81,12 +81,12 @@ body{
     align-items: center;
 }
 
-.row  > *{
+.row > * {
     flex-grow: 0;
     flex-shrink: 0;
 }
 
-.row + .row{
+.row + .row {
     margin-top: var(--space)
 }
 
@@ -100,16 +100,16 @@ body{
     flex-shrink: 1;
 }
 
-.flex-expander{
+.flex-expander {
     flex-grow: 1;
     flex-shrink: 0;
 }
 
-.flex-wrap{
+.flex-wrap {
     flex-wrap: wrap;
 }
 
-.panel{
+.panel {
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -117,24 +117,24 @@ body{
 }
 
 /* Card */
-.card{
+.card {
     display: flex;
     height: 100%;
     background-color: var(--white);
     border: var(--mid-grey) 1px solid;
 }
 
-.card-content{
+.card-content {
     width: 100%;
     position: relative;
     padding: 0.5rem;
 }
 
-.card-header{
+.card-header {
     border-bottom: var(--light-grey) 1px solid;
 }
 
-.card-footer{
+.card-footer {
     width: calc(100% - 1rem);
     position: absolute;
     bottom: 0.5rem;
@@ -143,21 +143,21 @@ body{
 }
 
 /* Forms */
-input[type=radio]{
+input[type=radio] {
     width: 1rem;
     height: 1rem;
 }
 
-input[type=radio] + input[type=radio]{
+input[type=radio] + input[type=radio] {
     margin-left: 1rem;
 }
 
-button{
+button {
     padding: 1rem;
     min-width: 5rem;
 }
 
-.form-group{
+.form-group {
     border-bottom: var(--black) 2px solid;
 }
 
@@ -169,13 +169,13 @@ button{
     --label-offset: -1.5rem;
 }
 
-.input-group input{
+.input-group input {
     height: var(--input-height);
     padding: var(--input-padding);
     background-color: var(--light-grey);
 }
 
-.input-group label{
+.input-group label {
     position: absolute;
     height: var(--label-height);
     top: var(--input-padding);
@@ -184,15 +184,15 @@ button{
     background-color: var(--light-grey);
 }
 
-.input-group input:focus + label{
+.input-group input:focus + label {
     top: var(--label-offset);
 }
 
-.input-group input:not([value=""]) + label{
+.input-group input:not([value=""]) + label {
     top: var(--label-offset);
 }
 
-.select-group{
+.select-group {
     position: relative;
     --label-height: 1rem;
     --select-height: 3rem;
@@ -200,11 +200,11 @@ button{
     --label-offset: -1.5rem;
 }
 
-.select-group select{
+.select-group select {
     height: var(--select-height);
 }
 
-.select-group label{
+.select-group label {
     position: absolute;
     height: var(--label-height);
     top: var(--label-offset);
@@ -212,24 +212,24 @@ button{
     background-color: var(--light-grey);
 }
 
-.radio-group{
+.radio-group {
     height: 100%;
     display: flex;
     align-items: center;
 }
 
 /* Application */
-#root{
+#root {
     height: 100%;
 }
 
-.app{
-    height:100%;
+.app {
+    height: 100%;
     --space: 0;
     align-items: stretch;
 }
 
-.header{
+.header {
     display: flex;
     flex-basis: 6rem;
     align-items: stretch;
@@ -237,37 +237,37 @@ button{
     background-color: var(--saltire-blue);
 }
 
-.header .link{
+.header .link {
     min-height: 6rem;
 }
 
-.link{
+.link {
     color: var(--white);
 }
 
-.create-resource{
+.create-resource {
     --space: 3rem;
 }
 
-.panel.master{
+.panel.master {
     flex-basis: 48.6rem;
 }
 
-.panel.detail{
+.panel.detail {
     flex-basis: 72rem;
 }
 
-.panel-close{
+.panel-close {
     position: absolute;
     top: 0;
     right: 0;
 }
 
-.detail{
+.detail {
     background-color: var(--white);
 }
 
-.resource{
+.resource {
     flex-basis: 23.8rem;
     flex-grow: 0;
     flex-shrink: 0;
