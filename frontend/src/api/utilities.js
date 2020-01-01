@@ -30,6 +30,17 @@ const calls = {
             return listResources.items;
         });
     },
+    getResource: async (id) => {
+        return await client.query({
+            query: gql(queries.getResource),
+            variables:{
+                id: id,
+            }
+        }).then(({data: {getResource}}) => {
+            console.log(getResource);
+            return getResource;
+        });
+    },
     createResource: async (fields) => {
         return await client.mutate({
             mutation: gql(mutations.createResource),

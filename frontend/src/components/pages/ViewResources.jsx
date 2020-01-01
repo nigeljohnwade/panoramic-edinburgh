@@ -2,6 +2,7 @@ import React, {
     useState,
     useEffect,
 } from 'react';
+import { Link } from 'react-router-dom';
 
 import apiCalls from '../../api/utilities';
 
@@ -25,7 +26,9 @@ const ViewResources = () => {
                         <div className='card'>
                             <div className='card-content'>
                                 <div className='card-header'>
-                                    <h3 className='h4'>{item.title}</h3>
+                                    <Link to={`/view-resources/view-resource/${item.id}`}>
+                                        <h3 className='h4'>{item.title}</h3>
+                                    </Link>
                                 </div>
                                 <div className='card-footer'>
                                     <p>{item.type}</p>

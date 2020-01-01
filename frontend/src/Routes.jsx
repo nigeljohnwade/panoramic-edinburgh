@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import CreateResource from './components/pages/CreateResource';
 import ViewResources from './components/pages/ViewResources';
+import ViewResource from './components/pages/ViewResource';
 
 
 const Routes = () =>{
@@ -33,8 +34,11 @@ const Routes = () =>{
                     </Link>
                 </header>
             </Route>
-            <Route exact path={['/', '/view-resources']}>
+            <Route path='/view-resources'>
                 <ViewResources/>
+            </Route>
+            <Route path='/view-resources/view-resource/:id'>
+                <ViewResource/>
             </Route>
             <Route path='/create-resource'>
                 <CreateResource/>
