@@ -1,4 +1,5 @@
 type Resource
+    @key(fields: ["type"], name: "resourceByType", queryField: "resourceByType")
     @model
     @auth(rules: [
         {allow: owner},
@@ -8,6 +9,10 @@ type Resource
     id: ID!
     type: ResourceType!
     title: String
+    #Auto columns
+    createdAt: String
+    updateAt: String
+    owner: String
 }
 
 enum ResourceType{

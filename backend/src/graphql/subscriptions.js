@@ -6,6 +6,8 @@ export const onCreateResource = `subscription OnCreateResource($owner: String!) 
     id
     type
     title
+    createdAt
+    updateAt
     owner
   }
 }
@@ -15,6 +17,8 @@ export const onUpdateResource = `subscription OnUpdateResource($owner: String!) 
     id
     type
     title
+    createdAt
+    updateAt
     owner
   }
 }
@@ -24,6 +28,8 @@ export const onDeleteResource = `subscription OnDeleteResource($owner: String!) 
     id
     type
     title
+    createdAt
+    updateAt
     owner
   }
 }
