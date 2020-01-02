@@ -1,45 +1,17 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import CreateResource from './components/pages/CreateResource';
 import ViewResources from './components/pages/ViewResources';
 import ViewResource from './components/pages/ViewResource';
 import ViewResourcesByType from './components/pages/ViewResourcesByType';
+import { Header } from './components/Header';
 
 
 const Routes = () => {
     return (
         <Router>
             <Route path='/'>
-                <header className="header stack">
-                    <Link
-                        className="link"
-                        to="/"
-                    >
-                        <span>
-                            Home
-                        </span>
-                    </Link>
-                    <Link
-                        className="link"
-                        to="/create-resource"
-                    >
-                        <span>
-                            New Resource
-                        </span>
-                    </Link>
-                    <Link
-                        className="link"
-                        to="/view-resources"
-                    >
-                        <span>
-                            View Resources
-                        </span>
-                    </Link>
-                </header>
+                <Header/>
             </Route>
             <Route exact path='/view-resources'>
                 <ViewResources/>
