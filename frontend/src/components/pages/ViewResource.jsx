@@ -1,4 +1,5 @@
 import React, {
+    memo,
     useState,
     useEffect,
 } from 'react';
@@ -51,4 +52,4 @@ const ViewResource = ({
     );
 };
 
-export default withRouter(ViewResource);
+export default withRouter(memo(ViewResource));

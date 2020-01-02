@@ -1,4 +1,5 @@
 import React, {
+    memo,
     useState,
     useEffect,
 } from 'react';
@@ -37,7 +38,7 @@ const ViewResourcesByType = ({
                         <div className={`card${selectedCard === item.id ? ' card-selected' : ''}`}>
                             <div className='card-content'>
                                 <div className='card-header'>
-                                    <Link to={`/view-resources/view-resource/${item.id}`}>
+                                    <Link to={`/view-${type.toLocaleLowerCase()}s/view-resource/${item.id}`}>
                                         <h3 className='h4'>{item.title}</h3>
                                     </Link>
                                 </div>
@@ -53,4 +54,4 @@ const ViewResourcesByType = ({
     );
 };
 
-export default withRouter(ViewResourcesByType);
+export default withRouter(memo(ViewResourcesByType));
