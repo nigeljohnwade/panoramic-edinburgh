@@ -6,6 +6,8 @@ export const getResource = `query GetResource($id: ID!) {
     id
     type
     title
+    createdAt
+    updateAt
     owner
   }
 }
@@ -20,6 +22,34 @@ export const listResources = `query ListResources(
       id
       type
       title
+      createdAt
+      updateAt
+      owner
+    }
+    nextToken
+  }
+}
+`;
+export const resourceByType = `query ResourceByType(
+  $type: ResourceType
+  $sortDirection: ModelSortDirection
+  $filter: ModelResourceFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  resourceByType(
+    type: $type
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      type
+      title
+      createdAt
+      updateAt
       owner
     }
     nextToken
