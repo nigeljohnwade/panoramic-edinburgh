@@ -23,11 +23,23 @@ const calls = {
         return await client.query({
             query: gql(queries.listResources),
             variables:{
-                limit: 100
+                limit: 100,
             }
         }).then(({data: {listResources}}) => {
             console.log(listResources.items);
             return listResources.items;
+        });
+    },
+    resourcesByType: async (type) => {
+        return await client.query({
+            query: gql(queries.resourceByType),
+            variables:{
+                type: type,
+                limit: 100,
+            }
+        }).then(({data: {resourceByType}}) => {
+            console.log(resourceByType.items);
+            return resourceByType.items;
         });
     },
     getResource: async (id) => {

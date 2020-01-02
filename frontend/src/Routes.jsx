@@ -7,6 +7,7 @@ import {
 import CreateResource from './components/pages/CreateResource';
 import ViewResources from './components/pages/ViewResources';
 import ViewResource from './components/pages/ViewResource';
+import ViewResourcesByType from './components/pages/ViewResourcesByType';
 
 
 const Routes = () => {
@@ -42,6 +43,18 @@ const Routes = () => {
             </Route>
             <Route exact path='/view-resources'>
                 <ViewResources/>
+            </Route>
+            <Route exact path='/view-sites'>
+                <ViewResourcesByType type='SITE'/>
+            </Route>
+            <Route exact path='/view-panoramas'>
+                <ViewResourcesByType type='PANORAMA'/>
+            </Route>
+            <Route exact path='/view-tours'>
+                <ViewResourcesByType type='TOUR'/>
+            </Route>
+            <Route exact path='/view-journeys'>
+                <ViewResourcesByType type='JOURNEY'/>
             </Route>
             <Route path='/view-resources/view-resource/:id'>
                 <ViewResources/>

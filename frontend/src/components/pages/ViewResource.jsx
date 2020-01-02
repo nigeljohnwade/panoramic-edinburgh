@@ -31,7 +31,8 @@ const ViewResource = ({
                 >
                     <Link
                         className='panel-close'
-                        to='/view-resources'>
+                        to='/view-resources'
+                    >
                         Close
                     </Link>
                     <div className='card'>
