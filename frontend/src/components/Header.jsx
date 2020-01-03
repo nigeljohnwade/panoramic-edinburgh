@@ -1,9 +1,25 @@
+import React, {
+    useEffect,
+    useState,
+} from 'react';
 import { Link } from 'react-router-dom';
-import React from 'react';
+import { Auth } from 'aws-amplify';
 
 export const Header = () => {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        Auth.currentAuthenticatedUser()
+            .then(user => {
+                console.log(user)
+                setUser(user)
+            })
+            .catch(err => console.log(err));
+    }, []);
+
     return (
         <header className="header stack">
+            <p>{user && user.attributes && user.attributes.email}</p>
             <Link
                 className="link"
                 to="/"

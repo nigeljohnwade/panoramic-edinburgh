@@ -27,26 +27,24 @@ const ViewResource = ({
         <div className='panel flex-filler detail'>
             {
                 resource &&
-                <div
-                    className='resource'
-                >
+                <>
                     <Link
                         className='panel-close'
                         to='/view-resources'
                     >
                         Close
                     </Link>
-                    <div className='card'>
-                        <div className='card-content'>
-                            <div className='card-header'>
+                    <div>
+                        <div>
+                            <div>
                                 <h3 className='h4'>{resource.title}</h3>
                             </div>
-                            <div className='card-footer'>
+                            <div>
                                 <p>{resource.type}</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </>
             }
         </div>
     );
