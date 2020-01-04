@@ -104,8 +104,7 @@ const CreateResource = () => {
                         </label>
                     </div>
                     <div className='form-group input-group'>
-                        <input
-                            type='text'
+                        <textarea
                             name='descriptiveText'
                             id='descriptiveText'
                             value={formState.descriptiveText}
@@ -128,7 +127,7 @@ const CreateResource = () => {
             }
             {
                 fetching &&
-                    <Fetching/>
+                <Fetching/>
             }
             {
                 completed &&

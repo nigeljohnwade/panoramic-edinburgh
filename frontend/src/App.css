@@ -23,11 +23,14 @@ html, body {
     height: 100%;
 }
 
-img{
+img {
     display: block;
 }
 
-input {
+button,
+input,
+select,
+textarea{
     border: none;
 }
 
@@ -130,7 +133,7 @@ body {
     border: var(--mid-grey) 1px solid;
 }
 
-.card-selected{
+.card-selected {
     background-color: var(--very-light-grey);
 }
 
@@ -147,7 +150,7 @@ body {
     border-bottom: var(--light-grey) 1px solid;
 }
 
-.card-body{
+.card-body {
     position: relative;
     flex-grow: 1;
     overflow: hidden;
@@ -157,7 +160,7 @@ body {
     position: absolute;
 }
 
-.card-image{
+.card-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -166,10 +169,11 @@ body {
     object-fit: cover;
 }
 
-.card-description{
+.card-description {
     padding: 0.250rem;
     background-color: var(--mid-transparent-white);
 }
+
 .card-footer {
     border-top: var(--light-grey) 1px solid;
 }
@@ -190,46 +194,51 @@ button {
 }
 
 .form-group {
-    border-bottom: var(--black) 2px solid;
-}
-
-.input-group {
     position: relative;
+    border-bottom: var(--black) 2px solid;
     --label-height: 1rem;
     --input-height: 3rem;
+    --select-height: 3rem;
     --input-padding: 0.75rem;
     --label-offset: -1.5rem;
 }
 
-.input-group input {
-    height: var(--input-height);
-    padding: var(--input-padding);
-    background-color: var(--light-grey);
-}
-
-.input-group label {
+.form-group label{
     position: absolute;
     height: var(--label-height);
     top: var(--input-padding);
     left: var(--input-padding);
-    transition: top 0.3s ease-in-out;
+    transition: top 0.3s ease-in-out, color 0.6s ease-in-out;
     background-color: var(--light-grey);
+    color: var(--black);
 }
 
-.input-group input:focus + label {
+.input-group input,
+.input-group textarea,
+.select-group select {
+    height: var(--input-height);
+    width: 100%;
+    padding: var(--input-padding);
+    background-color: var(--light-grey);
+    transition: background-color 0.9s ease-out;
+}
+
+
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.select-group label {
     top: var(--label-offset);
+    color: var(--mid-grey);
+}
+
+.input-group input:focus,
+.select-group select:focus,
+.input-group textarea:focus {
+    background-color: var(--very-light-grey);
 }
 
 .input-group input:not([value=""]) + label {
     top: var(--label-offset);
-}
-
-.select-group {
-    position: relative;
-    --label-height: 1rem;
-    --select-height: 3rem;
-    --input-padding: 0.75rem;
-    --label-offset: -1.5rem;
 }
 
 .select-group select {
@@ -237,11 +246,7 @@ button {
 }
 
 .select-group label {
-    position: absolute;
-    height: var(--label-height);
     top: var(--label-offset);
-    left: var(--input-padding);
-    background-color: var(--light-grey);
 }
 
 .radio-group {

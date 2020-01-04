@@ -4,7 +4,7 @@ import CreateResource from './components/pages/CreateResource';
 import ViewResources from './components/pages/ViewResources';
 import ViewResource from './components/pages/ViewResource';
 import ViewResourcesByType from './components/pages/ViewResourcesByType';
-import { Header } from './components/Header';
+import { Header } from './components/organisms/Header';
 
 
 const Routes = () => {

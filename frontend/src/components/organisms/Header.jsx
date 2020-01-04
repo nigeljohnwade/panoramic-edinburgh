@@ -11,15 +11,23 @@ export const Header = () => {
     useEffect(() => {
         Auth.currentAuthenticatedUser()
             .then(user => {
-                console.log(user)
-                setUser(user)
+                console.log(user);
+                setUser(user);
             })
             .catch(err => console.log(err));
     }, []);
 
     return (
         <header className="header stack">
-            <p>{user && user.attributes && user.attributes.email}</p>
+            {
+                user &&
+                <Link
+                    className='link'
+                    to={`/user/${user.username}`}
+                >
+                    {user && user.attributes && user.attributes.email.charAt(0)}
+                </Link>
+            }
             <Link
                 className="link"
                 to="/"
@@ -35,7 +43,8 @@ export const Header = () => {
                 <span>
                     New Resource
                 </span>
-            </Link>
+            </Link>;
+            ;
             <Link
                 className="link"
                 to="/view-resources"
@@ -43,7 +52,8 @@ export const Header = () => {
                 <span>
                     View Resources
                 </span>
-            </Link>
+            </Link>;
+            ;
             <Link
                 className="link"
                 to="/view-panoramas"
@@ -51,7 +61,8 @@ export const Header = () => {
                 <span>
                     View Panoramas
                 </span>
-            </Link>
+            </Link>;
+            ;
             <Link
                 className="link"
                 to="/view-sites"
@@ -59,7 +70,8 @@ export const Header = () => {
                 <span>
                     View Sites
                 </span>
-            </Link>
+            </Link>;
+            ;
             <Link
                 className="link"
                 to="/view-tours"
@@ -67,7 +79,8 @@ export const Header = () => {
                 <span>
                     View Tours
                 </span>
-            </Link>
+            </Link>;
+            ;
             <Link
                 className="link"
                 to="/view-journeys"
@@ -75,7 +88,9 @@ export const Header = () => {
                 <span>
                     View Journeys
                 </span>
-            </Link>
+            </Link>;
+            ;
         </header>
-    );
+    )
+        ;
 };

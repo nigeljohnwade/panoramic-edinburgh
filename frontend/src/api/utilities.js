@@ -26,7 +26,6 @@ const calls = {
                 limit: 100,
             }
         }).then(({data: {listResources}}) => {
-            console.log(listResources.items);
             return listResources.items;
         });
     },
@@ -38,7 +37,6 @@ const calls = {
                 limit: 100,
             }
         }).then(({data: {resourceByType}}) => {
-            console.log(resourceByType.items);
             return resourceByType.items;
         });
     },
@@ -49,7 +47,6 @@ const calls = {
                 id: id,
             }
         }).then(({data: {getResource}}) => {
-            console.log(getResource);
             return getResource;
         });
     },
@@ -62,7 +59,6 @@ const calls = {
                 }
             }
         }).then(({data: {createResource}}) => {
-            console.log(createResource);
             return createResource;
         });
     },
@@ -77,7 +73,7 @@ const calls = {
                 }
             }
         }).then(({data: {updateResource}}) => {
-            console.log(updateResource);
+            return updateResource;
         });
     }
 };
