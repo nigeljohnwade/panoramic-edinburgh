@@ -171,9 +171,6 @@ body {
     background-color: var(--mid-transparent-white);
 }
 .card-footer {
-    /*width: calc(100% - 1rem);*/
-    /*position: absolute;*/
-    /*bottom: 0.5rem;*/
     border-top: var(--light-grey) 1px solid;
 }
 
