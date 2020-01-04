@@ -50,7 +50,7 @@ const ViewResourcesByType = ({
                                     />
                                     {
                                         item.shortText &&
-                                        <p>{item.shortText}</p>
+                                        <p className='card-description'>{item.shortText}</p>
                                     }
                                 </div>
                                 <div className='card-footer'>
