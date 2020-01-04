@@ -41,6 +41,17 @@ const ViewResources = ({
                                         <h3 className='h4'>{item.title}</h3>
                                     </Link>
                                 </div>
+                                <div className='card-body'>
+                                    <img
+                                        alt=''
+                                        className='card-image primary-image'
+                                        src='http://placekitten.com/300/120'
+                                    />
+                                    {
+                                        item.shortText &&
+                                        <p className='card-description'>{item.shortText}</p>
+                                    }
+                                </div>
                                 <div className='card-footer'>
                                     <p>{item.type}</p>
                                 </div>

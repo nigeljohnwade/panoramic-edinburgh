@@ -6,6 +6,9 @@ export const getResource = `query GetResource($id: ID!) {
     id
     type
     title
+    shortText
+    descriptiveText
+    primaryImageUrl
     createdAt
     updateAt
     owner
@@ -22,6 +25,9 @@ export const listResources = `query ListResources(
       id
       type
       title
+      shortText
+      descriptiveText
+      primaryImageUrl
       createdAt
       updateAt
       owner
@@ -48,6 +54,9 @@ export const resourceByType = `query ResourceByType(
       id
       type
       title
+      shortText
+      descriptiveText
+      primaryImageUrl
       createdAt
       updateAt
       owner

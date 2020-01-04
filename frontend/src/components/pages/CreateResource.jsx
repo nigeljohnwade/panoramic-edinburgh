@@ -36,8 +36,7 @@ const CreateResource = () => {
                         setFetching(true);
                         e.preventDefault();
                         apiCalls.createResource({
-                            type: formState.type,
-                            title: formState.title,
+                            ...formState
                         }).then(() => {
                             setFetching(false);
                             setCompleted(true);
@@ -66,7 +65,7 @@ const CreateResource = () => {
                     <div className='form-group select-group'>
                         <select
                             name='type'
-                            id='title'
+                            id='type'
                             value={formState.type}
                             onChange={(e) => dispatchFormState({
                                 type: 'onChangeStringValue',
@@ -84,6 +83,42 @@ const CreateResource = () => {
                         </select>
                         <label htmlFor='type'>
                             Type
+                        </label>
+                    </div>
+                    <div className='form-group input-group'>
+                        <input
+                            type='text'
+                            name='shortText'
+                            id='shortText'
+                            value={formState.shortText}
+                            onChange={(e) => dispatchFormState({
+                                type: 'onChangeStringValue',
+                                payload: {
+                                    name: e.target.name,
+                                    value: e.target.value,
+                                },
+                            })}
+                        />
+                        <label htmlFor='shortText'>
+                            Short Text
+                        </label>
+                    </div>
+                    <div className='form-group input-group'>
+                        <input
+                            type='text'
+                            name='descriptiveText'
+                            id='descriptiveText'
+                            value={formState.descriptiveText}
+                            onChange={(e) => dispatchFormState({
+                                type: 'onChangeStringValue',
+                                payload: {
+                                    name: e.target.name,
+                                    value: e.target.value,
+                                },
+                            })}
+                        />
+                        <label htmlFor='descriptiveText'>
+                            Descriptive Text
                         </label>
                     </div>
                     <div className='form group button-group'>
