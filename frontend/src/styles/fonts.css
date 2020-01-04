@@ -1,0 +1,41 @@
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=205efb33-caaf-438b-8f67-c69b4ee6cb46");
+@font-face{
+    font-family:"Eurostile Next LT W04 Regular";
+    src:url("./Fonts/10ec66f2-d248-4c8a-b583-5b5cb4d93055.eot?#iefix");
+    src:url("./Fonts/10ec66f2-d248-4c8a-b583-5b5cb4d93055.eot?#iefix") format("eot"),url("./Fonts/0f8b424e-6433-44e1-bbdd-24be969c4137.woff2") format("woff2"),url("./Fonts/a3ba277e-ed89-4e6e-9fcd-fe99bda90799.woff") format("woff"),url("./Fonts/ec6651bc-4812-4733-a888-1d04f9aff474.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Eurostile Next W04 Italic";
+    src:url("./Fonts/42ab7aa7-d613-4a38-b979-0dcb63c0f46f.eot?#iefix");
+    src:url("./Fonts/42ab7aa7-d613-4a38-b979-0dcb63c0f46f.eot?#iefix") format("eot"),url("./Fonts/3a987a21-188b-4aff-8540-37621399c81f.woff2") format("woff2"),url("./Fonts/79f8477a-4093-4f0a-906c-f80416b1ef0f.woff") format("woff"),url("./Fonts/f092e1b9-8bc6-48f4-bfef-0abee0b1b012.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Eurostile Next LT W04 Semibold";
+    src:url("./Fonts/cdb35093-74ec-4e2b-84df-9f40efaf02d3.eot?#iefix");
+    src:url("./Fonts/cdb35093-74ec-4e2b-84df-9f40efaf02d3.eot?#iefix") format("eot"),url("./Fonts/01115754-faaa-4579-bc72-a3a0c6381962.woff2") format("woff2"),url("./Fonts/bfada42a-66da-4fe9-9eea-efe41aec948e.woff") format("woff"),url("./Fonts/93e2805a-4874-41f7-a8dd-648397c44f6a.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Eurostile Next W04 SemiBold It";
+    src:url("./Fonts/0ff60768-eaec-4b20-8a00-cda99464bf6a.eot?#iefix");
+    src:url("./Fonts/0ff60768-eaec-4b20-8a00-cda99464bf6a.eot?#iefix") format("eot"),url("./Fonts/4727a916-e15c-47fb-82f4-b90682794e72.woff2") format("woff2"),url("./Fonts/43abea26-915d-4243-99cf-465434ef1b37.woff") format("woff"),url("./Fonts/6709d7b2-9454-4e4f-8b6e-0b46c3f56d2a.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Eurostile Next LT W04 Rg Cn";
+    src:url("./Fonts/464fa686-52c6-4dde-83d1-27a3453763b0.eot?#iefix");
+    src:url("./Fonts/464fa686-52c6-4dde-83d1-27a3453763b0.eot?#iefix") format("eot"),url("./Fonts/b0c84217-4d4b-437f-b55a-e4bbfc582f59.woff2") format("woff2"),url("./Fonts/a6726aa3-f5a2-458c-8201-8cd7d140d478.woff") format("woff"),url("./Fonts/ef2684f5-56ce-440c-af0d-974689b43700.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Eurostile Next W04 Condensed I";
+    src:url("./Fonts/ba9cfcac-62b7-48a1-afb1-9e2c88e7c643.eot?#iefix");
+    src:url("./Fonts/ba9cfcac-62b7-48a1-afb1-9e2c88e7c643.eot?#iefix") format("eot"),url("./Fonts/ce33491d-c120-4db6-9f59-8b1375b68c18.woff2") format("woff2"),url("./Fonts/e1a1c991-4323-431c-9a02-7eb9e76e1d95.woff") format("woff"),url("./Fonts/202eded8-cd79-49e3-bdc5-2f1da5ebcf23.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Eurostile Next LT W04 SmBd Cn";
+    src:url("./Fonts/e3d0eb22-013a-465c-87e1-de770eaed5a2.eot?#iefix");
+    src:url("./Fonts/e3d0eb22-013a-465c-87e1-de770eaed5a2.eot?#iefix") format("eot"),url("./Fonts/72dd8dec-a7a5-4b02-94d7-f14eb022b6f1.woff2") format("woff2"),url("./Fonts/b0bcb8c2-06c6-4795-aaa2-a3e1311fd1fb.woff") format("woff"),url("./Fonts/6dd31dc6-d99a-454d-8086-b659cc772347.ttf") format("truetype");
+}
+@font-face{
+    font-family:"Eurostile Next W04 Cn SemiBd I";
+    src:url("./Fonts/012adc21-1557-4512-81ae-59387125726f.eot?#iefix");
+    src:url("./Fonts/012adc21-1557-4512-81ae-59387125726f.eot?#iefix") format("eot"),url("./Fonts/df0668d7-382b-46e5-81b9-cf990e327038.woff2") format("woff2"),url("./Fonts/c9b9c95e-1bf2-419d-80b7-add356081776.woff") format("woff"),url("./Fonts/b1a846c2-4095-47f1-baa7-d59fc492eeaa.ttf") format("truetype");
+}

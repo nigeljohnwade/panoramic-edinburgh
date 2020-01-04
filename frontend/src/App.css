@@ -1,3 +1,5 @@
+@import './styles/fonts.css';
+
 :root {
     --very-light-grey: #f1f0f0;
     --light-grey: #e2dddd;
@@ -22,6 +24,14 @@
 html, body {
     height: 100%;
 }
+html,
+body,
+input,
+textarea,
+select,
+button{
+    font-family: "Eurostile Next LT W04 Regular", sans-serif;
+}
 
 img {
     display: block;
@@ -40,6 +50,13 @@ body {
     font-size: 1rem;
 }
 
+.h1,
+.h2,
+.h3,
+.h4,
+.h5{
+    font-family: "Eurostile Next LT W04 Semibold", sans-serif;
+}
 .h1 {
     font-size: 3.177rem;
 }
@@ -176,6 +193,7 @@ body {
 
 .card-footer {
     border-top: var(--light-grey) 1px solid;
+    font-family: "Eurostile Next W04 Cn SemiBd I", sans-serif;
 }
 
 /* Forms */
@@ -237,8 +255,10 @@ button {
     background-color: var(--very-light-grey);
 }
 
-.input-group input:not([value=""]) + label {
+.input-group input:not([value=""]) + label,
+.input-group textarea:not([value=""]) + label{
     top: var(--label-offset);
+    color: var(--mid-grey);
 }
 
 .select-group select {
@@ -279,11 +299,17 @@ button {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    min-height: 6rem;
+    min-height: 3rem;
 }
 
 .link {
     color: var(--white);
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.link:hover{
+    background-color: var(--light-grey);
+    color: var(--black);
 }
 
 .create-resource {
