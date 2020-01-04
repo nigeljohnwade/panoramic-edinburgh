@@ -9,6 +9,9 @@ type Resource
     id: ID!
     type: ResourceType!
     title: String
+    shortText: String
+    descriptiveText: String
+    primaryImageUrl: String
     #Auto columns
     createdAt: String
     updateAt: String
