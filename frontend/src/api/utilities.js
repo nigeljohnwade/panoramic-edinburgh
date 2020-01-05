@@ -85,7 +85,19 @@ const calls = {
         }).then(({data: {updateResource}}) => {
             return updateResource;
         });
-    }
+    },
+    deleteResource: async (id) => {
+        return await client.mutate({
+            mutation: gql(mutations.deleteResource),
+            variables: {
+                input: {
+                    id
+                }
+            }
+        }).then(({data: {deleteResource}}) => {
+            return deleteResource;
+        });
+    },
 };
 
 export default calls;
