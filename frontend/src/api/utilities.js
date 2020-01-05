@@ -16,6 +16,18 @@ const client = new AWSAppSyncClient({
     }
 });
 
+const cleanFields = (fields, toNull = false) => {
+    delete fields.__typename;
+    for(const item in fields){
+        if(fields.hasOwnProperty(item) && fields[item] === ''){
+            toNull
+                ? fields[item] = null
+                : fields[item] = undefined;
+        }
+    }
+    return fields;
+};
+
 console.log(client);
 
 const calls = {
@@ -55,21 +67,19 @@ const calls = {
             mutation: gql(mutations.createResource),
             variables: {
                 input: {
-                    ...fields
+                    ...cleanFields(fields)
                 }
             }
         }).then(({data: {createResource}}) => {
             return createResource;
         });
     },
-    updateResource: () => {
-        client.mutate({
+    updateResource: async (fields) => {
+        return await client.mutate({
             mutation: gql(mutations.updateResource),
             variables: {
                 input: {
-                    id: 'c8e2e3d7-d467-4a9a-8e32-81f7c8dd9477',
-                    type: 'PANORAMA',
-                    title: 'Update test'
+                    ...cleanFields(fields, true)
                 }
             }
         }).then(({data: {updateResource}}) => {

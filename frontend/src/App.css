@@ -24,6 +24,7 @@
 html, body {
     height: 100%;
 }
+
 html,
 body,
 input,
@@ -33,6 +34,9 @@ button{
     font-family: "Eurostile Next LT W04 Regular", sans-serif;
 }
 
+ul{
+    list-style-type: none;
+}
 img {
     display: block;
 }
@@ -57,6 +61,7 @@ body {
 .h5{
     font-family: "Eurostile Next LT W04 Semibold", sans-serif;
 }
+
 .h1 {
     font-size: 3.177rem;
 }
