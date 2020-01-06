@@ -232,7 +232,6 @@ button {
     top: var(--input-padding);
     left: var(--input-padding);
     transition: top 0.3s ease-in-out, color 0.6s ease-in-out;
-    background-color: var(--light-grey);
     color: var(--black);
 }
 
@@ -242,7 +241,7 @@ button {
     height: var(--input-height);
     width: 100%;
     padding: var(--input-padding);
-    background-color: var(--light-grey);
+    background-color: inherit;
     transition: background-color 0.9s ease-out;
 }
 
@@ -261,7 +260,7 @@ button {
 }
 
 .input-group input:not([value=""]) + label,
-.input-group textarea:not([value=""]) + label{
+.input-group textarea:not(:empty) + label{
     top: var(--label-offset);
     color: var(--mid-grey);
 }
