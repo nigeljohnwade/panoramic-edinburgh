@@ -7,17 +7,27 @@ import {
     Link,
     withRouter,
 } from 'react-router-dom';
+import { Auth } from 'aws-amplify';
 
 import apiCalls from '../../api/utilities';
 
 const ViewResource = ({
     history,
     match,
-    location: {pathname},
+    location: { pathname },
 }) => {
     const [resource, setResource] = useState(null);
     const id = match.params.id;
+    const [user, setUser] = useState(null);
 
+    useEffect(() => {
+        Auth.currentAuthenticatedUser()
+            .then(user => {
+                console.log(user);
+                setUser(user);
+            })
+            .catch(err => console.log(err));
+    }, []);
     useEffect(() => {
         id
             ? apiCalls.getResource(id)
@@ -25,10 +35,11 @@ const ViewResource = ({
             : setResource(null);
     }, [id]);
 
+    console.log(resource && resource.owner);
     return (
         <div className='panel flex-filler detail'>
             {
-                resource &&
+                resource && user &&
                 <>
                     <Link
                         className='panel-close'
@@ -41,26 +52,31 @@ const ViewResource = ({
                             <header>
                                 <h3 className='h4'>{resource.title}</h3>
                                 <ul className='link-list row'>
-                                    <li>
-                                        <Link to={`${pathname}/edit`}>
-                                            Edit
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <button
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                apiCalls.deleteResource(resource.id)
-                                                    .then(data => {
-                                                        console.log(data);
-                                                        history.push('/view-resources');
-                                                    });
-                                            }}
-                                            type='button'
-                                        >
-                                            Delete
-                                        </button>
-                                    </li>
+                                    {
+                                        user.username === resource.owner &&
+                                        <>
+                                            <li>
+                                                <Link to={`${pathname}/edit`}>
+                                                    Edit
+                                                </Link>
+                                            </li>
+                                            <li>
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        apiCalls.deleteResource(resource.id)
+                                                            .then(data => {
+                                                                console.log(data);
+                                                                history.push('/view-resources');
+                                                            });
+                                                    }}
+                                                    type='button'
+                                                >
+                                                    Delete
+                                            </button>
+                                            </li>
+                                        </>
+                                    }
                                 </ul>
                             </header>
                             <div>
