@@ -11,6 +11,7 @@ import {
 
 import apiCalls from '../../api/utilities';
 import Fetching from '../organisms/Fetching';
+import InputGroup from '../molecules/InputGroup';
 
 const formStateReducer = (state, action) => {
     switch (action.type) {
@@ -88,24 +89,18 @@ const EditResource = ({
                                         }}
                                     >
                                         <h1>Edit Resource</h1>
-                                        <div className='form-group input-group'>
-                                            <input
-                                                type='text'
-                                                name='title'
-                                                id='title'
-                                                value={formState.title}
-                                                onChange={(e) => dispatchFormState({
-                                                    type: 'onChangeStringValue',
-                                                    payload: {
-                                                        name: e.target.name,
-                                                        value: e.target.value,
-                                                    },
-                                                })}
-                                            />
-                                            <label htmlFor='title'>
-                                                Title
-                                            </label>
-                                        </div>
+                                        <InputGroup
+                                            field='title'
+                                            label='Title'
+                                            onChange={(e) => dispatchFormState({
+                                                type: 'onChangeStringValue',
+                                                payload: {
+                                                    name: e.target.name,
+                                                    value: e.target.value,
+                                                },
+                                            })}
+                                            value={formState.title}
+                                        />
                                         <div className='form-group select-group'>
                                             <select
                                                 name='type'
@@ -129,24 +124,18 @@ const EditResource = ({
                                                 Type
                                             </label>
                                         </div>
-                                        <div className='form-group input-group'>
-                                            <input
-                                                type='text'
-                                                name='shortText'
-                                                id='shortText'
-                                                value={formState.shortText}
-                                                onChange={(e) => dispatchFormState({
-                                                    type: 'onChangeStringValue',
-                                                    payload: {
-                                                        name: e.target.name,
-                                                        value: e.target.value,
-                                                    },
-                                                })}
-                                            />
-                                            <label htmlFor='shortText'>
-                                                Short Text
-                                            </label>
-                                        </div>
+                                        <InputGroup
+                                            field='shortText'
+                                            label='Short Text'
+                                            onChange={(e) => dispatchFormState({
+                                                type: 'onChangeStringValue',
+                                                payload: {
+                                                    name: e.target.name,
+                                                    value: e.target.value,
+                                                },
+                                            })}
+                                            value={formState.shortText}
+                                        />
                                         <div className='form-group input-group'>
                                             <textarea
                                                 name='descriptiveText'
