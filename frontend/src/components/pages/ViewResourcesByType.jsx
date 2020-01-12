@@ -9,13 +9,24 @@ import {
 } from 'react-router-dom';
 
 import apiCalls from '../../api/utilities';
+import { Auth } from 'aws-amplify';
 
 const ViewResourcesByType = ({
     match,
     type = 'PANORAMA',
 }) => {
+    const [user, setUser] = useState(null);
     const [resources, setResources] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
+
+    useEffect(() => {
+        Auth.currentAuthenticatedUser()
+            .then(user => {
+                console.log(user);
+                setUser(user);
+            })
+            .catch(err => console.log(err));
+    }, []);
 
     useEffect(() => {
         setSelectedCard(match.params.id);
@@ -26,6 +37,14 @@ const ViewResourcesByType = ({
             .then(resources => setResources(resources));
     }, [type]);
 
+
+    const classes = (item) => {
+        const classes = ['card'];
+        if(selectedCard === item.id) classes.push('card-selected');
+        if(user.username === item.owner) classes.push('card-owned');
+        return classes;
+    };
+
     return (
         <div className='panel flex-expander master'>
             {
@@ -35,7 +54,7 @@ const ViewResourcesByType = ({
                         className='resource'
                         key={item.id}
                     >
-                        <div className={`card${selectedCard === item.id ? ' card-selected' : ''}`}>
+                        <div className={classes(item).join(' ' )}>
                             <div className='card-content'>
                                 <div className='card-header'>
                                     <Link to={`/view-${type.toLocaleLowerCase()}s/view-resource/${item.id}`}>
