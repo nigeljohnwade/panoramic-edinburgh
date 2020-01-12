@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 
 import apiCalls from '../../api/utilities';
 import InputGroup from '../molecules/InputGroup';
+import SelectGroup from '../molecules/SelectGroup';
 import Fetching from '../organisms/Fetching';
 
 const formStateReducer = (state, action) => {
@@ -57,29 +58,25 @@ const CreateResource = () => {
                         })}
                         value={formState.title}
                     />
-                    <div className='form-group select-group'>
-                        <select
-                            name='type'
-                            id='type'
-                            value={formState.type}
-                            onChange={(e) => dispatchFormState({
-                                type: 'onChangeStringValue',
-                                payload: {
-                                    name: e.target.name,
-                                    value: e.target.value,
-                                },
-                            })}
-                        >
-                            <option value=''>Please select...</option>
-                            <option value='PANORAMA'>Panorama</option>
-                            <option value='SITE'>Site</option>
-                            <option value='JOURNEY'>Journey</option>
-                            <option value='TOUR'>Tour</option>
-                        </select>
-                        <label htmlFor='type'>
-                            Type
-                        </label>
-                    </div>
+                    <SelectGroup
+                        label='Type'
+                        field='type'
+                        value={formState.type}
+                        onChange={(e) => dispatchFormState({
+                            type: 'onChangeStringValue',
+                            payload: {
+                                name: e.target.name,
+                                value: e.target.value,
+                            },
+                        })}
+                        options={[
+                            {value: '', label: 'Please select...'},
+                            {value: 'PANORAMA', label: 'Panorama'},
+                            {value: 'SITE', label: 'Site'},
+                            {value: 'JOURNEY', label: 'Journey'},
+                            {value: 'TOUR', label: 'Tour'},
+                        ]}
+                    />
                     <InputGroup
                         field='shortText'
                         label='Short Text'
