@@ -5,6 +5,7 @@ import ViewResources from './components/pages/ViewResources';
 import ViewResource from './components/pages/ViewResource';
 import EditResource from './components/pages/EditResource';
 import ViewResourcesByType from './components/pages/ViewResourcesByType';
+import ViewResourcesByOwner from './components/pages/ViewResourcesByOwner';
 import { Header } from './components/organisms/Header';
 
 
@@ -13,6 +14,9 @@ const Routes = () => {
         <Router>
             <Route path='/'>
                 <Header/>
+            </Route>
+            <Route path='/user'>
+                <ViewResourcesByOwner/>
             </Route>
             <Route exact path='/view-resources'>
                 <ViewResources/>
