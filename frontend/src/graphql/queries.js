@@ -10,7 +10,7 @@ export const getResource = `query GetResource($id: ID!) {
     descriptiveText
     primaryImageUrl
     createdAt
-    updateAt
+    updatedAt
     owner
   }
 }
@@ -29,7 +29,7 @@ export const listResources = `query ListResources(
       descriptiveText
       primaryImageUrl
       createdAt
-      updateAt
+      updatedAt
       owner
     }
     nextToken
@@ -58,7 +58,38 @@ export const resourceByType = `query ResourceByType(
       descriptiveText
       primaryImageUrl
       createdAt
-      updateAt
+      updatedAt
+      owner
+    }
+    nextToken
+  }
+}
+`;
+export const resourceByOwnerByDateUpdated = `query ResourceByOwnerByDateUpdated(
+  $owner: String
+  $updatedAt: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelResourceFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  resourceByOwnerByDateUpdated(
+    owner: $owner
+    updatedAt: $updatedAt
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      type
+      title
+      shortText
+      descriptiveText
+      primaryImageUrl
+      createdAt
+      updatedAt
       owner
     }
     nextToken

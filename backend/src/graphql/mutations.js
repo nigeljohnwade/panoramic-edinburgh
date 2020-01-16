@@ -13,7 +13,7 @@ export const createResource = `mutation CreateResource(
     descriptiveText
     primaryImageUrl
     createdAt
-    updateAt
+    updatedAt
     owner
   }
 }
@@ -30,7 +30,7 @@ export const updateResource = `mutation UpdateResource(
     descriptiveText
     primaryImageUrl
     createdAt
-    updateAt
+    updatedAt
     owner
   }
 }
@@ -47,7 +47,7 @@ export const deleteResource = `mutation DeleteResource(
     descriptiveText
     primaryImageUrl
     createdAt
-    updateAt
+    updatedAt
     owner
   }
 }

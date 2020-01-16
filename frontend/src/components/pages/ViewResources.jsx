@@ -36,10 +36,16 @@ const ViewResources = ({
             .then(resources => setResources(resources));
     }, []);
 
+    useEffect(() => {
+        user && user.username &&
+            apiCalls.resourceByOwnerByDateUpdated(user.username)
+                .then(resources => console.log(resources));
+    }, [user]);
+
     const classes = (item) => {
         const classes = ['card'];
-        if(selectedCard === item.id) classes.push('card-selected');
-        if(user.username === item.owner) classes.push('card-owned');
+        if (selectedCard === item.id) classes.push('card-selected');
+        if (user.username === item.owner) classes.push('card-owned');
         return classes;
     };
 
@@ -52,7 +58,7 @@ const ViewResources = ({
                         className='resource'
                         key={item.id}
                     >
-                        <div className={classes(item).join(' ' )}>
+                        <div className={classes(item).join(' ')}>
                             <div className='card-content'>
                                 <div className='card-header'>
                                     <Link to={`/view-resources/view-resource/${item.id}`}>

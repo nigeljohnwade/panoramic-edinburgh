@@ -1,5 +1,14 @@
 type Resource
-    @key(fields: ["type"], name: "resourceByType", queryField: "resourceByType")
+    @key(
+        fields: ["type"], 
+        name: "resourceByType", 
+        queryField: "resourceByType"
+    )
+    @key(
+        fields: ["owner", "updatedAt"], 
+        name: "resourceByOwnerByDateUpdated", 
+        queryField: "resourceByOwnerByDateUpdated"
+    )
     @model
     @auth(rules: [
         {allow: owner},
@@ -14,7 +23,7 @@ type Resource
     primaryImageUrl: String
     #Auto columns
     createdAt: String
-    updateAt: String
+    updatedAt: String
     owner: String
 }
 

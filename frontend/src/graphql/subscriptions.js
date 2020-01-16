@@ -10,7 +10,7 @@ export const onCreateResource = `subscription OnCreateResource($owner: String!) 
     descriptiveText
     primaryImageUrl
     createdAt
-    updateAt
+    updatedAt
     owner
   }
 }
@@ -24,7 +24,7 @@ export const onUpdateResource = `subscription OnUpdateResource($owner: String!) 
     descriptiveText
     primaryImageUrl
     createdAt
-    updateAt
+    updatedAt
     owner
   }
 }
@@ -38,7 +38,7 @@ export const onDeleteResource = `subscription OnDeleteResource($owner: String!) 
     descriptiveText
     primaryImageUrl
     createdAt
-    updateAt
+    updatedAt
     owner
   }
 }

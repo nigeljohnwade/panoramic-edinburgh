@@ -12,7 +12,7 @@ import Fetching from '../organisms/Fetching';
 const formStateReducer = (state, action) => {
     switch (action.type) {
         case 'onChangeStringValue':
-            return {...state, [action.payload.name]: action.payload.value};
+            return { ...state, [action.payload.name]: action.payload.value };
         default:
             return state;
     }
@@ -27,6 +27,16 @@ const CreateResource = () => {
     const [formState, dispatchFormState] = useReducer(formStateReducer, initialArg);
     const [fetching, setFetching] = useState(false);
     const [completed, setCompleted] = useState(false);
+
+    const changeHandler = e => {
+        dispatchFormState({
+            type: 'onChangeStringValue',
+            payload: {
+                name: e.target.name,
+                value: e.target.value,
+            },
+        })
+    }
 
     return (
         <>
@@ -49,44 +59,26 @@ const CreateResource = () => {
                     <InputGroup
                         field='title'
                         label='Title'
-                        onChange={(e) => dispatchFormState({
-                            type: 'onChangeStringValue',
-                            payload: {
-                                name: e.target.name,
-                                value: e.target.value,
-                            },
-                        })}
+                        onChange={(e) => changeHandler(e)}
                         value={formState.title}
                     />
                     <SelectGroup
                         label='Type'
                         field='type'
                         value={formState.type}
-                        onChange={(e) => dispatchFormState({
-                            type: 'onChangeStringValue',
-                            payload: {
-                                name: e.target.name,
-                                value: e.target.value,
-                            },
-                        })}
+                        onChange={(e) => changeHandler(e)}
                         options={[
-                            {value: '', label: 'Please select...'},
-                            {value: 'PANORAMA', label: 'Panorama'},
-                            {value: 'SITE', label: 'Site'},
-                            {value: 'JOURNEY', label: 'Journey'},
-                            {value: 'TOUR', label: 'Tour'},
+                            { value: '', label: 'Please select...' },
+                            { value: 'PANORAMA', label: 'Panorama' },
+                            { value: 'SITE', label: 'Site' },
+                            { value: 'JOURNEY', label: 'Journey' },
+                            { value: 'TOUR', label: 'Tour' },
                         ]}
                     />
                     <InputGroup
                         field='shortText'
                         label='Short Text'
-                        onChange={(e) => dispatchFormState({
-                            type: 'onChangeStringValue',
-                            payload: {
-                                name: e.target.name,
-                                value: e.target.value,
-                            },
-                        })}
+                        onChange={(e) => changeHandler(e)}
                         value={formState.shortText}
                     />
                     <div className='form-group input-group'>
@@ -94,13 +86,7 @@ const CreateResource = () => {
                             name='descriptiveText'
                             id='descriptiveText'
                             value={formState.descriptiveText}
-                            onChange={(e) => dispatchFormState({
-                                type: 'onChangeStringValue',
-                                payload: {
-                                    name: e.target.name,
-                                    value: e.target.value,
-                                },
-                            })}
+                            onChange={(e) => changeHandler(e)}
                         />
                         <label htmlFor='descriptiveText'>
                             Descriptive Text
@@ -113,11 +99,11 @@ const CreateResource = () => {
             }
             {
                 fetching &&
-                <Fetching/>
+                <Fetching />
             }
             {
                 completed &&
-                <Redirect to='/'/>
+                <Redirect to='/' />
             }
         </>
     );

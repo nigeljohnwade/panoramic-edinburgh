@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 import * as queries from '../graphql/queries';
 import * as mutations from '../graphql/mutations';
 import AWSAppSyncClient from 'aws-appsync';
-import awsconfig from '../aws-exports';
+import awsconfig from '../config/aws-exports-dev';
 import { Auth } from 'aws-amplify';
 
 const client = new AWSAppSyncClient({
@@ -18,8 +18,8 @@ const client = new AWSAppSyncClient({
 
 const cleanFields = (fields, toNull = false) => {
     delete fields.__typename;
-    for(const item in fields){
-        if(fields.hasOwnProperty(item) && fields[item] === ''){
+    for (const item in fields) {
+        if (fields.hasOwnProperty(item) && fields[item] === '') {
             toNull
                 ? fields[item] = null
                 : fields[item] = undefined;
@@ -34,31 +34,42 @@ const calls = {
     listResources: async () => {
         return await client.query({
             query: gql(queries.listResources),
-            variables:{
+            variables: {
                 limit: 100,
             }
-        }).then(({data: {listResources}}) => {
+        }).then(({ data: { listResources } }) => {
             return listResources.items;
+        });
+    },
+    resourceByOwnerByDateUpdated: async (owner) => {
+        return await client.query({
+            query: gql(queries.resourceByOwnerByDateUpdated),
+            variables: {
+                owner: owner,
+                limit: 100,
+            }
+        }).then(({ data: { resourceByOwnerByDateUpdated } }) => {
+            return resourceByOwnerByDateUpdated.items;
         });
     },
     resourcesByType: async (type) => {
         return await client.query({
             query: gql(queries.resourceByType),
-            variables:{
+            variables: {
                 type: type,
                 limit: 100,
             }
-        }).then(({data: {resourceByType}}) => {
+        }).then(({ data: { resourceByType } }) => {
             return resourceByType.items;
         });
     },
     getResource: async (id) => {
         return await client.query({
             query: gql(queries.getResource),
-            variables:{
+            variables: {
                 id: id,
             }
-        }).then(({data: {getResource}}) => {
+        }).then(({ data: { getResource } }) => {
             return getResource;
         });
     },
@@ -70,7 +81,7 @@ const calls = {
                     ...cleanFields(fields)
                 }
             }
-        }).then(({data: {createResource}}) => {
+        }).then(({ data: { createResource } }) => {
             return createResource;
         });
     },
@@ -82,7 +93,7 @@ const calls = {
                     ...cleanFields(fields, true)
                 }
             }
-        }).then(({data: {updateResource}}) => {
+        }).then(({ data: { updateResource } }) => {
             return updateResource;
         });
     },
@@ -94,7 +105,7 @@ const calls = {
                     id
                 }
             }
-        }).then(({data: {deleteResource}}) => {
+        }).then(({ data: { deleteResource } }) => {
             return deleteResource;
         });
     },
