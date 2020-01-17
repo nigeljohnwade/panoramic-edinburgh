@@ -9,6 +9,11 @@ export const getResource = `query GetResource($id: ID!) {
     shortText
     descriptiveText
     primaryImageUrl
+    sourceImageUrl
+    panoramicImageUrl
+    latitude
+    longitude
+    elevation
     createdAt
     updatedAt
     owner
@@ -28,6 +33,11 @@ export const listResources = `query ListResources(
       shortText
       descriptiveText
       primaryImageUrl
+      sourceImageUrl
+      panoramicImageUrl
+      latitude
+      longitude
+      elevation
       createdAt
       updatedAt
       owner
@@ -57,6 +67,11 @@ export const resourceByType = `query ResourceByType(
       shortText
       descriptiveText
       primaryImageUrl
+      sourceImageUrl
+      panoramicImageUrl
+      latitude
+      longitude
+      elevation
       createdAt
       updatedAt
       owner
@@ -88,6 +103,11 @@ export const resourceByOwnerByDateUpdated = `query ResourceByOwnerByDateUpdated(
       shortText
       descriptiveText
       primaryImageUrl
+      sourceImageUrl
+      panoramicImageUrl
+      latitude
+      longitude
+      elevation
       createdAt
       updatedAt
       owner

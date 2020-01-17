@@ -9,6 +9,11 @@ export const onCreateResource = `subscription OnCreateResource($owner: String!) 
     shortText
     descriptiveText
     primaryImageUrl
+    sourceImageUrl
+    panoramicImageUrl
+    latitude
+    longitude
+    elevation
     createdAt
     updatedAt
     owner
@@ -23,6 +28,11 @@ export const onUpdateResource = `subscription OnUpdateResource($owner: String!) 
     shortText
     descriptiveText
     primaryImageUrl
+    sourceImageUrl
+    panoramicImageUrl
+    latitude
+    longitude
+    elevation
     createdAt
     updatedAt
     owner
@@ -37,6 +47,11 @@ export const onDeleteResource = `subscription OnDeleteResource($owner: String!) 
     shortText
     descriptiveText
     primaryImageUrl
+    sourceImageUrl
+    panoramicImageUrl
+    latitude
+    longitude
+    elevation
     createdAt
     updatedAt
     owner

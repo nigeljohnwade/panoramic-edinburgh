@@ -21,6 +21,11 @@ type Resource
     shortText: String
     descriptiveText: String
     primaryImageUrl: String
+    sourceImageUrl: String
+    panoramicImageUrl: String
+    latitude: Float
+    longitude: Float
+    elevation: Float
     #Auto columns
     createdAt: String
     updatedAt: String
