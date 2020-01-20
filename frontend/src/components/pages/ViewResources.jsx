@@ -8,6 +8,7 @@ import {
     withRouter,
 } from 'react-router-dom';
 
+import Card from '../organisms/Card';
 import apiCalls from '../../api/utilities';
 import { Auth } from 'aws-amplify';
 
@@ -42,11 +43,11 @@ const ViewResources = ({
                 .then(resources => console.log(resources));
     }, [user]);
 
-    const classes = (item) => {
-        const classes = ['card'];
-        if (selectedCard === item.id) classes.push('card-selected');
-        if (user.username === item.owner) classes.push('card-owned');
-        return classes;
+    const identifiers = (item) => {
+        const identifiers = [];
+        if (selectedCard === item.id) identifiers.push('selected');
+        if (user.username === item.owner) identifiers.push('owned');
+        return identifiers;
     };
 
     return (
@@ -58,7 +59,7 @@ const ViewResources = ({
                         className='resource'
                         key={item.id}
                     >
-                        <div className={classes(item).join(' ')}>
+                        <Card identifiers={identifiers(item)}>
                             <div className='card-content'>
                                 <div className='card-header'>
                                     <Link to={`/view-resources/view-resource/${item.id}`}>
@@ -80,7 +81,7 @@ const ViewResources = ({
                                     <p>{item.type}</p>
                                 </div>
                             </div>
-                        </div>
+                        </Card>
                     </div>
                 ))
             }
