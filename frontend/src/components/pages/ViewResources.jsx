@@ -9,6 +9,10 @@ import {
 } from 'react-router-dom';
 
 import Card from '../organisms/Card';
+import CardContent from '../organisms/CardContent';
+import CardBody from '../organisms/CardBody';
+import CardHeader from '../organisms/CardHeader';
+import CardFooter from '../organisms/CardFooter';
 import apiCalls from '../../api/utilities';
 import { Auth } from 'aws-amplify';
 
@@ -60,13 +64,13 @@ const ViewResources = ({
                         key={item.id}
                     >
                         <Card identifiers={identifiers(item)}>
-                            <div className='card-content'>
-                                <div className='card-header'>
+                            <CardContent>
+                                <CardHeader>
                                     <Link to={`/view-resources/view-resource/${item.id}`}>
                                         <h3 className='h4'>{item.title}</h3>
                                     </Link>
-                                </div>
-                                <div className='card-body'>
+                                </CardHeader>
+                                <CardBody>
                                     <img
                                         alt=''
                                         className='card-image primary-image'
@@ -76,11 +80,11 @@ const ViewResources = ({
                                         item.shortText &&
                                         <p className='card-description'>{item.shortText}</p>
                                     }
-                                </div>
-                                <div className='card-footer'>
+                                </CardBody>
+                                <CardFooter>
                                     <p>{item.type}</p>
-                                </div>
-                            </div>
+                                </CardFooter>
+                            </CardContent>
                         </Card>
                     </div>
                 ))

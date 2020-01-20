@@ -12,6 +12,11 @@ export const createResource = `mutation CreateResource(
     shortText
     descriptiveText
     primaryImageUrl
+    sourceImageUrl
+    panoramicImageUrl
+    latitude
+    longitude
+    elevation
     createdAt
     updatedAt
     owner
@@ -29,6 +34,11 @@ export const updateResource = `mutation UpdateResource(
     shortText
     descriptiveText
     primaryImageUrl
+    sourceImageUrl
+    panoramicImageUrl
+    latitude
+    longitude
+    elevation
     createdAt
     updatedAt
     owner
@@ -46,6 +56,11 @@ export const deleteResource = `mutation DeleteResource(
     shortText
     descriptiveText
     primaryImageUrl
+    sourceImageUrl
+    panoramicImageUrl
+    latitude
+    longitude
+    elevation
     createdAt
     updatedAt
     owner
