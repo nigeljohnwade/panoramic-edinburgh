@@ -15,6 +15,7 @@ import CardHeader from '../organisms/CardHeader';
 import CardFooter from '../organisms/CardFooter';
 import apiCalls from '../../api/utilities';
 import { Auth } from 'aws-amplify';
+import target360_8192x4096 from '../../resources/target360_8192x4096.jpg';
 
 const ViewResources = ({
     match,
@@ -74,7 +75,7 @@ const ViewResources = ({
                                     <img
                                         alt=''
                                         className='card-image primary-image'
-                                        src='http://placekitten.com/300/120'
+                                        src={item.primaryImageUrl || target360_8192x4096}
                                     />
                                     {
                                         item.shortText &&
