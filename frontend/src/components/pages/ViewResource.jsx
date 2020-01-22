@@ -10,6 +10,7 @@ import {
 import { Auth } from 'aws-amplify';
 
 import apiCalls from '../../api/utilities';
+import target360_8192x4096 from '../../resources/target360_8192x4096.jpg';
 
 const ViewResource = ({
     history,
@@ -87,7 +88,7 @@ const ViewResource = ({
                                 <img
                                     alt=''
                                     className='primary-image'
-                                    src='http://placekitten.com/600/300'
+                                    src={target360_8192x4096}
                                 />
                             </div>
                             <footer>

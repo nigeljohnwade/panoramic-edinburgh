@@ -7,9 +7,16 @@ import {
     Link,
     withRouter,
 } from 'react-router-dom';
-
-import apiCalls from '../../api/utilities';
 import { Auth } from 'aws-amplify';
+
+
+import Card from '../organisms/Card';
+import CardContent from '../organisms/CardContent';
+import CardBody from '../organisms/CardBody';
+import CardHeader from '../organisms/CardHeader';
+import CardFooter from '../organisms/CardFooter';
+import apiCalls from '../../api/utilities';
+import target360_8192x4096 from '../../resources/target360_8192x4096.jpg';
 
 const ViewResourcesByOwner = ({
     match,
@@ -37,11 +44,11 @@ const ViewResourcesByOwner = ({
                 .then(resources => setResources(resources));
     }, [user]);
 
-    const classes = (item) => {
-        const classes = ['card'];
-        if (selectedCard === item.id) classes.push('card-selected');
-        if (user.username === item.owner) classes.push('card-owned');
-        return classes;
+    const identifiers = (item) => {
+        const identifiers = [];
+        if (selectedCard === item.id) identifiers.push('selected');
+        if (user.username === item.owner) identifiers.push('owned');
+        return identifiers;
     };
 
     return (
@@ -53,29 +60,29 @@ const ViewResourcesByOwner = ({
                         className='resource'
                         key={item.id}
                     >
-                        <div className={classes(item).join(' ')}>
-                            <div className='card-content'>
-                                <div className='card-header'>
+                        <Card identifiers={identifiers(item)}>
+                            <CardContent>
+                                <CardHeader>
                                     <Link to={`/view-resources/view-resource/${item.id}`}>
                                         <h3 className='h4'>{item.title}</h3>
                                     </Link>
-                                </div>
-                                <div className='card-body'>
+                                </CardHeader>
+                                <CardBody>
                                     <img
                                         alt=''
                                         className='card-image primary-image'
-                                        src='http://placekitten.com/300/120'
+                                        src={item.primaryImageUrl || target360_8192x4096}
                                     />
                                     {
                                         item.shortText &&
                                         <p className='card-description'>{item.shortText}</p>
                                     }
-                                </div>
-                                <div className='card-footer'>
+                                </CardBody>
+                                <CardFooter>
                                     <p>{item.type}</p>
-                                </div>
-                            </div>
-                        </div>
+                                </CardFooter>
+                            </CardContent>
+                        </Card>
                     </div>
                 ))
             }

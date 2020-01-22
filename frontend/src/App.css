@@ -353,3 +353,8 @@ button {
     max-width: 40rem;
 }
 
+.resource-detail img{
+    max-width: 100%;
+    height: auto; 
+}
+
