@@ -7,6 +7,7 @@ import EditResource from 'components/pages/EditResource';
 import ViewResourcesByType from 'components/pages/ViewResourcesByType';
 import ViewResourcesByOwner from 'components/pages/ViewResourcesByOwner';
 import { Header } from 'components/organisms/Header';
+import Map from 'components/templates/Map';
 
 
 const Routes = () => {
@@ -17,6 +18,9 @@ const Routes = () => {
             </Route>
             <Route path='/user'>
                 <ViewResourcesByOwner />
+            </Route>
+            <Route path='/map'>
+                <Map />
             </Route>
             <Route exact path='/view-resources'>
                 <ViewResources />
