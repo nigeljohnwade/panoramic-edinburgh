@@ -1,8 +1,8 @@
 import React from 'react';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 
-export const MapTemplate = () => {
+export const LeafletMap = () => {
     const state = {
         lat: 51.505,
         lng: -0.09,
@@ -25,4 +25,4 @@ export const MapTemplate = () => {
     );
 };
 
-export default MapTemplate;
+export default LeafletMap;

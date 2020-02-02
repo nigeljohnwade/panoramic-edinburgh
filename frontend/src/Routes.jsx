@@ -7,7 +7,10 @@ import EditResource from 'components/pages/EditResource';
 import ViewResourcesByType from 'components/pages/ViewResourcesByType';
 import ViewResourcesByOwner from 'components/pages/ViewResourcesByOwner';
 import { Header } from 'components/organisms/Header';
-import Map from 'components/templates/Map';
+import LeafletMap from 'components/templates/LeafletMap';
+import MapboxMap from './components/templates/MapboxMap';
+import { accessToken } from './config/mapbox';
+import { HeadsUp } from './config/mapbox-styles';
 
 
 const Routes = () => {
@@ -19,8 +22,14 @@ const Routes = () => {
             <Route path='/user'>
                 <ViewResourcesByOwner />
             </Route>
-            <Route path='/map'>
-                <Map />
+            <Route path='/leaflet-map'>
+                <LeafletMap />
+            </Route>
+            <Route path='/mapbox-map'>
+                <MapboxMap
+                    accessToken={accessToken}
+                    style={HeadsUp}
+                />
             </Route>
             <Route exact path='/view-resources'>
                 <ViewResources />
