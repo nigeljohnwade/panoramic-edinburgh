@@ -48,7 +48,7 @@ const ViewResources = ({
                 .then(resources => console.log(resources));
     }, [user]);
 
-    const identifiers = (item) => {
+    const identifiers = (item, user) => {
         const identifiers = [];
         if (selectedCard === item.id) identifiers.push('selected');
         if (user.username === item.owner) identifiers.push('owned');
@@ -64,7 +64,7 @@ const ViewResources = ({
                         className='resource'
                         key={item.id}
                     >
-                        <Card identifiers={identifiers(item)}>
+                        <Card identifiers={identifiers(item, user)}>
                             <CardContent>
                                 <CardHeader>
                                     <Link to={`/view-resources/view-resource/${item.id}`}>
