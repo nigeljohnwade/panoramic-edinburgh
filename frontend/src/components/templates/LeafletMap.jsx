@@ -4,8 +4,8 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 export const LeafletMap = () => {
     const state = {
-        lat: 51.505,
-        lng: -0.09,
+        lat: 55.950,
+        lng: -3.19,
         zoom: 13,
     };
 
