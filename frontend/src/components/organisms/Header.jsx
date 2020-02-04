@@ -43,8 +43,7 @@ export const Header = () => {
                 <span>
                     New Resource
                 </span>
-            </Link>;
-            ;
+            </Link>
             <Link
                 className="link"
                 to="/view-resources"
@@ -52,8 +51,7 @@ export const Header = () => {
                 <span>
                     View Resources
                 </span>
-            </Link>;
-            ;
+            </Link>
             <Link
                 className="link"
                 to="/view-panoramas"
@@ -61,8 +59,7 @@ export const Header = () => {
                 <span>
                     View Panoramas
                 </span>
-            </Link>;
-            ;
+            </Link>
             <Link
                 className="link"
                 to="/view-sites"
@@ -70,8 +67,7 @@ export const Header = () => {
                 <span>
                     View Sites
                 </span>
-            </Link>;
-            ;
+            </Link>
             <Link
                 className="link"
                 to="/view-tours"
@@ -79,8 +75,7 @@ export const Header = () => {
                 <span>
                     View Tours
                 </span>
-            </Link>;
-            ;
+            </Link>
             <Link
                 className="link"
                 to="/view-journeys"
@@ -88,8 +83,23 @@ export const Header = () => {
                 <span>
                     View Journeys
                 </span>
-            </Link>;
-            ;
+            </Link>
+            <Link
+                className="link"
+                to="/mapbox-map"
+            >
+                <span>
+                    View Mapbox Map
+                </span>
+            </Link>
+            <Link
+                className="link"
+                to="/leaflet-map"
+            >
+                <span>
+                    View Leaflet Map
+                </span>
+            </Link>
         </header>
     )
         ;
