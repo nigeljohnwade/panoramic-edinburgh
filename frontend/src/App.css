@@ -364,3 +364,27 @@ button {
     width: calc(100% - 6rem);
     height: 100%;
 }
+
+/* Interference */
+
+.interference{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(331deg, #40296155, #e1dfa909);
+    background-size: 400% 400%;
+    animation: Interference 16s ease infinite;
+    pointer-events: none;
+}
+
+@keyframes Interference {
+    0%{
+        background-position:19% 0;
+    }
+    50%{
+        background-position:82% 100%
+    }
+    100%{
+        background-position:19% 0
+    }
+}

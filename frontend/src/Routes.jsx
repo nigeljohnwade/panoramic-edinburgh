@@ -7,6 +7,7 @@ import EditResource from 'components/pages/EditResource';
 import ViewResourcesByType from 'components/pages/ViewResourcesByType';
 import ViewResourcesByOwner from 'components/pages/ViewResourcesByOwner';
 import { Header } from 'components/organisms/Header';
+import Interference from 'components/organisms/Interference';
 import LeafletMap from 'components/templates/LeafletMap';
 import MapboxMap from './components/templates/MapboxMap';
 import { accessToken } from './config/mapbox';
@@ -72,6 +73,9 @@ const Routes = () => {
             </Route>
             <Route path='/create-resource'>
                 <CreateResource />
+            </Route>
+            <Route path='/'>
+                <Interference/>
             </Route>
         </Router>
     );

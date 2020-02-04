@@ -101,6 +101,5 @@ export const Header = () => {
                 </span>
             </Link>
         </header>
-    )
-        ;
+    );
 };
