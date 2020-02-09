@@ -11,7 +11,12 @@ import Interference from 'components/organisms/Interference';
 import LeafletMap from 'components/templates/LeafletMap';
 import MapboxMap from './components/templates/MapboxMap';
 import { accessToken } from './config/mapbox';
-import { HeadsUp } from './config/mapbox-styles';
+import {
+    attribution,
+    HeadsUp,
+    HeadsUpId,
+    url,
+} from './config/mapbox-styles';
 
 
 const Routes = () => {
@@ -24,7 +29,12 @@ const Routes = () => {
                 <ViewResourcesByOwner />
             </Route>
             <Route path='/leaflet-map'>
-                <LeafletMap />
+                <LeafletMap
+                    accessToken={accessToken}
+                    id={HeadsUpId}
+                    attribution={attribution}
+                    url={url}
+                />
             </Route>
             <Route path='/mapbox-map'>
                 <MapboxMap
