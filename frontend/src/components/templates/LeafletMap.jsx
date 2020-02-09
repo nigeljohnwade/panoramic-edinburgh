@@ -9,7 +9,6 @@ const markerPositionArray = (position, count, areaSize, scale) => {
             position[1] + ((Math.random() * areaSize) - (areaSize / 2)) / scale,
         ]);
     }
-    console.log(returnArray);
     return returnArray;
 };
 
@@ -39,17 +38,17 @@ export const LeafletMap = ({
             />
             {
                 markers && markers.map((item, index) => {
-                        return (
-                            <Marker
-                                key={index}
-                                position={item}
-                            >
-                                <Popup>
-                                    A random marker popup ({index}) at
-                                    longitude: {item[1].toFixed(6)}, and
-                                    latitude: {item[0].toFixed(6)}.
-                                </Popup>
-                            </Marker>);
+                    return (
+                        <Marker
+                            key={index}
+                            position={item}
+                        >
+                            <Popup>
+                                A random marker popup ({index}) at
+                                longitude: {item[1].toFixed(6)}, and
+                                latitude: {item[0].toFixed(6)}.
+                            </Popup>
+                        </Marker>);
                     }
                 )
             }
