@@ -1,5 +1,13 @@
-import React, { useState } from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import React, {
+    useEffect,
+    useState,
+} from 'react';
+import {
+    Map,
+    Marker,
+    Popup,
+    TileLayer
+} from 'react-leaflet';
 
 const markerPositionArray = (position, count, areaSize, scale) => {
     let returnArray = [];
@@ -16,20 +24,21 @@ export const LeafletMap = ({
     accessToken,
     attribution,
     id,
-    markersArray,
+    markersArray = markerPositionArray([55.950, -3.19], 15, 7, 100),
+    position = [55.950, -3.19],
     url,
+    zoom = 13,
 }) => {
-    const state = {
-        lat: 55.950,
-        lng: -3.19,
-        zoom: 13,
-    };
-    const position = [state.lat, state.lng];
-    const [markers, setMarkers] = useState(markersArray || markerPositionArray(position, 15, 7, 100));
+    const [markers, setMarkers] = useState(markersArray );
 
-
+    useEffect(()=>{
+        setMarkers(markersArray);
+    }, [markersArray]);
     return (
-        <Map center={position} zoom={state.zoom}>
+        <Map
+            center={position}
+            zoom={zoom}
+        >
             <TileLayer
                 attribution={attribution}
                 url={url}
