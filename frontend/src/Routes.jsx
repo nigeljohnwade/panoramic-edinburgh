@@ -33,7 +33,7 @@ const Routes = () => {
                     accessToken={accessToken}
                     id={HeadsUpId}
                     attribution={attribution}
-                    url={url}
+                    tyleLayerUrl={url}
                 />
             </Route>
             <Route path='/mapbox-map'>

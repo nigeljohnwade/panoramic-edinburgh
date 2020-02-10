@@ -26,7 +26,7 @@ export const LeafletMap = ({
     id,
     markersArray = markerPositionArray([55.950, -3.19], 15, 7, 100),
     position = [55.950, -3.19],
-    url,
+    tileLayerUrl,
     zoom = 13,
 }) => {
     const [markers, setMarkers] = useState(markersArray );
@@ -34,14 +34,16 @@ export const LeafletMap = ({
     useEffect(()=>{
         setMarkers(markersArray);
     }, [markersArray]);
+
     return (
         <Map
             center={position}
             zoom={zoom}
+            onMousemove={e => console.log(e)}
         >
             <TileLayer
                 attribution={attribution}
-                url={url}
+                url={tileLayerUrl}
                 accessToken={accessToken}
                 id={id}
             />
