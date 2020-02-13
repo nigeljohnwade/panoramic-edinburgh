@@ -28,6 +28,15 @@ const cleanFields = (fields, toNull = false) => {
     return fields;
 };
 
+const populateFields = (fields) => {
+    for (const item in fields) {
+        if (fields.hasOwnProperty(item) && fields[item] === null) {
+            fields[item] = '';
+        }
+    }
+    return fields;
+};
+
 console.log(client);
 
 const calls = {
@@ -70,7 +79,7 @@ const calls = {
                 id: id,
             }
         }).then(({ data: { getResource } }) => {
-            return getResource;
+            return populateFields(getResource);
         });
     },
     createResource: async (fields) => {

@@ -32,8 +32,8 @@ const initialArg = {
     shortText: '',
     descriptiveText: '',
     primaryImageUrl: '',
-    lat: '',
-    lng: '',
+    latitude: '',
+    longitude: '',
 };
 
 
@@ -153,7 +153,7 @@ const EditResource = ({
                                             </label>
                                         </div>
                                         <InputGroup
-                                            field={'lat'}
+                                            field={'latitude'}
                                             label={'Latitude'}
                                             onChange={(e) => dispatchFormState({
                                                 type: 'onChangeStringValue',
@@ -162,10 +162,10 @@ const EditResource = ({
                                                     value: e.target.value,
                                                 },
                                             })}
-                                            value={formState.lat}
+                                            value={formState.latitude}
                                         />
                                         <InputGroup
-                                            field={'lng'}
+                                            field={'longitude'}
                                             label={'Longitude'}
                                             onChange={(e) => dispatchFormState({
                                                 type: 'onChangeStringValue',
@@ -174,7 +174,7 @@ const EditResource = ({
                                                     value: e.target.value,
                                                 },
                                             })}
-                                            value={formState.lng}
+                                            value={formState.longitude}
                                         />
                                         <div className='form group button-group'>
                                             <button type="submit">Edt</button>
