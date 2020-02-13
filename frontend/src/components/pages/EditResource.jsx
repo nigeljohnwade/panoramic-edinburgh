@@ -32,6 +32,8 @@ const initialArg = {
     shortText: '',
     descriptiveText: '',
     primaryImageUrl: '',
+    lat: '',
+    lng: '',
 };
 
 
@@ -150,6 +152,30 @@ const EditResource = ({
                                                 Descriptive Text
                                             </label>
                                         </div>
+                                        <InputGroup
+                                            field={'lat'}
+                                            label={'Latitude'}
+                                            onChange={(e) => dispatchFormState({
+                                                type: 'onChangeStringValue',
+                                                payload: {
+                                                    name: e.target.name,
+                                                    value: e.target.value,
+                                                },
+                                            })}
+                                            value={formState.lat}
+                                        />
+                                        <InputGroup
+                                            field={'lng'}
+                                            label={'Longitude'}
+                                            onChange={(e) => dispatchFormState({
+                                                type: 'onChangeStringValue',
+                                                payload: {
+                                                    name: e.target.name,
+                                                    value: e.target.value,
+                                                },
+                                            })}
+                                            value={formState.lng}
+                                        />
                                         <div className='form group button-group'>
                                             <button type="submit">Edt</button>
                                         </div>

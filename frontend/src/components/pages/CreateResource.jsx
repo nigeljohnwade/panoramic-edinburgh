@@ -1,7 +1,4 @@
-import React, {
-    useReducer,
-    useState,
-} from 'react';
+import React, { useReducer, useState, } from 'react';
 import { Redirect } from 'react-router-dom';
 
 import apiCalls from '../../api/utilities';
@@ -12,7 +9,7 @@ import Fetching from '../organisms/Fetching';
 const formStateReducer = (state, action) => {
     switch (action.type) {
         case 'onChangeStringValue':
-            return { ...state, [action.payload.name]: action.payload.value };
+            return {...state, [action.payload.name]: action.payload.value};
         default:
             return state;
     }
@@ -35,8 +32,8 @@ const CreateResource = () => {
                 name: e.target.name,
                 value: e.target.value,
             },
-        })
-    }
+        });
+    };
 
     return (
         <>
@@ -68,11 +65,11 @@ const CreateResource = () => {
                         value={formState.type}
                         onChange={(e) => changeHandler(e)}
                         options={[
-                            { value: '', label: 'Please select...' },
-                            { value: 'PANORAMA', label: 'Panorama' },
-                            { value: 'SITE', label: 'Site' },
-                            { value: 'JOURNEY', label: 'Journey' },
-                            { value: 'TOUR', label: 'Tour' },
+                            {value: '', label: 'Please select...'},
+                            {value: 'PANORAMA', label: 'Panorama'},
+                            {value: 'SITE', label: 'Site'},
+                            {value: 'JOURNEY', label: 'Journey'},
+                            {value: 'TOUR', label: 'Tour'},
                         ]}
                     />
                     <InputGroup
@@ -92,6 +89,18 @@ const CreateResource = () => {
                             Descriptive Text
                         </label>
                     </div>
+                    <InputGroup
+                        field={'lat'}
+                        label={'Latitude'}
+                        onChange={(e) => changeHandler(e)}
+                        value={formState.lat}
+                    />
+                    <InputGroup
+                        field={'lng'}
+                        label={'Longitude'}
+                        onChange={(e) => changeHandler(e)}
+                        value={formState.lng}
+                    />
                     <div className='form group button-group'>
                         <button type="submit">Create</button>
                     </div>
@@ -99,11 +108,11 @@ const CreateResource = () => {
             }
             {
                 fetching &&
-                <Fetching />
+                <Fetching/>
             }
             {
                 completed &&
-                <Redirect to='/' />
+                <Redirect to='/'/>
             }
         </>
     );
