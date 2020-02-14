@@ -25,7 +25,7 @@ const CreateResource = () => {
     const [fetching, setFetching] = useState(false);
     const [completed, setCompleted] = useState(false);
 
-    const changeHandler = e => {
+    const changeHandlerString = e => {
         dispatchFormState({
             type: 'onChangeStringValue',
             payload: {
@@ -56,14 +56,14 @@ const CreateResource = () => {
                     <InputGroup
                         field='title'
                         label='Title'
-                        onChange={(e) => changeHandler(e)}
+                        onChange={(e) => changeHandlerString(e)}
                         value={formState.title}
                     />
                     <SelectGroup
                         label='Type'
                         field='type'
                         value={formState.type}
-                        onChange={(e) => changeHandler(e)}
+                        onChange={(e) => changeHandlerString(e)}
                         options={[
                             {value: '', label: 'Please select...'},
                             {value: 'PANORAMA', label: 'Panorama'},
@@ -75,7 +75,7 @@ const CreateResource = () => {
                     <InputGroup
                         field='shortText'
                         label='Short Text'
-                        onChange={(e) => changeHandler(e)}
+                        onChange={(e) => changeHandlerString(e)}
                         value={formState.shortText}
                     />
                     <div className='form-group input-group'>
@@ -83,7 +83,7 @@ const CreateResource = () => {
                             name='descriptiveText'
                             id='descriptiveText'
                             value={formState.descriptiveText}
-                            onChange={(e) => changeHandler(e)}
+                            onChange={(e) => changeHandlerString(e)}
                         />
                         <label htmlFor='descriptiveText'>
                             Descriptive Text
@@ -92,13 +92,13 @@ const CreateResource = () => {
                     <InputGroup
                         field={'lat'}
                         label={'Latitude'}
-                        onChange={(e) => changeHandler(e)}
+                        onChange={(e) => changeHandlerString(e)}
                         value={formState.lat}
                     />
                     <InputGroup
                         field={'lng'}
                         label={'Longitude'}
-                        onChange={(e) => changeHandler(e)}
+                        onChange={(e) => changeHandlerString(e)}
                         value={formState.lng}
                     />
                     <div className='form group button-group'>

@@ -62,6 +62,16 @@ const EditResource = ({
         });
     }, [resource]);
 
+    const changeHandlerString = e => {
+        dispatchFormState({
+            type: 'onChangeStringValue',
+            payload: {
+                name: e.target.name,
+                value: e.target.value,
+            },
+        });
+    };
+
     return (
         <div className='panel flex-filler detail'>
             {
@@ -95,26 +105,14 @@ const EditResource = ({
                                         <InputGroup
                                             field='title'
                                             label='Title'
-                                            onChange={(e) => dispatchFormState({
-                                                type: 'onChangeStringValue',
-                                                payload: {
-                                                    name: e.target.name,
-                                                    value: e.target.value,
-                                                },
-                                            })}
+                                            onChange={(e) => changeHandlerString(e)}
                                             value={formState.title}
                                         />
                                         <SelectGroup
                                             label='Type'
                                             field='type'
                                             value={formState.type}
-                                            onChange={(e) => dispatchFormState({
-                                                type: 'onChangeStringValue',
-                                                payload: {
-                                                    name: e.target.name,
-                                                    value: e.target.value,
-                                                },
-                                            })}
+                                            onChange={(e) => changeHandlerString(e)}
                                             options={[
                                                 {value: '', label: 'Please select...'},
                                                 {value: 'PANORAMA', label: 'Panorama'},
@@ -126,13 +124,7 @@ const EditResource = ({
                                         <InputGroup
                                             field='shortText'
                                             label='Short Text'
-                                            onChange={(e) => dispatchFormState({
-                                                type: 'onChangeStringValue',
-                                                payload: {
-                                                    name: e.target.name,
-                                                    value: e.target.value,
-                                                },
-                                            })}
+                                            onChange={(e) => changeHandlerString(e)}
                                             value={formState.shortText}
                                         />
                                         <div className='form-group input-group'>
@@ -140,13 +132,7 @@ const EditResource = ({
                                                 name='descriptiveText'
                                                 id='descriptiveText'
                                                 value={formState.descriptiveText}
-                                                onChange={(e) => dispatchFormState({
-                                                    type: 'onChangeStringValue',
-                                                    payload: {
-                                                        name: e.target.name,
-                                                        value: e.target.value,
-                                                    },
-                                                })}
+                                                onChange={(e) => changeHandlerString(e)}
                                             />
                                             <label htmlFor='descriptiveText'>
                                                 Descriptive Text
@@ -155,25 +141,13 @@ const EditResource = ({
                                         <InputGroup
                                             field={'latitude'}
                                             label={'Latitude'}
-                                            onChange={(e) => dispatchFormState({
-                                                type: 'onChangeStringValue',
-                                                payload: {
-                                                    name: e.target.name,
-                                                    value: e.target.value,
-                                                },
-                                            })}
+                                            onChange={(e) => changeHandlerString(e)}
                                             value={formState.latitude}
                                         />
                                         <InputGroup
                                             field={'longitude'}
                                             label={'Longitude'}
-                                            onChange={(e) => dispatchFormState({
-                                                type: 'onChangeStringValue',
-                                                payload: {
-                                                    name: e.target.name,
-                                                    value: e.target.value,
-                                                },
-                                            })}
+                                            onChange={(e) => changeHandlerString(e)}
                                             value={formState.longitude}
                                         />
                                         <div className='form group button-group'>
