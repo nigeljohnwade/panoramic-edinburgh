@@ -7,8 +7,6 @@ import {
     Link,
     withRouter,
 } from 'react-router-dom';
-import { Auth } from 'aws-amplify';
-
 
 import Card from '../organisms/Card';
 import CardContent from '../organisms/CardContent';
@@ -19,35 +17,28 @@ import apiCalls from '../../api/utilities';
 import target360_8192x4096 from '../../resources/target360_8192x4096.jpg';
 
 const ViewResourcesByOwner = ({
+    location,
     match,
 }) => {
-    const [user, setUser] = useState(null);
+    const [username,] = useState(match.params.username);
     const [resources, setResources] = useState([]);
     const [selectedCard, setSelectedCard] = useState(null);
 
-    useEffect(() => {
-        Auth.currentAuthenticatedUser()
-            .then(user => {
-                console.log(user);
-                setUser(user);
-            })
-            .catch(err => console.log(err));
-    }, []);
 
     useEffect(() => {
         setSelectedCard(match.params.id);
     }, [match.params.id]);
 
     useEffect(() => {
-        user && user.username &&
-            apiCalls.resourceByOwnerByDateUpdated(user.username)
+        username &&
+            apiCalls.resourceByOwnerByDateUpdated(username)
                 .then(resources => setResources(resources));
-    }, [user]);
+    }, [username]);
 
     const identifiers = (item) => {
         const identifiers = [];
         if (selectedCard === item.id) identifiers.push('selected');
-        if (user.username === item.owner) identifiers.push('owned');
+        if (username === item.owner) identifiers.push('owned');
         return identifiers;
     };
 
@@ -63,7 +54,7 @@ const ViewResourcesByOwner = ({
                         <Card identifiers={identifiers(item)}>
                             <CardContent>
                                 <CardHeader>
-                                    <Link to={`/view-resources/view-resource/${item.id}`}>
+                                    <Link to={`${location.pathname}/view-resource/${item.id}`}>
                                         <h3 className='h4'>{item.title}</h3>
                                     </Link>
                                 </CardHeader>

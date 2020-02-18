@@ -24,7 +24,7 @@ const Routes = () => {
                     <Header />
                 </Suspense>
             </Route>
-            <Route path='/user'>
+            <Route path='/user/:username'>
                 <Suspense fallback={<Fetching />}>
                     <ViewResourcesByOwner />
                 </Suspense>
@@ -47,65 +47,59 @@ const Routes = () => {
                     />
                 </Suspense>
             </Route>
-            <Route exact path='/view-resources'>
+            <Route path='/view-resources'>
                 <Suspense fallback={<Fetching />}>
                     <ViewResources />
                 </Suspense>
             </Route>
-            <Route exact path='/view-resources/view-resource/:id'>
+            <Route path='/view-sites'>
                 <Suspense fallback={<Fetching />}>
-                    <ViewResources />
+                    <ViewResourcesByType type='SITE' />
+                </Suspense>
+            </Route>
+            <Route path='/view-panoramas'>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='PANORAMA' />
+                </Suspense>
+            </Route>
+            <Route path='/view-tours'>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='TOUR' />
+                </Suspense>
+            </Route>
+            <Route path='/view-journeys'>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='JOURNEY' />
+                </Suspense>
+            </Route>
+            <Route
+                exact
+                path={[
+                    '/user/:username/view-resource/:id',
+                    '/view-resources/view-resource/:id',
+                    '/view-sites/view-resource/:id',
+                    '/view-panoramas/view-resource/:id',
+                    '/view-journeys/view-resource/:id',
+                    '/view-tours/view-resource/:id',
+                ]}
+            >
+                <Suspense fallback={<Fetching />}>
                     <ViewResource />
                 </Suspense>
             </Route>
-            <Route exact path='/view-resources/view-resource/:id/edit'>
+            <Route
+                exact
+                path={[
+                    '/user/:username/view-resource/:id/edit',
+                    '/view-resources/view-resource/:id/edit',
+                    '/view-sites/view-resource/:id/edit',
+                    '/view-panoramas/view-resource/:id/edit',
+                    '/view-journeys/view-resource/:id/edit',
+                    '/view-tours/view-resource/:id/edit',
+                ]}
+            >
                 <Suspense fallback={<Fetching />}>
-                    <ViewResources />
                     <EditResource />
-                </Suspense>
-            </Route>
-            <Route exact path='/view-sites'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='SITE' />
-                </Suspense>
-            </Route>
-            <Route exact path='/view-sites/view-resource/:id'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='SITE' />
-                    <ViewResource />
-                </Suspense>
-            </Route>
-            <Route exact path='/view-panoramas'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='PANORAMA' />
-                </Suspense>
-            </Route>
-            <Route exact path='/view-panoramas/view-resource/:id'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='PANORAMA' />
-                    <ViewResource />
-                </Suspense>
-            </Route>
-            <Route exact path='/view-tours'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='TOUR' />
-                </Suspense>
-            </Route>
-            <Route exact path='/view-tours/view-resource/:id'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='TOUR' />
-                    <ViewResource />
-                </Suspense>
-            </Route>
-            <Route exact path='/view-journeys'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='JOURNEY' />
-                </Suspense>
-            </Route>
-            <Route exact path='/view-journeys/view-resource/:id'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='JOURNEY' />
-                    <ViewResource />
                 </Suspense>
             </Route>
             <Route path='/create-resource'>
