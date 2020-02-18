@@ -306,6 +306,11 @@ button {
     min-height: 3rem;
 }
 
+.header .active-link{
+    background-color: var(--light-grey);
+    color: var(--black);
+}
+
 .link {
     color: var(--white);
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;

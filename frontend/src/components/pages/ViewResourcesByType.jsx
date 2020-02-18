@@ -19,6 +19,7 @@ import target360_8192x4096 from '../../resources/target360_8192x4096.jpg';
 
 const ViewResourcesByType = ({
     match,
+    location,
     type = 'PANORAMA',
 }) => {
     const [user, setUser] = useState(null);
@@ -63,7 +64,7 @@ const ViewResourcesByType = ({
                         <Card identifiers={identifiers(item)}>
                             <CardContent>
                                 <CardHeader>
-                                    <Link to={`/view-resources/view-resource/${item.id}`}>
+                                    <Link to={`${location.pathname}/view-resource/${item.id}`}>
                                         <h3 className='h4'>{item.title}</h3>
                                     </Link>
                                 </CardHeader>

@@ -2,7 +2,7 @@ import React, {
     useEffect,
     useState,
 } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
 
 export const Header = () => {
@@ -21,85 +21,96 @@ export const Header = () => {
         <header className="header stack">
             {
                 user &&
-                <Link
+                <NavLink
+                    activeClassName={'active-link'}
                     className='link'
                     to={`/user/${user.username}`}
                 >
                     {user && user.attributes && user.attributes.email.charAt(0)}
-                </Link>
+                </NavLink>
             }
-            <Link
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
+                exact
                 to="/"
             >
                 <span>
                     Home
                 </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
                 to="/create-resource"
             >
                 <span>
                     New Resource
                 </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
                 to="/view-resources"
             >
                 <span>
                     View Resources
                 </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
                 to="/view-panoramas"
             >
                 <span>
                     View Panoramas
                 </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
                 to="/view-sites"
             >
                 <span>
                     View Sites
                 </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
                 to="/view-tours"
             >
                 <span>
                     View Tours
                 </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
                 to="/view-journeys"
             >
                 <span>
                     View Journeys
                 </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
                 to="/mapbox-map"
             >
                 <span>
                     View Mapbox Map
                 </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
                 className="link"
                 to="/leaflet-map"
             >
                 <span>
                     View Leaflet Map
                 </span>
-            </Link>
+            </NavLink>
         </header>
     );
 };
