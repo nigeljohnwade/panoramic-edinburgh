@@ -19,7 +19,10 @@ const formStateReducer = (state, action) => {
         case 'onChangeStringValue':
             return {...state, [action.payload.name]: action.payload.value};
         case 'setState':{
-            return {...state,  ...action.payload}
+            return {...action.payload}
+        }
+        case 'mergeState':{
+            return {...state, ...action.payload}
         }
         default:
             return state;
