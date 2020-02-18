@@ -20,74 +20,102 @@ const Routes = () => {
     return (
         <Router>
             <Route path='/'>
-                <Suspense fallback={<Fetching/>}>
-                    <Header/>
+                <Suspense fallback={<Fetching />}>
+                    <Header />
                 </Suspense>
             </Route>
             <Route path='/user'>
-                <Suspense fallback={<Fetching/>}>
-                    <ViewResourcesByOwner/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByOwner />
                 </Suspense>
             </Route>
             <Route path='/leaflet-map'>
-                <LeafletMap
-                    accessToken={accessToken}
-                    id={HeadsUpId}
-                    attribution={attribution}
-                    tileLayerUrl={url}
-                />
+                <Suspense fallback={<Fetching />}>
+                    <LeafletMap
+                        accessToken={accessToken}
+                        id={HeadsUpId}
+                        attribution={attribution}
+                        tileLayerUrl={url}
+                    />
+                </Suspense>
             </Route>
             <Route path='/mapbox-map'>
-                <MapboxMap
-                    accessToken={accessToken}
-                    style={HeadsUp}
-                />
+                <Suspense fallback={<Fetching />}>
+                    <MapboxMap
+                        accessToken={accessToken}
+                        style={HeadsUp}
+                    />
+                </Suspense>
             </Route>
             <Route exact path='/view-resources'>
-                <ViewResources/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResources />
+                </Suspense>
             </Route>
             <Route exact path='/view-resources/view-resource/:id'>
-                <ViewResources/>
-                <ViewResource/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResources />
+                    <ViewResource />
+                </Suspense>
             </Route>
             <Route exact path='/view-resources/view-resource/:id/edit'>
-                <ViewResources/>
-                <EditResource/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResources />
+                    <EditResource />
+                </Suspense>
             </Route>
             <Route exact path='/view-sites'>
-                <ViewResourcesByType type='SITE'/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='SITE' />
+                </Suspense>
             </Route>
             <Route exact path='/view-sites/view-resource/:id'>
-                <ViewResourcesByType type='SITE'/>
-                <ViewResource/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='SITE' />
+                    <ViewResource />
+                </Suspense>
             </Route>
             <Route exact path='/view-panoramas'>
-                <ViewResourcesByType type='PANORAMA'/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='PANORAMA' />
+                </Suspense>
             </Route>
             <Route exact path='/view-panoramas/view-resource/:id'>
-                <ViewResourcesByType type='PANORAMA'/>
-                <ViewResource/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='PANORAMA' />
+                    <ViewResource />
+                </Suspense>
             </Route>
             <Route exact path='/view-tours'>
-                <ViewResourcesByType type='TOUR'/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='TOUR' />
+                </Suspense>
             </Route>
             <Route exact path='/view-tours/view-resource/:id'>
-                <ViewResourcesByType type='TOUR'/>
-                <ViewResource/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='TOUR' />
+                    <ViewResource />
+                </Suspense>
             </Route>
             <Route exact path='/view-journeys'>
-                <ViewResourcesByType type='JOURNEY'/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='JOURNEY' />
+                </Suspense>
             </Route>
             <Route exact path='/view-journeys/view-resource/:id'>
-                <ViewResourcesByType type='JOURNEY'/>
-                <ViewResource/>
+                <Suspense fallback={<Fetching />}>
+                    <ViewResourcesByType type='JOURNEY' />
+                    <ViewResource />
+                </Suspense>
             </Route>
             <Route path='/create-resource'>
-                <CreateResource/>
+                <Suspense fallback={<Fetching />}>
+                    <CreateResource />
+                </Suspense>
             </Route>
             <Route path='/'>
-                <Suspense fallback={<Fetching/>}>
-                    <Interference/>
+                <Suspense fallback={<Fetching />}>
+                    <Interference />
                 </Suspense>
             </Route>
         </Router>
