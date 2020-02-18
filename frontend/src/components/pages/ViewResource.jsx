@@ -24,7 +24,6 @@ const ViewResource = ({
     useEffect(() => {
         Auth.currentAuthenticatedUser()
             .then(user => {
-                console.log(user);
                 setUser(user);
             })
             .catch(err => console.log(err));
@@ -36,7 +35,6 @@ const ViewResource = ({
             : setResource(null);
     }, [id]);
 
-    console.log(resource && resource.owner);
     return (
         <div className='panel flex-filler detail'>
             {

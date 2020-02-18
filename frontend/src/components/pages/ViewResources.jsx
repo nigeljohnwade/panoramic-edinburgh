@@ -27,7 +27,6 @@ const ViewResources = ({
     useEffect(() => {
         Auth.currentAuthenticatedUser()
             .then(user => {
-                console.log(user);
                 setUser(user);
             })
             .catch(err => console.log(err));
@@ -42,11 +41,6 @@ const ViewResources = ({
             .then(resources => setResources(resources));
     }, []);
 
-    useEffect(() => {
-        user && user.username &&
-            apiCalls.resourceByOwnerByDateUpdated(user.username)
-                .then(resources => console.log(resources));
-    }, [user]);
 
     const identifiers = (item, user) => {
         const identifiers = [];

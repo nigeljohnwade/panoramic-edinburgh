@@ -37,8 +37,6 @@ const populateFields = (fields) => {
     return fields;
 };
 
-console.log(client);
-
 const calls = {
     listResources: async () => {
         return await client.query({

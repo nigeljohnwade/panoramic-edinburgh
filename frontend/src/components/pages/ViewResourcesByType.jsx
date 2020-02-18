@@ -29,7 +29,6 @@ const ViewResourcesByType = ({
     useEffect(() => {
         Auth.currentAuthenticatedUser()
             .then(user => {
-                console.log(user);
                 setUser(user);
             })
             .catch(err => console.log(err));
