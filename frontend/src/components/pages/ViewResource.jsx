@@ -41,7 +41,7 @@ const ViewResource = ({
                 resource && user &&
                 <>
                     <Link
-                        className='panel-close'
+                        className='button panel-close-link'
                         to='/view-resources'
                     >
                         Close
@@ -55,12 +55,16 @@ const ViewResource = ({
                                         user.username === resource.owner &&
                                         <>
                                             <li>
-                                                <Link to={`${pathname}/edit`}>
+                                                <Link
+                                                    className={'button edit-link'}
+                                                    to={`${pathname}/edit`}
+                                                >
                                                     Edit
                                                 </Link>
                                             </li>
                                             <li>
                                                 <button
+                                                    className={'delete-button'}
                                                     onClick={(e) => {
                                                         e.preventDefault();
                                                         apiCalls.deleteResource(resource.id)

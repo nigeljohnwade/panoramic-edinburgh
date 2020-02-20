@@ -11,6 +11,9 @@
     --body-copy: 1rem;
     --base-unit: 1rem;
     --base-padding: 1rem 2rem;
+    --success: #1d6b1a;
+    --warning: #d16f23;
+    --danger: #e72323;
 }
 
 * {
@@ -211,9 +214,21 @@ input[type=radio] + input[type=radio] {
     margin-left: 1rem;
 }
 
-button {
+button, .button {
     padding: 1rem;
     min-width: 5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.delete-button{
+    background-color: var(--danger);
+    color: var(--white);
+}
+
+.save-button{
+    background-color: var(--success);
+    color: var(--white);
 }
 
 .form-group {
@@ -316,6 +331,11 @@ button {
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
+.edit-link, .edit-link:visited{
+    display: block;
+    background-color: var(--warning);
+    color: var(--white);
+}
 .link:hover{
     background-color: var(--light-grey);
     color: var(--black);
@@ -335,10 +355,12 @@ button {
     flex-basis: 100vw;
 }
 
-.panel-close {
+.panel-close-link {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--success);
+    color: var(--white);
 }
 
 .detail {
