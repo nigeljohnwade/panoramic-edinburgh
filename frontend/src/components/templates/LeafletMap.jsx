@@ -9,6 +9,8 @@ import {
     TileLayer
 } from 'react-leaflet';
 
+import MapHUD from 'components/organisms/MapHUD';
+
 const markerPositionArray = (position, count, areaSize, scale) => {
     let returnArray = [];
     for (let i = 0; i < count; i++) {
@@ -29,41 +31,53 @@ export const LeafletMap = ({
     tileLayerUrl,
     zoom = 13,
 }) => {
-    const [markers, setMarkers] = useState(markersArray );
+    const [markers, setMarkers] = useState(markersArray);
 
-    useEffect(()=>{
+    useEffect(() => {
         setMarkers(markersArray);
     }, [markersArray]);
 
     return (
-        <Map
-            center={position}
-            zoom={zoom}
-            onMousemove={e => console.log(e)}
-        >
-            <TileLayer
-                attribution={attribution}
-                url={tileLayerUrl}
-                accessToken={accessToken}
-                id={id}
-            />
-            {
-                markers && markers.map((item, index) => {
-                    return (
-                        <Marker
-                            key={index}
-                            position={item}
-                        >
-                            <Popup>
-                                A random marker popup ({index}) at
+        <>
+            <div className="map-wrapper">
+
+                <Map
+                    center={position}
+                    zoom={zoom}
+                    onMousemove={e => console.log(e)}
+                >
+                    <TileLayer
+                        attribution={attribution}
+                        url={tileLayerUrl}
+                        accessToken={accessToken}
+                        id={id}
+                        onload={e => console.log(e)}
+                        ontileunload={e => console.log(e)}
+                        ontileload={e => console.log(e)}
+                        ontileerror={e => console.log(e)}
+                        ontileloadstart={e => console.log(e)}
+                        onloading={e => console.log(e)}
+                    />
+                    {
+                        markers && markers.map((item, index) => {
+                            return (
+                                <Marker
+                                    key={index}
+                                    position={item}
+                                >
+                                    <Popup>
+                                        A random marker popup ({index}) at
                                 longitude: {item[1].toFixed(6)}, and
                                 latitude: {item[0].toFixed(6)}.
                             </Popup>
-                        </Marker>);
+                                </Marker>);
+                        }
+                        )
                     }
-                )
-            }
-        </Map>
+                </Map>
+            </div>
+            <MapHUD />
+        </>
     );
 };
 
