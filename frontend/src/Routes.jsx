@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, } from 'react';
 import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import { accessToken } from './config/mapbox';
-import { attribution, HeadsUp, HeadsUpId, url, } from './config/mapbox-styles';
+import { attribution, HeadsUp, PanoramicEdinburghId, url, } from './config/mapbox-styles';
 import Fetching from './components/organisms/Fetching';
 
 const Header = lazy(() => import('components/organisms/Header'));
@@ -33,7 +33,7 @@ const Routes = () => {
                 <Suspense fallback={<Fetching />}>
                     <LeafletMap
                         accessToken={accessToken}
-                        id={HeadsUpId}
+                        id={PanoramicEdinburghId}
                         attribution={attribution}
                         tileLayerUrl={url}
                     />

@@ -47,7 +47,7 @@ const EditResource = ({
     const [formState, dispatchFormState] = useReducer(formStateReducer, initialArg);
     const [fetching, setFetching] = useState(false);
     const [completed, setCompleted] = useState(false);
-    const id = match && match.params && match.params.id || null;
+    const id = (match && match.params && match.params.id) || null;
 
     useEffect(() => {
         id
@@ -81,10 +81,10 @@ const EditResource = ({
                 resource &&
                 <>
                     <Link
-                        className='panel-close'
-                        to='/view-resources'
+                        className='button panel-close-link'
+                        to={`/view-resources/view-resource/${id}`}
                     >
-                        Close
+                        Cancel
                     </Link>
                     <div>
                         <article className='resource-detail'>
@@ -154,7 +154,12 @@ const EditResource = ({
                                             value={formState.longitude}
                                         />
                                         <div className='form group button-group'>
-                                            <button type="submit">Edt</button>
+                                            <button
+                                                className={'save-button'}
+                                                type="submit"
+                                            >
+                                                Save
+                                            </button>
                                         </div>
                                     </form>
                                 }
