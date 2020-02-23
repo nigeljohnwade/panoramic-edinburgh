@@ -1,82 +1,74 @@
-import React, {
-    useEffect,
-    useState,
-} from 'react';
-import {
-    Map,
-    Marker,
-    Popup,
-    TileLayer
-} from 'react-leaflet';
+import React, { useEffect, useState, } from 'react';
+import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 import MapHUD from 'components/organisms/MapHUD';
-
-const markerPositionArray = (position, count, areaSize, scale) => {
-    let returnArray = [];
-    for (let i = 0; i < count; i++) {
-        returnArray.push([
-            position[0] + ((Math.random() * areaSize) - (areaSize / 2)) / scale,
-            position[1] + ((Math.random() * areaSize) - (areaSize / 2)) / scale,
-        ]);
-    }
-    return returnArray;
-};
 
 export const LeafletMap = ({
     accessToken,
     attribution,
     id,
-    markersArray = markerPositionArray([55.950, -3.19], 15, 7, 100),
+    markersArray,
     position = [55.950, -3.19],
     tileLayerUrl,
     zoom = 13,
 }) => {
-    const [markers, setMarkers] = useState(markersArray);
+    const [markers,] = useState(markersArray);
+    const [events, setEvents] = useState({
+        load: 0,
+        tileunload: 0,
+        tileload: 0,
+        tileloadstart: 0,
+        loading: 0,
+        mousemove: 0,
+    });
 
     useEffect(() => {
-        setMarkers(markersArray);
-    }, [markersArray]);
+        console.log(events);
+    }, [events]);
+
+    const eventHandler = (e) => {
+        console.log(e.type);
+        setEvents({...events, [e.type]: events[e.type] + 1});
+    };
 
     return (
         <>
             <div className="map-wrapper">
-
                 <Map
                     center={position}
                     zoom={zoom}
-                    onMousemove={e => console.log(e)}
+                    onMousemove={e => eventHandler(e)}
                 >
                     <TileLayer
                         attribution={attribution}
                         url={tileLayerUrl}
                         accessToken={accessToken}
                         id={id}
-                        onload={e => console.log(e)}
-                        ontileunload={e => console.log(e)}
-                        ontileload={e => console.log(e)}
-                        ontileerror={e => console.log(e)}
-                        ontileloadstart={e => console.log(e)}
-                        onloading={e => console.log(e)}
+                        onload={e => eventHandler(e)}
+                        ontileunload={e => eventHandler(e)}
+                        ontileload={e => eventHandler(e)}
+                        ontileloadstart={e => eventHandler(e)}
+                        onloading={e => eventHandler(e)}
                     />
                     {
                         markers && markers.map((item, index) => {
-                            return (
-                                <Marker
-                                    key={index}
-                                    position={item}
-                                >
-                                    <Popup>
-                                        A random marker popup ({index}) at
-                                longitude: {item[1].toFixed(6)}, and
-                                latitude: {item[0].toFixed(6)}.
-                            </Popup>
-                                </Marker>);
-                        }
+                                return (
+                                    <Marker
+                                        key={index}
+                                        position={item}
+                                    >
+                                        <Popup>
+                                            A random marker popup ({index}) at
+                                            longitude: {item[1].toFixed(6)}, and
+                                            latitude: {item[0].toFixed(6)}.
+                                        </Popup>
+                                    </Marker>);
+                            }
                         )
                     }
                 </Map>
+                <MapHUD events={events}/>
             </div>
-            <MapHUD />
         </>
     );
 };
