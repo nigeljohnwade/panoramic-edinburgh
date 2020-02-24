@@ -8,7 +8,6 @@ const Header = lazy(() => import('components/organisms/Header'));
 const Interference = lazy(() => import('components/organisms/Interference'));
 const ViewResourcesByOwner = lazy(() => import('components/pages/ViewResourcesByOwner'));
 const CreateResource = lazy(() => import('components/pages/CreateResource'));
-const ViewResources = lazy(() => import('components/pages/ViewResources'));
 const ViewResourcesByType = lazy(() => import('components/pages/ViewResourcesByType'));
 const ViewResource = lazy(() => import('components/pages/ViewResource'));
 const EditResource = lazy(() => import('components/pages/EditResource'));
@@ -47,11 +46,6 @@ const Routes = () => {
                     />
                 </Suspense>
             </Route>
-            <Route path='/view-resources'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResources />
-                </Suspense>
-            </Route>
             <Route path='/view-sites'>
                 <Suspense fallback={<Fetching />}>
                     <ViewResourcesByType type='SITE' />
@@ -76,7 +70,6 @@ const Routes = () => {
                 exact
                 path={[
                     '/user/:username/view-resource/:id',
-                    '/view-resources/view-resource/:id',
                     '/view-sites/view-resource/:id',
                     '/view-panoramas/view-resource/:id',
                     '/view-journeys/view-resource/:id',

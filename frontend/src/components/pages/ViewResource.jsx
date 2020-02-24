@@ -42,7 +42,7 @@ const ViewResource = ({
                 <>
                     <Link
                         className='button panel-close-link'
-                        to='/view-resources'
+                        to={`${pathname.split('/').slice(0, -2).join('/')}`}
                     >
                         Close
                     </Link>

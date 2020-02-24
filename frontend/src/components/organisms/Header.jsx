@@ -50,15 +50,6 @@ export const Header = () => {
             <NavLink
                 activeClassName={'active-link'}
                 className="link"
-                to="/view-resources"
-            >
-                <span>
-                    View Resources
-                </span>
-            </NavLink>
-            <NavLink
-                activeClassName={'active-link'}
-                className="link"
                 to="/view-panoramas"
             >
                 <span>
