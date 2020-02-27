@@ -17,12 +17,12 @@ import SelectGroup from '../molecules/SelectGroup';
 const formStateReducer = (state, action) => {
     switch (action.type) {
         case 'onChangeStringValue':
-            return {...state, [action.payload.name]: action.payload.value};
-        case 'setState':{
-            return {...action.payload}
+            return { ...state, [action.payload.name]: action.payload.value };
+        case 'setState': {
+            return { ...action.payload }
         }
-        case 'mergeState':{
-            return {...state, ...action.payload}
+        case 'mergeState': {
+            return { ...state, ...action.payload }
         }
         default:
             return state;
@@ -42,6 +42,7 @@ const initialArg = {
 
 const EditResource = ({
     match,
+    location: { pathname },
 }) => {
     const [resource, setResource] = useState(null);
     const [formState, dispatchFormState] = useReducer(formStateReducer, initialArg);
@@ -56,7 +57,7 @@ const EditResource = ({
             : setResource(null);
     }, [id]);
 
-    useEffect(() =>{
+    useEffect(() => {
         dispatchFormState({
             type: 'setState',
             payload: {
@@ -82,7 +83,7 @@ const EditResource = ({
                 <>
                     <Link
                         className='button panel-close-link'
-                        to={`/view-resources/view-resource/${id}`}
+                        to={`${pathname.split('/').slice(0, -1).join('/')}`}
                     >
                         Cancel
                     </Link>
@@ -117,11 +118,11 @@ const EditResource = ({
                                             value={formState.type}
                                             onChange={(e) => changeHandlerString(e)}
                                             options={[
-                                                {value: '', label: 'Please select...'},
-                                                {value: 'PANORAMA', label: 'Panorama'},
-                                                {value: 'SITE', label: 'Site'},
-                                                {value: 'JOURNEY', label: 'Journey'},
-                                                {value: 'TOUR', label: 'Tour'},
+                                                { value: '', label: 'Please select...' },
+                                                { value: 'PANORAMA', label: 'Panorama' },
+                                                { value: 'SITE', label: 'Site' },
+                                                { value: 'JOURNEY', label: 'Journey' },
+                                                { value: 'TOUR', label: 'Tour' },
                                             ]}
                                         />
                                         <InputGroup
@@ -166,11 +167,11 @@ const EditResource = ({
                             </>
                             {
                                 fetching &&
-                                <Fetching/>
+                                <Fetching />
                             }
                             {
                                 completed &&
-                                <Redirect to={`/view-resources/view-resource/${id}`}/>
+                                <Redirect to={`/view-resources/view-resource/${id}`} />
                             }
                             <footer>
                                 <p> {resource.type}</p>
