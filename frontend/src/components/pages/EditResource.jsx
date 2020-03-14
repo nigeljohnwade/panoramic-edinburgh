@@ -9,12 +9,12 @@ import SelectGroup from '../molecules/SelectGroup';
 const formStateReducer = (state, action) => {
     switch (action.type) {
         case 'onChangeStringValue':
-            return {...state, [action.payload.name]: action.payload.value};
+            return { ...state, [action.payload.name]: action.payload.value };
         case 'setState': {
-            return {...action.payload};
+            return { ...action.payload };
         }
         case 'mergeState': {
-            return {...state, ...action.payload};
+            return { ...state, ...action.payload };
         }
         default:
             return state;
@@ -34,7 +34,7 @@ const initialArg = {
 
 const EditResource = ({
     match,
-    location: {pathname},
+    location: { pathname },
 }) => {
     const [resource, setResource] = useState(null);
     const [formState, dispatchFormState] = useReducer(formStateReducer, initialArg);
@@ -109,11 +109,11 @@ const EditResource = ({
                                         value={formState.type}
                                         onChange={(e) => changeHandlerString(e)}
                                         options={[
-                                            {value: '', label: 'Please select...'},
-                                            {value: 'PANORAMA', label: 'Panorama'},
-                                            {value: 'SITE', label: 'Site'},
-                                            {value: 'JOURNEY', label: 'Journey'},
-                                            {value: 'TOUR', label: 'Tour'},
+                                            { value: '', label: 'Please select...' },
+                                            { value: 'PANORAMA', label: 'Panorama' },
+                                            { value: 'SITE', label: 'Site' },
+                                            { value: 'JOURNEY', label: 'Journey' },
+                                            { value: 'TOUR', label: 'Tour' },
                                         ]}
                                     />
                                     <InputGroup
@@ -123,12 +123,12 @@ const EditResource = ({
                                         value={formState.shortText}
                                     />
                                     <div className='form-group input-group'>
-                                            <textarea
-                                                name='descriptiveText'
-                                                id='descriptiveText'
-                                                value={formState.descriptiveText}
-                                                onChange={(e) => changeHandlerString(e)}
-                                            />
+                                        <textarea
+                                            name='descriptiveText'
+                                            id='descriptiveText'
+                                            value={formState.descriptiveText}
+                                            onChange={(e) => changeHandlerString(e)}
+                                        />
                                         <label htmlFor='descriptiveText'>
                                             Descriptive Text
                                         </label>
@@ -158,11 +158,11 @@ const EditResource = ({
                         </>
                         {
                             fetching &&
-                            <Fetching/>
+                            <Fetching />
                         }
                         {
                             completed &&
-                            <Redirect to={`/view-resources/view-resource/${id}`}/>
+                            <Redirect to={`/view-resources/view-resource/${id}`} />
                         }
                         <footer>
                             <p> {resource.type}</p>

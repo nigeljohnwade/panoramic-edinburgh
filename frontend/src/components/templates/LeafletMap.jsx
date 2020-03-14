@@ -1,5 +1,11 @@
 import React, { useEffect, useState, } from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import {
+    Map,
+    Marker,
+    Popup,
+    TileLayer,
+    GeoJSON,
+} from 'react-leaflet';
 
 import MapHUD from 'components/organisms/MapHUD';
 
@@ -22,13 +28,31 @@ export const LeafletMap = ({
         mousemove: 0,
     });
 
-    useEffect(() => {
-        console.log(events);
-    }, [events]);
+    const geojsonFeature = {
+        "type": "FeatureCollection",
+        "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+
+        "features": [{
+            "type": "Feature",
+            "properties": {
+                "name": "Coors Field",
+                "amenity": "Baseball Stadium",
+                "popupContent": "This is where the Rockies play!"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [55.950, -3.19],
+                    [56.90, -4.19]
+                ]
+            }
+        }
+        ]
+    };
 
     const eventHandler = (e) => {
         console.log(e.type);
-        setEvents({...events, [e.type]: events[e.type] + 1});
+        setEvents({ ...events, [e.type]: events[e.type] + 1 });
     };
 
     return (
@@ -50,24 +74,27 @@ export const LeafletMap = ({
                         ontileloadstart={e => eventHandler(e)}
                         onloading={e => eventHandler(e)}
                     />
+                    <GeoJSON
+                        data={geojsonFeature}
+                    />
                     {
                         markers && markers.map((item, index) => {
-                                return (
-                                    <Marker
-                                        key={index}
-                                        position={item}
-                                    >
-                                        <Popup>
-                                            A random marker popup ({index}) at
+                            return (
+                                <Marker
+                                    key={index}
+                                    position={item}
+                                >
+                                    <Popup>
+                                        A random marker popup ({index}) at
                                             longitude: {item[1].toFixed(6)}, and
                                             latitude: {item[0].toFixed(6)}.
                                         </Popup>
-                                    </Marker>);
-                            }
+                                </Marker>);
+                        }
                         )
                     }
                 </Map>
-                <MapHUD events={events}/>
+                <MapHUD events={events} />
             </div>
         </>
     );
