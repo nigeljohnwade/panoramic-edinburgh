@@ -1,4 +1,4 @@
-@import './styles/fonts.css';
+@import 'fonts.css';
 
 :root {
     --very-light-grey: #f1f0f0;
@@ -28,13 +28,24 @@ html, body {
     height: 100%;
 }
 
-html,
-body,
-input,
-textarea,
-select,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
 button{
     font-family: "Eurostile Next LT W04 Regular", sans-serif;
+}
+
+html,
+body,
+p,
+input,
+textarea,
+select{
+    font-family: "Univers Next W01", sans-serif;
 }
 
 ul{
@@ -65,23 +76,28 @@ body {
     font-family: "Eurostile Next LT W04 Semibold", sans-serif;
 }
 
-.h1 {
+.h1,
+h1{
     font-size: 3.177rem;
 }
 
-.h2 {
+.h2,
+h2{
     font-size: 2.618rem;
 }
 
-.h3 {
+.h3,
+h3{
     font-size: 1.963rem;
 }
 
-.h4 {
+.h4,
+h4{
     font-size: 1.618rem;
 }
 
-.h5 {
+.h5,
+h5{
     font-size: 1.214rem;
 }
 
@@ -143,6 +159,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* Cards and Panels */
 .panel {
     position: relative;
     display: flex;
@@ -150,7 +167,6 @@ body {
     padding: 0.5rem;
 }
 
-/* Card */
 .card {
     display: flex;
     height: 100%;
@@ -199,9 +215,13 @@ body {
     background-color: var(--mid-transparent-white);
 }
 
-.card-footer {
+.card-footer, .panel-footer {
     border-top: var(--light-grey) 1px solid;
     font-family: "Eurostile Next W04 Cn SemiBd I", sans-serif;
+}
+
+.card-footer p, .panel-footer p{
+    font-family: inherit;
 }
 
 /* Forms */
@@ -219,6 +239,7 @@ button, .button {
     min-width: 5rem;
     font-size: 1rem;
     text-align: center;
+    font-family: "Eurostile Next LT W04 Regular", sans-serif;
 }
 
 .delete-button{

@@ -55,7 +55,7 @@ const ViewResourcesByOwner = ({
                             <CardContent>
                                 <CardHeader>
                                     <Link to={`${location.pathname}/view-resource/${item.id}`}>
-                                        <h3 className='h4'>{item.title}</h3>
+                                        <h3 className='h4'>{item.title || 'No title'}</h3>
                                     </Link>
                                 </CardHeader>
                                 <CardBody>
@@ -70,7 +70,7 @@ const ViewResourcesByOwner = ({
                                     }
                                 </CardBody>
                                 <CardFooter>
-                                    <p>{item.type}</p>
+                                    <p className={'h5'}>{item.type}</p>
                                 </CardFooter>
                             </CardContent>
                         </Card>

@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, } from 'react';
 import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import { accessToken } from './config/mapbox';
-import { attribution, HeadsUp, PanoramicEdinburghId, url, } from './config/mapbox-styles';
+import { HeadsUp, PanoramicEdinburgh } from './config/mapbox-styles';
 import Fetching from './components/organisms/Fetching';
 
 const Header = lazy(() => import('components/organisms/Header'));
@@ -11,7 +11,6 @@ const CreateResource = lazy(() => import('components/pages/CreateResource'));
 const ViewResourcesByType = lazy(() => import('components/pages/ViewResourcesByType'));
 const ViewResource = lazy(() => import('components/pages/ViewResource'));
 const EditResource = lazy(() => import('components/pages/EditResource'));
-const LeafletMap = lazy(() => import('components/templates/LeafletMap'));
 const MapboxMap = lazy(() => import('./components/templates/MapboxMap'));
 
 
@@ -28,21 +27,11 @@ const Routes = () => {
                     <ViewResourcesByOwner />
                 </Suspense>
             </Route>
-            <Route path='/leaflet-map'>
-                <Suspense fallback={<Fetching />}>
-                    <LeafletMap
-                        accessToken={accessToken}
-                        id={PanoramicEdinburghId}
-                        attribution={attribution}
-                        tileLayerUrl={url}
-                    />
-                </Suspense>
-            </Route>
             <Route path='/mapbox-map'>
                 <Suspense fallback={<Fetching />}>
                     <MapboxMap
                         accessToken={accessToken}
-                        style={HeadsUp}
+                        style={PanoramicEdinburgh}
                     />
                 </Suspense>
             </Route>

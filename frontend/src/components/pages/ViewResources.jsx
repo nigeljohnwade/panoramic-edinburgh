@@ -77,7 +77,7 @@ const ViewResources = ({
                                     }
                                 </CardBody>
                                 <CardFooter>
-                                    <p>{item.type}</p>
+                                    <p className={'h5'}>{item.type}</p>
                                 </CardFooter>
                             </CardContent>
                         </Card>

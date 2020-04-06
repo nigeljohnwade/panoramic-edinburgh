@@ -93,7 +93,7 @@ const ViewResource = ({
                                     src={target360_8192x4096}
                                 />
                             </div>
-                            <footer>
+                            <footer className={'panel-footer'}>
                                 <p>{resource.type}</p>
                             </footer>
                         </article>

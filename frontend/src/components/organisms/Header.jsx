@@ -92,15 +92,6 @@ export const Header = () => {
                     View Mapbox Map
                 </span>
             </NavLink>
-            <NavLink
-                activeClassName={'active-link'}
-                className="link"
-                to="/leaflet-map"
-            >
-                <span>
-                    View Leaflet Map
-                </span>
-            </NavLink>
         </header>
     );
 };

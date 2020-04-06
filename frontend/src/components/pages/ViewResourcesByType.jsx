@@ -64,7 +64,7 @@ const ViewResourcesByType = ({
                             <CardContent>
                                 <CardHeader>
                                     <Link to={`${location.pathname}/view-resource/${item.id}`}>
-                                        <h3 className='h4'>{item.title}</h3>
+                                        <h3 className='h4'>{item.title || 'No title'}</h3>
                                     </Link>
                                 </CardHeader>
                                 <CardBody>
