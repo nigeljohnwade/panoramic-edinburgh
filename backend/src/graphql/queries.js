@@ -15,38 +15,6 @@ export const getResource = /* GraphQL */ `
       latitude
       longitude
       elevation
-      childResources {
-        id
-        type
-        title
-        shortText
-        descriptiveText
-        primaryImageUrl
-        sourceImageUrl
-        panoramicImageUrl
-        latitude
-        longitude
-        elevation
-        childResources {
-          id
-          type
-          title
-          shortText
-          descriptiveText
-          primaryImageUrl
-          sourceImageUrl
-          panoramicImageUrl
-          latitude
-          longitude
-          elevation
-          createdAt
-          updatedAt
-          owner
-        }
-        createdAt
-        updatedAt
-        owner
-      }
       createdAt
       updatedAt
       owner
@@ -72,22 +40,6 @@ export const listResources = /* GraphQL */ `
         latitude
         longitude
         elevation
-        childResources {
-          id
-          type
-          title
-          shortText
-          descriptiveText
-          primaryImageUrl
-          sourceImageUrl
-          panoramicImageUrl
-          latitude
-          longitude
-          elevation
-          createdAt
-          updatedAt
-          owner
-        }
         createdAt
         updatedAt
         owner
@@ -123,22 +75,6 @@ export const resourceByType = /* GraphQL */ `
         latitude
         longitude
         elevation
-        childResources {
-          id
-          type
-          title
-          shortText
-          descriptiveText
-          primaryImageUrl
-          sourceImageUrl
-          panoramicImageUrl
-          latitude
-          longitude
-          elevation
-          createdAt
-          updatedAt
-          owner
-        }
         createdAt
         updatedAt
         owner
@@ -176,22 +112,6 @@ export const resourceByOwnerByDateUpdated = /* GraphQL */ `
         latitude
         longitude
         elevation
-        childResources {
-          id
-          type
-          title
-          shortText
-          descriptiveText
-          primaryImageUrl
-          sourceImageUrl
-          panoramicImageUrl
-          latitude
-          longitude
-          elevation
-          createdAt
-          updatedAt
-          owner
-        }
         createdAt
         updatedAt
         owner

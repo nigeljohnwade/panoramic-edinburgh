@@ -10,6 +10,11 @@
             "StackName": "amplify-backend-dev-133617",
             "StackId": "arn:aws:cloudformation:eu-west-1:112531233990:stack/amplify-backend-dev-133617/c962e900-57d3-11ea-87f5-0ae12681c23c",
             "AmplifyAppId": "d6rcddlf8y4xq"
+        },
+        "categories": {
+            "auth": {
+                "backend0ab97a14": {}
+            }
         }
     }
 }
