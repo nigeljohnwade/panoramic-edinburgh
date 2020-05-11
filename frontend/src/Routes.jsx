@@ -4,6 +4,8 @@ import { accessToken } from './config/mapbox';
 import { HeadsUp, PanoramicEdinburgh } from './config/mapbox-styles';
 import Fetching from './components/organisms/Fetching';
 
+import HeaderSkeleton from './components/organisms/HeaderSkeleton';
+import ContentSkeleton from './components/organisms/ContentSkeleton';
 const Header = lazy(() => import('components/organisms/Header'));
 const Interference = lazy(() => import('components/organisms/Interference'));
 const ViewResourcesByOwner = lazy(() => import('components/pages/ViewResourcesByOwner'));
@@ -18,7 +20,7 @@ const Routes = () => {
     return (
         <Router>
             <Route path='/'>
-                <Suspense fallback={<Fetching />}>
+                <Suspense fallback={<HeaderSkeleton />}>
                     <Header />
                 </Suspense>
             </Route>
@@ -36,22 +38,22 @@ const Routes = () => {
                 </Suspense>
             </Route>
             <Route path='/view-sites'>
-                <Suspense fallback={<Fetching />}>
+                <Suspense fallback={<ContentSkeleton />}>
                     <ViewResourcesByType type='SITE' />
                 </Suspense>
             </Route>
             <Route path='/view-panoramas'>
-                <Suspense fallback={<Fetching />}>
+                <Suspense fallback={<ContentSkeleton />}>
                     <ViewResourcesByType type='PANORAMA' />
                 </Suspense>
             </Route>
             <Route path='/view-tours'>
-                <Suspense fallback={<Fetching />}>
+                <Suspense fallback={<ContentSkeleton />}>
                     <ViewResourcesByType type='TOUR' />
                 </Suspense>
             </Route>
             <Route path='/view-journeys'>
-                <Suspense fallback={<Fetching />}>
+                <Suspense fallback={<ContentSkeleton />}>
                     <ViewResourcesByType type='JOURNEY' />
                 </Suspense>
             </Route>
@@ -90,7 +92,7 @@ const Routes = () => {
                 </Suspense>
             </Route>
             <Route path='/'>
-                <Suspense fallback={<Fetching />}>
+                <Suspense fallback={<div />}>
                     <Interference />
                 </Suspense>
             </Route>
