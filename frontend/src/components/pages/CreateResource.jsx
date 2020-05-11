@@ -90,13 +90,13 @@ const CreateResource = () => {
                         </label>
                     </div>
                     <InputGroup
-                        field={'lat'}
+                        field={'latitude'}
                         label={'Latitude'}
                         onChange={(e) => changeHandlerString(e)}
                         value={formState.lat}
                     />
                     <InputGroup
-                        field={'lng'}
+                        field={'longitude'}
                         label={'Longitude'}
                         onChange={(e) => changeHandlerString(e)}
                         value={formState.lng}
