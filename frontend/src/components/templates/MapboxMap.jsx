@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ReactMapboxGl, { Feature, Layer, Marker, Popup } from 'react-mapbox-gl';
+import ReactMapboxGl, { Feature, Layer, Popup } from 'react-mapbox-gl';
 import apiCalls from '../../api/utilities';
 
 
@@ -33,7 +33,7 @@ export const MapboxMap = ({
                 width: 'calc(100vw - 6rem)',
             }}
             onMouseMove={(a, b) => {
-                console.log(a, b);
+                // console.log(a, b);
             }}
             zoom={zoom}
         >
@@ -44,23 +44,37 @@ export const MapboxMap = ({
                 <Feature coordinates={[lng, lat]}/>
             </Layer>
             <Popup
+                className={'eurostile'}
                 coordinates={[lng, lat]}
             >
-                A pretty CSS3 popup. <br/> Easily customizable.
+                <p className={'h4'}>Centre</p>
+                <p className={'readout'}>
+                    <span className="readout-label">Latitude:</span>
+                    <span className="tabular-numbers">{lat}</span>
+                </p>
+                <p className={'readout'}>
+                    <span className="readout-label">Longitude:</span>
+                    <span className="tabular-numbers">{lng}</span>
+                </p>
             </Popup>
             {
                 resources && resources.map(item => (
-                    <div key={item.id} >
-                        <Marker
-                            coordinates={[item.latitude, item.longitude]}
-                            anchor="bottom"
-                        >
-                            <div style={{backgroundColor: 'black', width: '100px', height: '100px'}}/>
-                        </Marker>
+                    <div key={item.id}>
                         <Popup
                             coordinates={[item.latitude, item.longitude]}
                         >
-                            A pretty CSS3 popup. <br/> Easily customizable.
+                            <div className={'eurostile'}>
+                                <p className={'h4'}>{item.title}</p>
+                                <p>{item.description}</p>
+                                <p className={'readout'}>
+                                    <span className="readout-label">Latitude:</span>
+                                    <span className="tabular-numbers">{item.latitude}</span>
+                                </p>
+                                <p className={'readout'}>
+                                    <span className="readout-label">Longitude:</span>
+                                    <span className="readout-value tabular-numbers">{item.longitude}</span>
+                                </p>
+                            </div>
                         </Popup>
                     </div>
                 ))

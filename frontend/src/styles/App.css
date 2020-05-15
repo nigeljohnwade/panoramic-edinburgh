@@ -28,47 +28,35 @@ html, body {
     height: 100%;
 }
 
+
+label,
+button,
+.eurostile body,
+.eurostile input,
+.eurostile textarea,
+.eurostile select,
+.eurostile{
+    font-family: "Eurostile Next LT W04 Regular", sans-serif;
+}
+
+html,
+body,
+input,
+textarea,
+select,
+.univers label,
+.univers button,
+.univers{
+    font-family: "Univers Next W01", sans-serif;
+}
+
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-label,
-button {
-    font-family: "Eurostile Next LT W04 Regular", sans-serif;
-}
-
-html,
-body,
-p,
-input,
-textarea,
-select {
-    font-family: "Univers Next W01", sans-serif;
-}
-
-ul {
-    list-style-type: none;
-}
-
-img {
-    display: block;
-}
-
-button,
-input,
-select,
-textarea {
-    border: none;
-}
-
-body {
-    background-color: var(--light-grey);
-    color: var(--black);
-    font-size: 1rem;
-}
-
 .h1,
 .h2,
 .h3,
@@ -90,17 +78,30 @@ h2 {
 .h3,
 h3 {
     font-size: 1.963rem;
+    line-height: 2.618rem;
 }
 
 .h4,
 h4 {
+    padding-top: 0.382rem;
     font-size: 1.618rem;
+    line-height: 2.618rem;
+    font-feature-settings: "smcp";
 }
 
 .h5,
 h5 {
     font-size: 1.214rem;
+    line-height: 1.5rem;
+    font-feature-settings: "smcp";
 }
+
+p,
+.p{
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
 
 .bigger {
     font-size: 1.214em;
@@ -109,6 +110,32 @@ h5 {
 .smaller {
     font-size: .75em;
 }
+
+.tabular-numbers{
+    font-feature-settings: "tnum";
+}
+
+ul {
+    list-style-type: none;
+}
+
+img {
+    display: block;
+}
+
+button,
+input,
+select,
+textarea {
+    border: none;
+}
+
+body {
+    background-color: var(--light-grey);
+    color: var(--black);
+    font-size: var(--body-copy);
+}
+
 
 /* Layout */
 /* Stack classes from, https://every-layout.dev */
@@ -442,6 +469,14 @@ button, .button {
     text-transform: uppercase;
 }
 
+/* Readout, label value pairs outside forms */
+
+.readout{
+    min-width: 22ch;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Interference */
 
 .interference {
@@ -452,6 +487,7 @@ button, .button {
     background-size: 400% 400%, 25% 100%;
     animation: Interference 16s ease infinite, Interference 8s linear infinite;
     pointer-events: none;
+    opacity: 0.1;
 }
 
 @keyframes Interference {
