@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ReactMapboxGl, { Feature, Layer, Popup } from 'react-mapbox-gl';
+import ReactMapboxGl, { Feature, Layer, Popup, ZoomControl, ScaleControl, RotationControl } from 'react-mapbox-gl';
 import apiCalls from '../../api/utilities';
 
 
@@ -32,11 +32,16 @@ export const MapboxMap = ({
                 height: '100vh',
                 width: 'calc(100vw - 6rem)',
             }}
-            onMouseMove={(a, b) => {
-                // console.log(a, b);
+            onClick={(a, b) => {
+                console.log(a, b);
             }}
             zoom={zoom}
         >
+            <ZoomControl/>
+            <ScaleControl measurement={'mi'}/>
+            <RotationControl style={{
+                height: '20rem'
+            }}/>
             <Layer
                 type="circle"
                 id="marker"
