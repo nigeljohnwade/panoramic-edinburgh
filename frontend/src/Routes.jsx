@@ -67,6 +67,7 @@ const Routes = () => {
                     '/view-panoramas/view-resource/:id',
                     '/view-journeys/view-resource/:id',
                     '/view-tours/view-resource/:id',
+                    '/mapbox-map/view-resource/:id',
                 ]}
             >
                 <Suspense fallback={<Fetching/>}>

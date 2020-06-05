@@ -14,6 +14,7 @@
     --success: #1d6b1a;
     --warning: #d16f23;
     --danger: #e72323;
+    --default-rotation-speed: 16s
 }
 
 * {
@@ -501,5 +502,24 @@ button, .button {
         background-position: 19% 0, 100% 0;
         /*background-size: 400% 400%, 50% 50%;*/
     }
+}
+
+/* Rotation */
+
+.rotate{
+    animation-name: Rotate;
+    animation-duration: var(--default-rotation-speed);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes Rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+
 }
 

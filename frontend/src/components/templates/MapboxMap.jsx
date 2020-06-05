@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import ReactMapboxGl, { Feature, Layer, Popup, ZoomControl, ScaleControl, RotationControl } from 'react-mapbox-gl';
-import apiCalls from '../../api/utilities';
+import ReactMapboxGl, { Feature, Layer, Marker, RotationControl, ScaleControl, ZoomControl } from 'react-mapbox-gl';
+import { Link } from 'react-router-dom';
 
+import apiCalls from '../../api/utilities';
+import Crosshairs from '../../resources/svg/crosshairs.svg';
 
 export const MapboxMap = ({
     accessToken,
@@ -39,48 +41,52 @@ export const MapboxMap = ({
         >
             <ZoomControl/>
             <ScaleControl measurement={'mi'}/>
-            <RotationControl style={{
-                height: '20rem'
-            }}/>
+            <RotationControl
+                style={{
+                    height: '20rem'
+                }}
+            />
             <Layer
                 type="circle"
                 id="marker"
             >
                 <Feature coordinates={[lng, lat]}/>
             </Layer>
-            <Popup
-                className={'eurostile'}
-                coordinates={[lng, lat]}
-            >
-                <p className={'h4'}>Centre</p>
-                <p className={'readout'}>
-                    <span className="readout-label">Latitude:</span>
-                    <span className="tabular-numbers">{lat}</span>
-                </p>
-                <p className={'readout'}>
-                    <span className="readout-label">Longitude:</span>
-                    <span className="tabular-numbers">{lng}</span>
-                </p>
-            </Popup>
             {
                 resources && resources.map(item => (
                     <div key={item.id}>
-                        <Popup
+                        <Marker
                             coordinates={[item.latitude, item.longitude]}
+                            anchor="center"
                         >
-                            <div className={'eurostile'}>
-                                <p className={'h4'}>{item.title}</p>
-                                <p>{item.description}</p>
-                                <p className={'readout'}>
-                                    <span className="readout-label">Latitude:</span>
-                                    <span className="tabular-numbers">{item.latitude}</span>
-                                </p>
-                                <p className={'readout'}>
-                                    <span className="readout-label">Longitude:</span>
-                                    <span className="readout-value tabular-numbers">{item.longitude}</span>
+                            <div
+                                style={{
+                                    position: 'relative',
+                                }}
+                            >
+                                <img
+                                    className={'rotate'}
+                                    src={Crosshairs}
+                                    style={{
+                                        width: 'calc(var(--base-unit) * 3)',
+                                        animationDuration: `${(Math.random() * 16) + 8}s`
+                                    }}
+                                />
+                                <p
+                                    className={'h4'}
+                                    style={{
+                                        position: 'absolute',
+                                        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                                        minWidth: '20ch',
+                                        padding: 'var(--base-unit)',
+                                    }}
+                                >
+                                    <Link to={`/mapbox-map/view-resource/${item.id}`}>
+                                        {item.title}
+                                    </Link>
                                 </p>
                             </div>
-                        </Popup>
+                        </Marker>
                     </div>
                 ))
             }
