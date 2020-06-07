@@ -4,6 +4,23 @@ import { Link } from 'react-router-dom';
 
 import apiCalls from '../../api/utilities';
 import Crosshairs from '../../resources/svg/crosshairs.svg';
+import MapMarker from '../../resources/svg/map-marker.svg';
+import MapMarkerPath from '../../resources/svg/map-marker-path.svg';
+import Rotate3D from '../../resources/svg/rotate-3d.svg';
+
+const getIconByType = (type) =>{
+  switch (type){
+      case 'JOURNEY':
+          return MapMarkerPath;
+      case 'SITE':
+          return MapMarker;
+      case 'PANORAMA':
+      case 'TOUR':
+          return Rotate3D;
+      default:
+          return Crosshairs;
+  }
+};
 
 export const MapboxMap = ({
     accessToken,
@@ -65,12 +82,11 @@ export const MapboxMap = ({
                                 }}
                             >
                                 <img
-                                    className={'rotate'}
-                                    src={Crosshairs}
+                                    src={getIconByType(item.type)}
                                     style={{
                                         width: 'calc(var(--base-unit) * 3)',
-                                        animationDuration: `${(Math.random() * 16) + 8}s`
                                     }}
+                                    alt=""
                                 />
                                 <p
                                     className={'h4'}

@@ -18,7 +18,7 @@ const ContentSkeleton = () => {
                         <Card>
                             <CardContent>
                                 <CardHeader>
-                                        <h3 className='h4'></h3>
+                                        <p className='h4'></p>
                                 </CardHeader>
                                 <CardBody>
                                 </CardBody>
