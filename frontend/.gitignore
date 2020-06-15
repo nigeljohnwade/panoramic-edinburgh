@@ -34,4 +34,4 @@ aws-exports.js
 awsconfiguration.json
 
 #app
-config/mapbox.js
+src/config/mapbox.js
