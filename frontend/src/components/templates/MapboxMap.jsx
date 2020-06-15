@@ -3,23 +3,23 @@ import ReactMapboxGl, { Feature, Layer, Marker, RotationControl, ScaleControl, Z
 import { Link } from 'react-router-dom';
 
 import apiCalls from '../../api/utilities';
-import Crosshairs from '../../resources/svg/crosshairs.svg';
-import MapMarker from '../../resources/svg/map-marker.svg';
-import MapMarkerPath from '../../resources/svg/map-marker-path.svg';
-import Rotate3D from '../../resources/svg/rotate-3d.svg';
+import Crosshairs from '../../components/atoms/icons/Crosshairs';
+import MapMarker from '../../components/atoms/icons/MapMarker';
+import MapMarkerPath from '../../components/atoms/icons/MapMarkerPath';
+import Rotate3D from '../../components/atoms/icons/Rotate3D';
 
-const getIconByType = (type) =>{
-  switch (type){
-      case 'JOURNEY':
-          return MapMarkerPath;
-      case 'SITE':
-          return MapMarker;
-      case 'PANORAMA':
-      case 'TOUR':
-          return Rotate3D;
-      default:
-          return Crosshairs;
-  }
+const getIconByType = (type) => {
+    switch (type) {
+        case 'JOURNEY':
+            return <MapMarkerPath/>;
+        case 'SITE':
+            return <MapMarker/>;
+        case 'PANORAMA':
+        case 'TOUR':
+            return <Rotate3D/>;
+        default:
+            return <Crosshairs/>;
+    }
 };
 
 export const MapboxMap = ({
@@ -81,13 +81,9 @@ export const MapboxMap = ({
                                     position: 'relative',
                                 }}
                             >
-                                <img
-                                    src={getIconByType(item.type)}
-                                    style={{
-                                        width: 'calc(var(--base-unit) * 3)',
-                                    }}
-                                    alt=""
-                                />
+                                <div style={{fontSize: '4rem'}}>
+                                    {getIconByType(item.type)}
+                                </div>
                                 <p
                                     className={'h4'}
                                     style={{
