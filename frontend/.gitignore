@@ -33,5 +33,7 @@ node_modules/
 aws-exports.js
 awsconfiguration.json
 
+#ide
+./idea
 #app
 src/config/mapbox.js
