@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Webfonts Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+	    body, textarea { font-family:Arial, Sans-Serif; line-height:1.6em; font-size:13px; }
+	    h1 { font-size:3em; }
+	    h2, h3 { color:#999; }
+	    .content { width:780px; margin: 20px auto 40px; }
+	    .demo { font-weight:bold; font-style:normal; color: #999 }
+	    .fontdisplay {font-size:2em;line-height:150%;margin: 10px 40px 0px 0px;}
+	    .guidelines { color:#333; }
+	    pre { padding:0 0 0 20px; }
+	    hr { border:0; border-bottom:1px solid #537094; margin:20px 0; }
+	    .link { color: #537094;text-decoration:none; font-weight:bold;}
+	    .uc {text-transform:uppercase}
+	    
+    </style>
+    <style type="text/css">
+
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=205efb33-caaf-438b-8f67-c69b4ee6cb46");
+    @font-face{
+        font-family:"Eurostile Next LT W04 Regular";
+        src:url("Fonts/0f8b424e-6433-44e1-bbdd-24be969c4137.woff2") format("woff2"),url("Fonts/a3ba277e-ed89-4e6e-9fcd-fe99bda90799.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next W04 Italic";
+        src:url("Fonts/3a987a21-188b-4aff-8540-37621399c81f.woff2") format("woff2"),url("Fonts/79f8477a-4093-4f0a-906c-f80416b1ef0f.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next LT W04 Semibold";
+        src:url("Fonts/01115754-faaa-4579-bc72-a3a0c6381962.woff2") format("woff2"),url("Fonts/bfada42a-66da-4fe9-9eea-efe41aec948e.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next W04 SemiBold It";
+        src:url("Fonts/4727a916-e15c-47fb-82f4-b90682794e72.woff2") format("woff2"),url("Fonts/43abea26-915d-4243-99cf-465434ef1b37.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next LT W04 Rg Cn";
+        src:url("Fonts/b0c84217-4d4b-437f-b55a-e4bbfc582f59.woff2") format("woff2"),url("Fonts/a6726aa3-f5a2-458c-8201-8cd7d140d478.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next W04 Condensed I";
+        src:url("Fonts/ce33491d-c120-4db6-9f59-8b1375b68c18.woff2") format("woff2"),url("Fonts/e1a1c991-4323-431c-9a02-7eb9e76e1d95.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next LT W04 SmBd Cn";
+        src:url("Fonts/72dd8dec-a7a5-4b02-94d7-f14eb022b6f1.woff2") format("woff2"),url("Fonts/b0bcb8c2-06c6-4795-aaa2-a3e1311fd1fb.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next W04 Cn SemiBd I";
+        src:url("Fonts/df0668d7-382b-46e5-81b9-cf990e327038.woff2") format("woff2"),url("Fonts/c9b9c95e-1bf2-419d-80b7-add356081776.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Univers Next W01 Medium";
+        src:url("Fonts/e8921ecc-af32-4c3d-9636-dd82b4225e40.woff2") format("woff2"),url("Fonts/20f7bd07-85c9-4687-ab29-0b87584842ff.woff") format("woff");
+    }
+    @font-face{
+        font-family:"UniversNextW01-MediumIt";
+        src:url("Fonts/8e26dc86-9708-4a36-89fb-a4416a5b9f5c.woff2") format("woff2"),url("Fonts/c3b66848-d40c-458a-a977-7398cb9c1c82.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Univers Next W01 Bold";
+        src:url("Fonts/043eef6e-81ef-483c-831c-7bfd6628554b.woff2") format("woff2"),url("Fonts/7b11912a-986d-462e-b88a-4a1758eb23f1.woff") format("woff");
+    }
+    @font-face{
+        font-family:"UniversNextW01-BoldItal";
+        src:url("Fonts/d6e22582-9f22-4c1c-8087-8444c3c03ca2.woff2") format("woff2"),url("Fonts/593b973b-bf84-480a-86ab-c7f15e05cb24.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Univers Next Typewriter W05 Rg";
+        src:url("Fonts/2099e282-5216-45bd-905c-b5180bdcf4eb.woff2") format("woff2"),url("Fonts/98e703a3-e4bd-4317-99af-cad588c28a76.woff") format("woff");
+    }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="demo">Fonts.com Web fonts</h1>
+        <p style="margin-top:-10px; font-size:1.5em;color:#666"><b>@font-face implementation instructions</b></p>
+        <hr />
+        <p class="uc">The fonts contained in this kit are:</p>
+        <div class="fontdisplay">
+<div style="font-family:'Univers Next W01 Bold';"> Univers® Next W01 630 Basic Bold </div>
+<div style="font-family:'UniversNextW01-BoldItal';"> Univers® Next W01 631 Basic Bold Italic </div>
+<div style="font-family:'Univers Next W01 Medium';"> Univers® Next W01 530 Basic Medium </div>
+<div style="font-family:'UniversNextW01-MediumIt';"> Univers® Next W01 531 Basic Medium Italic </div>
+<div style="font-family:'Eurostile Next LT W04 Regular';"> Eurostile® Next W04 Regular </div>
+<div style="font-family:'Eurostile Next LT W04 Semibold';"> Eurostile® Next W04 Semi Bold </div>
+<div style="font-family:'Eurostile Next LT W04 Rg Cn';"> Eurostile® Next W04 Condensed Regular </div>
+<div style="font-family:'Eurostile Next LT W04 SmBd Cn';"> Eurostile® Next W04 Condensed Semi Bold </div>
+<div style="font-family:'Eurostile Next W04 Cn SemiBd I';"> Eurostile® Next W04 Condensed Semi Bold Italic </div>
+<div style="font-family:'Eurostile Next W04 Condensed I';"> Eurostile® Next W04 Condensed Italic </div>
+<div style="font-family:'Eurostile Next W04 SemiBold It';"> Eurostile® Next W04 Semi Bold Italic </div>
+<div style="font-family:'Eurostile Next W04 Italic';"> Eurostile® Next W04 Italic </div>
+<div style="font-family:'Univers Next Typewriter W05 Rg';"> Univers® Next W05 430 Typewriter Regular </div>
+
+        </div>
+        <hr />
+        Click here for <a class="link uc" href="demo-async.htm">asynchronous</a> web fonts implementation
+        <hr />
+        <div class="guidelines">
+            <h2>CSS Implementation Guidelines</h2>
+            <p>You and any third party web font hosting service are responsible for ensuring that the font software in the self-hosting kit, in its original format, can only be used on the Web Sites for which the self-hosting kit was downloaded and cannot be used or referenced by any other web site. This includes, but is not limited to installing adequate technical protection measures that restrict the use and/or access to the font software, for instance by utilizing JavaScript or access control mechanism for cross-origin resource sharing and protecting against use on web sites other than the Web Sites for which the self-hosting kit was downloaded by restricting domain access only to such Web Sites. You must also retain the pageview tracking code on any Web Site that you self-host. In the event this Agreement terminates for any reason, the font software included with the self-hosting kit must be deleted from the server and all copies must be destroyed or returned to Monotype Imaging.</p>
+            <p>View <a class="link" href="http://www.fonts.com/info/legal/eula/web-fonts" target="_blank">"WEB FONT SOFTWARE" LICENSE AGREEMENT</a></p>
+            <p>Font file names have been obfuscated to protect the font software. You can identify font format based on file ending:</p>
+            <ul>
+                
+				
+				<li> Web Open Font Format (woff)</ li>
+                <li> Web Open Font Format version 2 (woff2)</li>
+                
+            </ul>
+            <p class="uc" style="margin: 20px 0px -20px;"><b>Copy and paste following code in head section of the page</b></p>
+            <hr />
+            <textarea style="width:830px; height:350px; border:1 #fff solid; background-color:#fcfcfc;"><style type="text/css">
+
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=205efb33-caaf-438b-8f67-c69b4ee6cb46");
+    @font-face{
+        font-family:"Eurostile Next LT W04 Regular";
+        src:url("Fonts/0f8b424e-6433-44e1-bbdd-24be969c4137.woff2") format("woff2"),url("Fonts/a3ba277e-ed89-4e6e-9fcd-fe99bda90799.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next W04 Italic";
+        src:url("Fonts/3a987a21-188b-4aff-8540-37621399c81f.woff2") format("woff2"),url("Fonts/79f8477a-4093-4f0a-906c-f80416b1ef0f.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next LT W04 Semibold";
+        src:url("Fonts/01115754-faaa-4579-bc72-a3a0c6381962.woff2") format("woff2"),url("Fonts/bfada42a-66da-4fe9-9eea-efe41aec948e.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next W04 SemiBold It";
+        src:url("Fonts/4727a916-e15c-47fb-82f4-b90682794e72.woff2") format("woff2"),url("Fonts/43abea26-915d-4243-99cf-465434ef1b37.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next LT W04 Rg Cn";
+        src:url("Fonts/b0c84217-4d4b-437f-b55a-e4bbfc582f59.woff2") format("woff2"),url("Fonts/a6726aa3-f5a2-458c-8201-8cd7d140d478.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next W04 Condensed I";
+        src:url("Fonts/ce33491d-c120-4db6-9f59-8b1375b68c18.woff2") format("woff2"),url("Fonts/e1a1c991-4323-431c-9a02-7eb9e76e1d95.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next LT W04 SmBd Cn";
+        src:url("Fonts/72dd8dec-a7a5-4b02-94d7-f14eb022b6f1.woff2") format("woff2"),url("Fonts/b0bcb8c2-06c6-4795-aaa2-a3e1311fd1fb.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Eurostile Next W04 Cn SemiBd I";
+        src:url("Fonts/df0668d7-382b-46e5-81b9-cf990e327038.woff2") format("woff2"),url("Fonts/c9b9c95e-1bf2-419d-80b7-add356081776.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Univers Next W01 Medium";
+        src:url("Fonts/e8921ecc-af32-4c3d-9636-dd82b4225e40.woff2") format("woff2"),url("Fonts/20f7bd07-85c9-4687-ab29-0b87584842ff.woff") format("woff");
+    }
+    @font-face{
+        font-family:"UniversNextW01-MediumIt";
+        src:url("Fonts/8e26dc86-9708-4a36-89fb-a4416a5b9f5c.woff2") format("woff2"),url("Fonts/c3b66848-d40c-458a-a977-7398cb9c1c82.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Univers Next W01 Bold";
+        src:url("Fonts/043eef6e-81ef-483c-831c-7bfd6628554b.woff2") format("woff2"),url("Fonts/7b11912a-986d-462e-b88a-4a1758eb23f1.woff") format("woff");
+    }
+    @font-face{
+        font-family:"UniversNextW01-BoldItal";
+        src:url("Fonts/d6e22582-9f22-4c1c-8087-8444c3c03ca2.woff2") format("woff2"),url("Fonts/593b973b-bf84-480a-86ab-c7f15e05cb24.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Univers Next Typewriter W05 Rg";
+        src:url("Fonts/2099e282-5216-45bd-905c-b5180bdcf4eb.woff2") format("woff2"),url("Fonts/98e703a3-e4bd-4317-99af-cad588c28a76.woff") format("woff");
+    }
+
+</style>
+
+</textarea>
+            <h3>Licensing information should be included within the CSS</h3>
+<pre>/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web Fonts:  http://www.fonts.com
+*/</pre>
+        </div>
+    </div>
+</body>
+</html>
