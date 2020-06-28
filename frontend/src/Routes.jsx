@@ -1,9 +1,13 @@
 import React, { lazy, Suspense, } from 'react';
 import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import { accessToken } from './config/mapbox';
-import { attribution, HeadsUp, PanoramicEdinburghId, url, } from './config/mapbox-styles';
+import { PanoramicEdinburgh } from './config/mapbox-styles';
 import Fetching from './components/organisms/Fetching';
 
+import HeaderSkeleton from './components/organisms/HeaderSkeleton';
+import ContentSkeleton from './components/organisms/ContentSkeleton';
+
+const Home =lazy(()=> import('components/templates/Home'));
 const Header = lazy(() => import('components/organisms/Header'));
 const Interference = lazy(() => import('components/organisms/Interference'));
 const ViewResourcesByOwner = lazy(() => import('components/pages/ViewResourcesByOwner'));
@@ -11,7 +15,6 @@ const CreateResource = lazy(() => import('components/pages/CreateResource'));
 const ViewResourcesByType = lazy(() => import('components/pages/ViewResourcesByType'));
 const ViewResource = lazy(() => import('components/pages/ViewResource'));
 const EditResource = lazy(() => import('components/pages/EditResource'));
-const LeafletMap = lazy(() => import('components/templates/LeafletMap'));
 const MapboxMap = lazy(() => import('./components/templates/MapboxMap'));
 
 
@@ -19,51 +22,41 @@ const Routes = () => {
     return (
         <Router>
             <Route path='/'>
-                <Suspense fallback={<Fetching />}>
-                    <Header />
+                <Suspense fallback={<HeaderSkeleton/>}>
+                    <Header/>
                 </Suspense>
             </Route>
             <Route path='/user/:username'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByOwner />
-                </Suspense>
-            </Route>
-            <Route path='/leaflet-map'>
-                <Suspense fallback={<Fetching />}>
-                    <LeafletMap
-                        accessToken={accessToken}
-                        id={PanoramicEdinburghId}
-                        attribution={attribution}
-                        tileLayerUrl={url}
-                    />
+                <Suspense fallback={<Fetching/>}>
+                    <ViewResourcesByOwner/>
                 </Suspense>
             </Route>
             <Route path='/mapbox-map'>
-                <Suspense fallback={<Fetching />}>
+                <Suspense fallback={<Fetching/>}>
                     <MapboxMap
                         accessToken={accessToken}
-                        style={HeadsUp}
+                        style={PanoramicEdinburgh}
                     />
                 </Suspense>
             </Route>
             <Route path='/view-sites'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='SITE' />
+                <Suspense fallback={<ContentSkeleton/>}>
+                    <ViewResourcesByType type='SITE'/>
                 </Suspense>
             </Route>
             <Route path='/view-panoramas'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='PANORAMA' />
+                <Suspense fallback={<ContentSkeleton/>}>
+                    <ViewResourcesByType type='PANORAMA'/>
                 </Suspense>
             </Route>
             <Route path='/view-tours'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='TOUR' />
+                <Suspense fallback={<ContentSkeleton/>}>
+                    <ViewResourcesByType type='TOUR'/>
                 </Suspense>
             </Route>
             <Route path='/view-journeys'>
-                <Suspense fallback={<Fetching />}>
-                    <ViewResourcesByType type='JOURNEY' />
+                <Suspense fallback={<ContentSkeleton/>}>
+                    <ViewResourcesByType type='JOURNEY'/>
                 </Suspense>
             </Route>
             <Route
@@ -74,10 +67,11 @@ const Routes = () => {
                     '/view-panoramas/view-resource/:id',
                     '/view-journeys/view-resource/:id',
                     '/view-tours/view-resource/:id',
+                    '/mapbox-map/view-resource/:id',
                 ]}
             >
-                <Suspense fallback={<Fetching />}>
-                    <ViewResource />
+                <Suspense fallback={<Fetching/>}>
+                    <ViewResource/>
                 </Suspense>
             </Route>
             <Route
@@ -91,18 +85,26 @@ const Routes = () => {
                     '/view-tours/view-resource/:id/edit',
                 ]}
             >
-                <Suspense fallback={<Fetching />}>
-                    <EditResource />
+                <Suspense fallback={<Fetching/>}>
+                    <EditResource/>
                 </Suspense>
             </Route>
             <Route path='/create-resource'>
-                <Suspense fallback={<Fetching />}>
-                    <CreateResource />
+                <Suspense fallback={<Fetching/>}>
+                    <CreateResource/>
                 </Suspense>
             </Route>
             <Route path='/'>
-                <Suspense fallback={<Fetching />}>
-                    <Interference />
+                <Suspense fallback={<div/>}>
+                    <Interference/>
+                </Suspense>
+            </Route>
+            <Route
+                exact
+                path='/'
+            >
+                <Suspense fallback={<div/>}>
+                    <Home/>
                 </Suspense>
             </Route>
         </Router>
