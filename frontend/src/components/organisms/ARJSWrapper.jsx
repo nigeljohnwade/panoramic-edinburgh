@@ -4,11 +4,13 @@ const ARJSWrapper = ({
     url,
 }) => {
     return (
-        <iframe
-            className="flex-filler"
-            title="AR Viewer"
-            src="/ar-viewer.html"
-        />
+        <div className="vignette flex-filler flex-root">
+            <iframe
+                className="flex-filler"
+                title="AR Viewer"
+                src="/ar-viewer.html"
+            />
+        </div>
     );
 };
 
