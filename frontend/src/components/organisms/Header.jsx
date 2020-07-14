@@ -86,10 +86,10 @@ export const Header = () => {
             <NavLink
                 activeClassName={'active-link'}
                 className="link"
-                to="/mapbox-map"
+                to="/map"
             >
                 <span>
-                    View Mapbox Map
+                    View Map
                 </span>
             </NavLink>
             <NavLink

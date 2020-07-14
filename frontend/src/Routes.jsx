@@ -43,7 +43,7 @@ const Routes = () => {
                     <ViewResourcesByOwner/>
                 </Suspense>
             </Route>
-            <Route path='/mapbox-map'>
+            <Route path='/map'>
                 <Suspense fallback={<Fetching/>}>
                     <MapboxMap
                         accessToken={accessToken}
