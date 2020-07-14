@@ -16,6 +16,8 @@ const ViewResourcesByType = lazy(() => import('components/pages/ViewResourcesByT
 const ViewResource = lazy(() => import('components/pages/ViewResource'));
 const EditResource = lazy(() => import('components/pages/EditResource'));
 const MapboxMap = lazy(() => import('./components/templates/MapboxMap'));
+const AFrameViewer = lazy(()=>import('./components/organisms/AFrameViewer'))
+const ARJSWrapper = lazy(()=>import('./components/organisms/ARJSWrapper'))
 
 
 const Routes = () => {
@@ -24,6 +26,16 @@ const Routes = () => {
             <Route path='/'>
                 <Suspense fallback={<HeaderSkeleton/>}>
                     <Header/>
+                </Suspense>
+            </Route>
+            <Route path='/vr-viewer'>
+                <Suspense fallback={<Fetching/>}>
+                    <AFrameViewer/>
+                </Suspense>
+            </Route>
+            <Route path='/ar-viewer'>
+                <Suspense fallback={<Fetching/>}>
+                    <ARJSWrapper/>
                 </Suspense>
             </Route>
             <Route path='/user/:username'>

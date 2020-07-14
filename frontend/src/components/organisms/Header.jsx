@@ -92,6 +92,24 @@ export const Header = () => {
                     View Mapbox Map
                 </span>
             </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
+                className="link"
+                to="/vr-viewer"
+            >
+                <span>
+                    VR Viewer
+                </span>
+            </NavLink>
+            <NavLink
+                activeClassName={'active-link'}
+                className="link"
+                to="/ar-viewer"
+            >
+                <span>
+                    AR Viewer
+                </span>
+            </NavLink>
         </header>
     );
 };

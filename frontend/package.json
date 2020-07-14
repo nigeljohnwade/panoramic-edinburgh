@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "aframe": "^1.0.4",
+    "aframe-react": "^4.4.0",
     "aws-amplify": "^2.3.0",
     "aws-amplify-react": "^3.1.9",
     "aws-appsync": "^3.0.3",

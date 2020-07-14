@@ -27,7 +27,6 @@ html, body {
     height: 100%;
 }
 
-
 label,
 button,
 .eurostile body,
@@ -123,6 +122,7 @@ img {
 }
 
 button,
+iframe,
 input,
 select,
 textarea {
@@ -134,6 +134,12 @@ body {
     color: var(--black);
     font-size: var(--body-copy);
 }
+
+option{
+    background-color: var(--saltire-blue);
+    color: var(--light-grey)
+}
+
 
 
 /* Layout */
@@ -354,6 +360,7 @@ button, .button {
 }
 
 .header {
+    z-index: 1;
     display: flex;
     flex-basis: 6rem;
     align-items: stretch;
