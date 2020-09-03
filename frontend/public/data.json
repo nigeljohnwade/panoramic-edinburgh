@@ -1,0 +1,78 @@
+{
+  "data": {
+    "listResources": {
+      "items": [
+        {
+          "id": "f3fe8cc9-9f67-48ea-a15b-70187b234396",
+          "type": "SITE",
+          "title": "Holyrood Park",
+          "shortText": "A few locations in Holyrood Park",
+          "descriptiveText": null,
+          "primaryImageUrl": null,
+          "sourceImageUrl": null,
+          "panoramicImageUrl": null,
+          "latitude": -3.158775,
+          "longitude": 55.946648,
+          "elevation": null,
+          "createdAt": "2020-05-11T20:57:56.576Z",
+          "updatedAt": "2020-05-11T20:57:56.576Z",
+          "owner": "nigeljohnwade",
+          "__typename": "Resource"
+        },
+        {
+          "id": "75d44119-ab50-4ff0-b5f8-d12dd485200e",
+          "type": "JOURNEY",
+          "title": "Along the High Street",
+          "shortText": "A guided journey up the Royal Mile to Edinburgh Castle",
+          "descriptiveText": "A guided journey up the Royal Mile to Edinburgh Castle",
+          "primaryImageUrl": null,
+          "sourceImageUrl": null,
+          "panoramicImageUrl": null,
+          "latitude": -3.187514,
+          "longitude": 55.950228,
+          "elevation": null,
+          "createdAt": "2020-05-15T22:58:18.621Z",
+          "updatedAt": "2020-05-15T22:58:18.621Z",
+          "owner": "nigeljohnwade",
+          "__typename": "Resource"
+        },
+        {
+          "id": "113cd648-71fa-436c-a6b9-991d95a1a094",
+          "type": "PANORAMA",
+          "title": "Arthur's Seat",
+          "shortText": "The top of the hill",
+          "descriptiveText": "The top of the hill",
+          "primaryImageUrl": null,
+          "sourceImageUrl": null,
+          "panoramicImageUrl": null,
+          "latitude": -3.1637582,
+          "longitude": 55.9434728,
+          "elevation": null,
+          "createdAt": "2020-05-15T23:00:45.451Z",
+          "updatedAt": "2020-05-15T23:00:45.451Z",
+          "owner": "nigeljohnwade",
+          "__typename": "Resource"
+        },
+        {
+          "id": "24817a5e-066c-4b2c-b045-c5f2224dc570",
+          "type": "TOUR",
+          "title": "Scottish Pariliament",
+          "shortText": "Famous building",
+          "descriptiveText": "Famous building",
+          "primaryImageUrl": null,
+          "sourceImageUrl": null,
+          "panoramicImageUrl": null,
+          "latitude": -3.174342,
+          "longitude": 55.952659,
+          "elevation": null,
+          "createdAt": "2020-05-15T23:02:42.814Z",
+          "updatedAt": "2020-05-15T23:02:42.814Z",
+          "owner": "nigeljohnwade",
+          "__typename": "Resource"
+        }
+      ],
+      "nextToken": null,
+      "__typename": "ModelResourceConnection"
+    }
+  }
+}
