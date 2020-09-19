@@ -2,29 +2,44 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta
+        http-equiv='X-UA-Compatible'
+        content='IE=edge'
+    >
     <title>ARJS</title>
     <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script>
-        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/';
     </script>
 </head>
 
 <body style='margin: 0; overflow: hidden;'>
 <a-scene
-        vr-mode-ui="enabled: false"
-        embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-    <a-camera gps-camera rotation-reader></a-camera>
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'
+>
+    <a-camera
+        gps-camera
+        rotation-reader
+    ></a-camera>
 </a-scene>
 <script>
-    const query = '{"operationName":"ListResources","variables":{"limit":100},"query":"query ListResources($filter: ModelResourceFilterInput, $limit: Int, $nextToken: String) {\n  listResources(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    items {\n      id\n      type\n      title\n      shortText\n      descriptiveText\n      primaryImageUrl\n      sourceImageUrl\n      panoramicImageUrl\n      latitude\n      longitude\n      elevation\n      createdAt\n      updatedAt\n      owner\n      __typename\n    }\n    nextToken\n    __typename\n  }\n}\n"}';
+    const query = {
+        "operationName":"ListResources",
+        "variables": {
+            "limit":100
+        },
+        "query": "query ListResources($filter: ModelResourceFilterInput, $limit: Int, $nextToken: String) {\n  listResources(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    items {\n      id\n      type\n      title\n      shortText\n      descriptiveText\n      primaryImageUrl\n      sourceImageUrl\n      panoramicImageUrl\n      latitude\n      longitude\n      elevation\n      createdAt\n      updatedAt\n      owner\n      __typename\n    }\n    nextToken\n    __typename\n  }\n}"};
     const endpoint = 'https://h22frqy2kfbznpk2wwj4bd53ve.appsync-api.eu-west-1.amazonaws.com/graphql';
     const resources = fetch(endpoint, {
         method: 'POST',
-        body: query,
+        body: JSON.stringify(query),
+        headers: {
+            'x-api-key': 'da2-ufbf4ns3yzab7o72uome75k7tq',
+        }
     })
         .then(res => res.json())
         .then(data => console.log(data));
@@ -37,72 +52,72 @@
     function staticLoadPlaces() {
         return [
             {
-                "id": "f3fe8cc9-9f67-48ea-a15b-70187b234396",
-                "type": "SITE",
-                "title": "Holyrood Park",
-                "shortText": "A few locations in Holyrood Park",
-                "descriptiveText": null,
-                "primaryImageUrl": null,
-                "sourceImageUrl": null,
-                "panoramicImageUrl": null,
-                "latitude": -3.158775,
-                "longitude": 55.946648,
-                "elevation": null,
-                "createdAt": "2020-05-11T20:57:56.576Z",
-                "updatedAt": "2020-05-11T20:57:56.576Z",
-                "owner": "nigeljohnwade",
-                "__typename": "Resource"
+                'id': 'f3fe8cc9-9f67-48ea-a15b-70187b234396',
+                'type': 'SITE',
+                'title': 'Holyrood Park',
+                'shortText': 'A few locations in Holyrood Park',
+                'descriptiveText': null,
+                'primaryImageUrl': null,
+                'sourceImageUrl': null,
+                'panoramicImageUrl': null,
+                'latitude': -3.158775,
+                'longitude': 55.946648,
+                'elevation': null,
+                'createdAt': '2020-05-11T20:57:56.576Z',
+                'updatedAt': '2020-05-11T20:57:56.576Z',
+                'owner': 'nigeljohnwade',
+                '__typename': 'Resource'
             },
             {
-                "id": "75d44119-ab50-4ff0-b5f8-d12dd485200e",
-                "type": "JOURNEY",
-                "title": "Along the High Street",
-                "shortText": "A guided journey up the Royal Mile to Edinburgh Castle",
-                "descriptiveText": "A guided journey up the Royal Mile to Edinburgh Castle",
-                "primaryImageUrl": null,
-                "sourceImageUrl": null,
-                "panoramicImageUrl": null,
-                "latitude": -3.187514,
-                "longitude": 55.950228,
-                "elevation": null,
-                "createdAt": "2020-05-15T22:58:18.621Z",
-                "updatedAt": "2020-05-15T22:58:18.621Z",
-                "owner": "nigeljohnwade",
-                "__typename": "Resource"
+                'id': '75d44119-ab50-4ff0-b5f8-d12dd485200e',
+                'type': 'JOURNEY',
+                'title': 'Along the High Street',
+                'shortText': 'A guided journey up the Royal Mile to Edinburgh Castle',
+                'descriptiveText': 'A guided journey up the Royal Mile to Edinburgh Castle',
+                'primaryImageUrl': null,
+                'sourceImageUrl': null,
+                'panoramicImageUrl': null,
+                'latitude': -3.187514,
+                'longitude': 55.950228,
+                'elevation': null,
+                'createdAt': '2020-05-15T22:58:18.621Z',
+                'updatedAt': '2020-05-15T22:58:18.621Z',
+                'owner': 'nigeljohnwade',
+                '__typename': 'Resource'
             },
             {
-                "id": "113cd648-71fa-436c-a6b9-991d95a1a094",
-                "type": "PANORAMA",
-                "title": "Arthur's Seat",
-                "shortText": "The top of the hill",
-                "descriptiveText": "The top of the hill",
-                "primaryImageUrl": null,
-                "sourceImageUrl": null,
-                "panoramicImageUrl": null,
-                "latitude": -3.1637582,
-                "longitude": 55.9434728,
-                "elevation": null,
-                "createdAt": "2020-05-15T23:00:45.451Z",
-                "updatedAt": "2020-05-15T23:00:45.451Z",
-                "owner": "nigeljohnwade",
-                "__typename": "Resource"
+                'id': '113cd648-71fa-436c-a6b9-991d95a1a094',
+                'type': 'PANORAMA',
+                'title': 'Arthur\'s Seat',
+                'shortText': 'The top of the hill',
+                'descriptiveText': 'The top of the hill',
+                'primaryImageUrl': null,
+                'sourceImageUrl': null,
+                'panoramicImageUrl': null,
+                'latitude': -3.1637582,
+                'longitude': 55.9434728,
+                'elevation': null,
+                'createdAt': '2020-05-15T23:00:45.451Z',
+                'updatedAt': '2020-05-15T23:00:45.451Z',
+                'owner': 'nigeljohnwade',
+                '__typename': 'Resource'
             },
             {
-                "id": "24817a5e-066c-4b2c-b045-c5f2224dc570",
-                "type": "TOUR",
-                "title": "Scottish Pariliament",
-                "shortText": "Famous building",
-                "descriptiveText": "Famous building",
-                "primaryImageUrl": null,
-                "sourceImageUrl": null,
-                "panoramicImageUrl": null,
-                "latitude": -3.174342,
-                "longitude": 55.952659,
-                "elevation": null,
-                "createdAt": "2020-05-15T23:02:42.814Z",
-                "updatedAt": "2020-05-15T23:02:42.814Z",
-                "owner": "nigeljohnwade",
-                "__typename": "Resource"
+                'id': '24817a5e-066c-4b2c-b045-c5f2224dc570',
+                'type': 'TOUR',
+                'title': 'Scottish Pariliament',
+                'shortText': 'Famous building',
+                'descriptiveText': 'Famous building',
+                'primaryImageUrl': null,
+                'sourceImageUrl': null,
+                'panoramicImageUrl': null,
+                'latitude': -3.174342,
+                'longitude': 55.952659,
+                'elevation': null,
+                'createdAt': '2020-05-15T23:02:42.814Z',
+                'updatedAt': '2020-05-15T23:02:42.814Z',
+                'owner': 'nigeljohnwade',
+                '__typename': 'Resource'
             }
         ];
     }
@@ -122,7 +137,7 @@
             model.setAttribute('scale', '0.5 0.5 0.5');
 
             model.addEventListener('loaded', () => {
-                window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'));
             });
 
             scene.appendChild(model);
