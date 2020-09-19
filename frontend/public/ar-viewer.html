@@ -28,11 +28,12 @@
 </a-scene>
 <script>
     const query = {
-        "operationName":"ListResources",
-        "variables": {
-            "limit":100
+        'operationName': 'ListResources',
+        'variables': {
+            'limit': 100
         },
-        "query": "query ListResources($filter: ModelResourceFilterInput, $limit: Int, $nextToken: String) {\n  listResources(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    items {\n      id\n      type\n      title\n      shortText\n      descriptiveText\n      primaryImageUrl\n      sourceImageUrl\n      panoramicImageUrl\n      latitude\n      longitude\n      elevation\n      createdAt\n      updatedAt\n      owner\n      __typename\n    }\n    nextToken\n    __typename\n  }\n}"};
+        'query': 'query ListResources($filter: ModelResourceFilterInput, $limit: Int, $nextToken: String) {\n  listResources(filter: $filter, limit: $limit, nextToken: $nextToken) {\n    items {\n      id\n      type\n      title\n      shortText\n      descriptiveText\n      primaryImageUrl\n      sourceImageUrl\n      panoramicImageUrl\n      latitude\n      longitude\n      elevation\n      createdAt\n      updatedAt\n      owner\n      __typename\n    }\n    nextToken\n    __typename\n  }\n}'
+    };
     const endpoint = 'https://h22frqy2kfbznpk2wwj4bd53ve.appsync-api.eu-west-1.amazonaws.com/graphql';
     const resources = fetch(endpoint, {
         method: 'POST',
@@ -42,7 +43,10 @@
         }
     })
         .then(res => res.json())
-        .then(data => console.log(data));
+        .then(data => {
+            console.log(data);
+            renderPlaces(data.data.listResources.items);
+        });
 
     window.onload = () => {
         let places = staticLoadPlaces();
