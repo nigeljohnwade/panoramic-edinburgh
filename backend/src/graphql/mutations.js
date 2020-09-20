@@ -18,6 +18,7 @@ export const createResource = /* GraphQL */ `
       latitude
       longitude
       elevation
+      model
       createdAt
       updatedAt
       owner
@@ -41,6 +42,7 @@ export const updateResource = /* GraphQL */ `
       latitude
       longitude
       elevation
+      model
       createdAt
       updatedAt
       owner
@@ -64,6 +66,7 @@ export const deleteResource = /* GraphQL */ `
       latitude
       longitude
       elevation
+      model
       createdAt
       updatedAt
       owner

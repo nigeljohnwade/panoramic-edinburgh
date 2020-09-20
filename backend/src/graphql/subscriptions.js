@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateResource = /* GraphQL */ `
-  subscription OnCreateResource($owner: String!) {
-    onCreateResource(owner: $owner) {
+  subscription OnCreateResource {
+    onCreateResource {
       id
       type
       title
@@ -15,6 +15,7 @@ export const onCreateResource = /* GraphQL */ `
       latitude
       longitude
       elevation
+      model
       createdAt
       updatedAt
       owner
@@ -22,8 +23,8 @@ export const onCreateResource = /* GraphQL */ `
   }
 `;
 export const onUpdateResource = /* GraphQL */ `
-  subscription OnUpdateResource($owner: String!) {
-    onUpdateResource(owner: $owner) {
+  subscription OnUpdateResource {
+    onUpdateResource {
       id
       type
       title
@@ -35,6 +36,7 @@ export const onUpdateResource = /* GraphQL */ `
       latitude
       longitude
       elevation
+      model
       createdAt
       updatedAt
       owner
@@ -42,8 +44,8 @@ export const onUpdateResource = /* GraphQL */ `
   }
 `;
 export const onDeleteResource = /* GraphQL */ `
-  subscription OnDeleteResource($owner: String!) {
-    onDeleteResource(owner: $owner) {
+  subscription OnDeleteResource {
+    onDeleteResource {
       id
       type
       title
@@ -55,6 +57,7 @@ export const onDeleteResource = /* GraphQL */ `
       latitude
       longitude
       elevation
+      model
       createdAt
       updatedAt
       owner
