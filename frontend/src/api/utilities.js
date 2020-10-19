@@ -5,14 +5,27 @@ import AWSAppSyncClient from 'aws-appsync';
 import awsconfig from '../config/aws-exports-dev';
 import { Auth } from 'aws-amplify';
 
-const client = new AWSAppSyncClient({
+const clientCognito = new AWSAppSyncClient({
     url: awsconfig.aws_appsync_graphqlEndpoint,
     region: awsconfig.aws_appsync_region,
     auth: {
         type: awsconfig.aws_appsync_authenticationType,
-        // apiKey: awsconfig.aws_appsync_apiKey, // API_KEY
-        jwtToken: async () => (await Auth.currentSession()).getIdToken().getJwtToken(), // COGNITO_POOLS
-        // credentials: () => Auth.currentCredentials(), // IAM
+        jwtToken: async () => (await Auth.currentSession()).getIdToken().getJwtToken(),
+    },
+    offlineConfig:{
+        keyPrefix: 'private',
+    }
+});
+
+const clientApiKey = new AWSAppSyncClient({
+    url: awsconfig.aws_appsync_graphqlEndpoint,
+    region: awsconfig.aws_appsync_region,
+    auth: {
+        type: 'API_KEY',
+        apiKey: awsconfig.aws_appsync_api_key,
+    },
+    offlineConfig:{
+        keyPrefix: 'public',
     }
 });
 
@@ -39,7 +52,7 @@ const populateFields = (fields) => {
 
 const calls = {
     listResources: async () => {
-        return await client.query({
+        return await clientApiKey.query({
             query: gql(queries.listResources),
             variables: {
                 limit: 100,
@@ -49,7 +62,7 @@ const calls = {
         });
     },
     resourceByOwnerByDateUpdated: async (owner) => {
-        return await client.query({
+        return await clientApiKey.query({
             query: gql(queries.resourceByOwnerByDateUpdated),
             variables: {
                 owner: owner,
@@ -60,7 +73,7 @@ const calls = {
         });
     },
     resourcesByType: async (type) => {
-        return await client.query({
+        return await clientApiKey.query({
             query: gql(queries.resourceByType),
             variables: {
                 type: type,
@@ -71,7 +84,7 @@ const calls = {
         });
     },
     getResource: async (id) => {
-        return await client.query({
+        return await clientApiKey.query({
             query: gql(queries.getResource),
             variables: {
                 id: id,
@@ -81,7 +94,7 @@ const calls = {
         });
     },
     createResource: async (fields) => {
-        return await client.mutate({
+        return await clientCognito.mutate({
             mutation: gql(mutations.createResource),
             variables: {
                 input: {
@@ -93,7 +106,7 @@ const calls = {
         });
     },
     updateResource: async (fields) => {
-        return await client.mutate({
+        return await clientCognito.mutate({
             mutation: gql(mutations.updateResource),
             variables: {
                 input: {
@@ -105,7 +118,7 @@ const calls = {
         });
     },
     deleteResource: async (id) => {
-        return await client.mutate({
+        return await clientCognito.mutate({
             mutation: gql(mutations.deleteResource),
             variables: {
                 input: {

@@ -27,6 +27,11 @@ const ViewResourcesByType = ({
     const [selectedCard, setSelectedCard] = useState(null);
 
     useEffect(() => {
+        apiCalls.resourcesByType(type)
+            .then(resources => setResources(resources));
+    }, [type]);
+
+    useEffect(() => {
         Auth.currentAuthenticatedUser()
             .then(user => {
                 setUser(user);
@@ -38,15 +43,10 @@ const ViewResourcesByType = ({
         setSelectedCard(match.params.id);
     }, [match.params.id]);
 
-    useEffect(() => {
-        apiCalls.resourcesByType(type)
-            .then(resources => setResources(resources));
-    }, [type]);
-
     const identifiers = (item) => {
         const identifiers = [];
         if (selectedCard === item.id) identifiers.push('selected');
-        if (user.username === item.owner) identifiers.push('owned');
+        if (user && user.username === item.owner) identifiers.push('owned');
         return identifiers;
     };
 

@@ -365,9 +365,11 @@ button, .button {
 .header {
     z-index: 1;
     display: flex;
-    flex-basis: 6rem;
+    flex-basis: 9rem;
     align-items: stretch;
     justify-content: flex-start;
+    padding-left: var(--space);
+    padding-right: var(--space);
     background-color: var(--saltire-blue);
 }
 
