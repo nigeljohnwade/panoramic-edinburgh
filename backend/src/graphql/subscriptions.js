@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateResource = /* GraphQL */ `
-  subscription OnCreateResource {
-    onCreateResource {
+  subscription OnCreateResource($owner: String!) {
+    onCreateResource(owner: $owner) {
       id
       type
       title
@@ -23,8 +23,8 @@ export const onCreateResource = /* GraphQL */ `
   }
 `;
 export const onUpdateResource = /* GraphQL */ `
-  subscription OnUpdateResource {
-    onUpdateResource {
+  subscription OnUpdateResource($owner: String!) {
+    onUpdateResource(owner: $owner) {
       id
       type
       title
@@ -44,8 +44,8 @@ export const onUpdateResource = /* GraphQL */ `
   }
 `;
 export const onDeleteResource = /* GraphQL */ `
-  subscription OnDeleteResource {
-    onDeleteResource {
+  subscription OnDeleteResource($owner: String!) {
+    onDeleteResource(owner: $owner) {
       id
       type
       title

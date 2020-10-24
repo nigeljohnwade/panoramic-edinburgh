@@ -1,10 +1,12 @@
 import React, { useReducer, useState, } from 'react';
 import { Redirect } from 'react-router-dom';
+import { Storage } from 'aws-amplify';
 
 import apiCalls from '../../api/utilities';
-import InputGroup from '../molecules/InputGroup';
+import TextInputGroup from '../molecules/TextInputGroup';
 import SelectGroup from '../molecules/SelectGroup';
 import Fetching from '../organisms/Fetching';
+import FileInputGroup from '../molecules/FileInputGroup';
 
 const formStateReducer = (state, action) => {
     switch (action.type) {
@@ -18,6 +20,9 @@ const formStateReducer = (state, action) => {
 const initialArg = {
     title: '',
     type: '',
+    shortText: '',
+    descriptiveText: '',
+
 };
 
 const CreateResource = () => {
@@ -35,6 +40,17 @@ const CreateResource = () => {
         });
     };
 
+    const changeHandlerFile = e => {
+        const file = document.getElementById('mainImage').files[0];
+        dispatchFormState({
+            type: 'onChangeFileValue',
+            payload: {
+                name: e.target.name,
+                value: e.target.value,
+            },
+        });
+    };
+
     return (
         <>
             {
@@ -44,16 +60,23 @@ const CreateResource = () => {
                     onSubmit={(e) => {
                         setFetching(true);
                         e.preventDefault();
-                        apiCalls.createResource({
-                            ...formState
-                        }).then(() => {
-                            setFetching(false);
-                            setCompleted(true);
-                        });
+                        const file = document.getElementById('mainImage').files[0];
+                        Storage.put(file.name, file)
+                            .then(item => {
+                                console.log(item);
+                                apiCalls.createResource({
+                                    ...formState,
+                                    primaryImageUrl: item.key,
+                                }).then(() => {
+                                    setFetching(false);
+                                    setCompleted(true);
+                                });
+                            })
+                            .catch(err => console.error(err));
                     }}
                 >
                     <h1>Create New Resource</h1>
-                    <InputGroup
+                    <TextInputGroup
                         field='title'
                         label='Title'
                         onChange={(e) => changeHandlerString(e)}
@@ -72,7 +95,7 @@ const CreateResource = () => {
                             {value: 'TOUR', label: 'Tour'},
                         ]}
                     />
-                    <InputGroup
+                    <TextInputGroup
                         field='shortText'
                         label='Short Text'
                         onChange={(e) => changeHandlerString(e)}
@@ -89,17 +112,22 @@ const CreateResource = () => {
                             Descriptive Text
                         </label>
                     </div>
-                    <InputGroup
+                    <TextInputGroup
                         field={'latitude'}
                         label={'Latitude'}
                         onChange={(e) => changeHandlerString(e)}
                         value={formState.lat}
                     />
-                    <InputGroup
+                    <TextInputGroup
                         field={'longitude'}
                         label={'Longitude'}
                         onChange={(e) => changeHandlerString(e)}
                         value={formState.lng}
+                    />
+                    <FileInputGroup
+                        field={'mainImage'}
+                        label={'Main Image'}
+                        onChange={(e) => changeHandlerFile(e)}
                     />
                     <div className='form group button-group'>
                         <button type="submit">Create</button>

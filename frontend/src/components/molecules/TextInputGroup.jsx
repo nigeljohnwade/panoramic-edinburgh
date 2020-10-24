@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputGroup =  ({
+const TextInputGroup =  ({
     field,
     label,
     onChange,
@@ -23,12 +23,11 @@ const InputGroup =  ({
     )
 };
 
-InputGroup.propTypes = {
+TextInputGroup.propTypes = {
     field: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
 };
 
-export default InputGroup;
+export default TextInputGroup;

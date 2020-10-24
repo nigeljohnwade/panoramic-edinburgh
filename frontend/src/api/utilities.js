@@ -62,7 +62,7 @@ const calls = {
         });
     },
     resourceByOwnerByDateUpdated: async (owner) => {
-        return await clientApiKey.query({
+        return await clientCognito.query({
             query: gql(queries.resourceByOwnerByDateUpdated),
             variables: {
                 owner: owner,
@@ -73,7 +73,7 @@ const calls = {
         });
     },
     resourcesByType: async (type) => {
-        return await clientApiKey.query({
+        return await clientCognito.query({
             query: gql(queries.resourceByType),
             variables: {
                 type: type,
@@ -84,7 +84,7 @@ const calls = {
         });
     },
     getResource: async (id) => {
-        return await clientApiKey.query({
+        return await clientCognito.query({
             query: gql(queries.getResource),
             variables: {
                 id: id,

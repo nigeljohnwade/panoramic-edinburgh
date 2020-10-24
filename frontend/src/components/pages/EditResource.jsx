@@ -5,7 +5,7 @@ import { PanoramicEdinburgh } from '../../config/mapbox-styles';
 import { accessToken } from '../../config/mapbox';
 import apiCalls from '../../api/utilities';
 import Fetching from '../organisms/Fetching';
-import InputGroup from '../molecules/InputGroup';
+import TextInputGroup from '../molecules/TextInputGroup';
 import SelectGroup from '../molecules/SelectGroup';
 
 const formStateReducer = (state, action) => {
@@ -107,7 +107,7 @@ const EditResource = ({
                                 }}
                             >
                                 <h1>Edit Resource</h1>
-                                <InputGroup
+                                <TextInputGroup
                                     field='title'
                                     label='Title'
                                     onChange={(e) => changeHandlerString(e)}
@@ -126,7 +126,7 @@ const EditResource = ({
                                         {value: 'TOUR', label: 'Tour'},
                                     ]}
                                 />
-                                <InputGroup
+                                <TextInputGroup
                                     field='shortText'
                                     label='Short Text'
                                     onChange={(e) => changeHandlerString(e)}
@@ -143,13 +143,13 @@ const EditResource = ({
                                         Descriptive Text
                                     </label>
                                 </div>
-                                <InputGroup
+                                <TextInputGroup
                                     field={'latitude'}
                                     label={'Latitude'}
                                     onChange={(e) => changeHandlerString(e)}
                                     value={formState.latitude}
                                 />
-                                <InputGroup
+                                <TextInputGroup
                                     field={'longitude'}
                                     label={'Longitude'}
                                     onChange={(e) => changeHandlerString(e)}
