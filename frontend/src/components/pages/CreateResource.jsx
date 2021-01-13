@@ -11,7 +11,16 @@ import FileInputGroup from '../molecules/FileInputGroup';
 const formStateReducer = (state, action) => {
     switch (action.type) {
         case 'onChangeStringValue':
-            return {...state, [action.payload.name]: action.payload.value};
+            return {
+                ...state,
+                [action.payload.name]: action.payload.value,
+            };
+        case 'onChangeFileValue':
+            return {
+                ...state,
+                [action.payload.name]: action.payload.value,
+                file: action.payload.file,
+            };
         default:
             return state;
     }
@@ -22,7 +31,6 @@ const initialArg = {
     type: '',
     shortText: '',
     descriptiveText: '',
-
 };
 
 const CreateResource = () => {
@@ -47,6 +55,7 @@ const CreateResource = () => {
             payload: {
                 name: e.target.name,
                 value: e.target.value,
+                file: file,
             },
         });
     };
