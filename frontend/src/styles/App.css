@@ -333,10 +333,8 @@ button, .button {
 input:focus,
 textarea:focus,
 select:focus {
-    outline-color: var(--saltire-blue-light-desaturated);
-    outline-style: solid;
     outline-offset: 5px;
-    outline-width: 1px;
+    outline: var(--saltire-blue-light-desaturated) solid 1px;
 }
 
 .input-group input:focus + label,
