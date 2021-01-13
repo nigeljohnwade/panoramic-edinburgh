@@ -7,7 +7,6 @@
     --black: #292930;
     --white: #f9f9ff;
     --mid-transparent-white: #f9f9ffbb;
-    --saltire-blue: rgb(45, 35, 209);
     --body-copy: 1rem;
     --base-unit: 1rem;
     --base-padding: 1rem 2rem;
@@ -17,8 +16,18 @@
     --default-rotation-speed: 16s;
     --saltire-hue: 234deg;
     --saltire-saturation: 71%;
+    --saltire-saturation-high: 100%;
+    --saltire-saturation-low: 35.5%;
     --saltire-lightness: 48%;
-    --saltire-hsl: hsl(var(--saltire-hue), var(--saltire-saturation), var(--saltire-lightness));
+    --saltire-lightness-high: 72%;
+    --saltire-lightness-low: 24%;
+    --saltire-blue: hsl(var(--saltire-hue), var(--saltire-saturation), var(--saltire-lightness));
+    --saltire-blue-light: hsl(var(--saltire-hue), var(--saltire-saturation), var(--saltire-lightness-high));
+    --saltire-blue-light-saturated: hsl(var(--saltire-hue), var(--saltire-saturation-high), var(--saltire-lightness-high));
+    --saltire-blue-light-desaturated: hsl(var(--saltire-hue), var(--saltire-saturation-low), var(--saltire-lightness-high));
+    --saltire-blue-dark: hsl(var(--saltire-hue), var(--saltire-saturation), var(--saltire-lightness-low));
+    --saltire-blue-dark-saturated: hsl(var(--saltire-hue), var(--saltire-saturation-high), var(--saltire-lightness-low));
+    --saltire-blue-dark-desaturated: hsl(var(--saltire-hue), var(--saltire-saturation-low), var(--saltire-lightness-low));
 }
 
 * {
@@ -140,7 +149,7 @@ body {
 }
 
 option{
-    background-color: var(--saltire-blue);
+    background-color: var(--saltire-hsl);
     color: var(--light-grey)
 }
 
@@ -374,7 +383,7 @@ button, .button {
     justify-content: flex-start;
     padding-left: var(--space);
     padding-right: var(--space);
-    background-color: var(--saltire-blue);
+    background-color: var(--saltire-blue-light);
 }
 
 .header .link {
