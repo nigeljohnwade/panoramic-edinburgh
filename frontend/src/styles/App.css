@@ -14,7 +14,11 @@
     --success: #1d6b1a;
     --warning: #d16f23;
     --danger: #e72323;
-    --default-rotation-speed: 16s
+    --default-rotation-speed: 16s;
+    --saltire-hue: 234deg;
+    --saltire-saturation: 71%;
+    --saltire-lightness: 48%;
+    --saltire-hsl: hsl(var(--saltire-hue), var(--saltire-saturation), var(--saltire-lightness));
 }
 
 * {
