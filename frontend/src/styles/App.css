@@ -149,7 +149,7 @@ body {
 }
 
 option{
-    background-color: var(--saltire-hsl);
+    background-color: var(--saltire-blue);
     color: var(--light-grey)
 }
 
@@ -330,6 +330,14 @@ button, .button {
     transition: background-color 0.9s ease-out;
 }
 
+input:focus,
+textarea:focus,
+select:focus {
+    outline-color: var(--saltire-blue-light-desaturated);
+    outline-style: solid;
+    outline-offset: 5px;
+    outline-width: 1px;
+}
 
 .input-group input:focus + label,
 .input-group textarea:focus + label,
