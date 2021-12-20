@@ -5,6 +5,7 @@ import { withAuthenticator } from 'aws-amplify-react';
 import awsconfig from 'config/aws-exports-dev';
 import Routes from 'Routes';
 import './styles/App.css';
+import './styles/Button.css';
 
 Amplify.configure(awsconfig);
 

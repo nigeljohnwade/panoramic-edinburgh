@@ -1,4 +1,8 @@
-import React, { useReducer, useState, } from 'react';
+import React, {
+    useReducer,
+    useState,
+    useEffect,
+} from 'react';
 import { Redirect } from 'react-router-dom';
 import { Storage } from 'aws-amplify';
 
@@ -13,7 +17,11 @@ const formStateReducer = (state, action) => {
         case 'onChangeStringValue':
             return {
                 ...state,
-                [action.payload.name]: action.payload.value,
+                [action.payload.name]: {
+                    ...[action.payload.name],
+                    value: action.payload.value,
+                    validity: action.payload.validity,
+                },
             };
         case 'onChangeFileValue':
             return {
@@ -27,10 +35,30 @@ const formStateReducer = (state, action) => {
 };
 
 const initialArg = {
-    title: '',
-    type: '',
-    shortText: '',
-    descriptiveText: '',
+    title: {
+        value: '',
+        validity: null
+    },
+    type: {
+        value: '',
+        validity: null,
+    },
+    shortText: {
+        value: '',
+        validity: null,
+    },
+    descriptiveText: {
+        value: '',
+        validity: null,
+    },
+    lat: {
+        value: '',
+        validity: null
+    },
+    lng:{
+        value: '',
+        validity: null,
+    }
 };
 
 const CreateResource = () => {
@@ -38,12 +66,17 @@ const CreateResource = () => {
     const [fetching, setFetching] = useState(false);
     const [completed, setCompleted] = useState(false);
 
+    useEffect(() => {
+        console.log(formState);
+    }, [formState]);
+
     const changeHandlerString = e => {
         dispatchFormState({
             type: 'onChangeStringValue',
             payload: {
                 name: e.target.name,
                 value: e.target.value,
+                validity: e.target.validity,
             },
         });
     };
@@ -55,6 +88,7 @@ const CreateResource = () => {
             payload: {
                 name: e.target.name,
                 value: e.target.value,
+                validity: e.target.validity,
                 file: file,
             },
         });
@@ -89,12 +123,14 @@ const CreateResource = () => {
                         field='title'
                         label='Title'
                         onChange={(e) => changeHandlerString(e)}
-                        value={formState.title}
+                        value={formState.title.value}
+                        validity={formState.title.validity}
                     />
                     <SelectGroup
                         label='Type'
                         field='type'
-                        value={formState.type}
+                        value={formState.type.value}
+                        validity={formState.type.validity}
                         onChange={(e) => changeHandlerString(e)}
                         options={[
                             {value: '', label: 'Please select...'},
@@ -108,13 +144,15 @@ const CreateResource = () => {
                         field='shortText'
                         label='Short Text'
                         onChange={(e) => changeHandlerString(e)}
-                        value={formState.shortText}
+                        value={formState.shortText.value}
+                        validity={formState.shortText.validity}
                     />
                     <div className='form-group input-group'>
                         <textarea
                             name='descriptiveText'
                             id='descriptiveText'
-                            value={formState.descriptiveText}
+                            value={formState.descriptiveText.value}
+                            validity={formState.descriptiveText.validity}
                             onChange={(e) => changeHandlerString(e)}
                         />
                         <label htmlFor='descriptiveText'>
@@ -125,13 +163,15 @@ const CreateResource = () => {
                         field={'latitude'}
                         label={'Latitude'}
                         onChange={(e) => changeHandlerString(e)}
-                        value={formState.lat}
+                        value={formState.lat.value}
+                        validity={formState.lat.validity}
                     />
                     <TextInputGroup
                         field={'longitude'}
                         label={'Longitude'}
                         onChange={(e) => changeHandlerString(e)}
-                        value={formState.lng}
+                        value={formState.lng.value}
+                        validity={formState.lng.validity}
                     />
                     <FileInputGroup
                         field={'mainImage'}

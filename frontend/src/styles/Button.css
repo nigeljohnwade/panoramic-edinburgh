@@ -1,0 +1,144 @@
+/* fossheim.io */
+/* Tutorial: https://fossheim.io/writing/posts/css-polaroid-camera/ */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.pause-container {
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    left: 40px;
+    bottom: 53px;
+    background-color: #1E1A11;
+    border-radius: 1px;
+    box-shadow: 0 2.5px 3px -2px #524849,
+    0 0 0.5px 0.5px #A1A09C,
+    0 0 1.25px 0.75px #CAC1BA,
+    0 0.75px 1px #4A453F inset,
+    0 0 0.75px 0.75px #382F30 inset,
+    0 -1.25px 1px #CFCAC4,
+    0 20px 20px -10px rgba(61, 51, 50, 0.1);
+    display: grid;
+    padding: 2px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2px;
+    z-index: 2;
+}
+
+.header .link {
+    border-radius: 1.25px;
+    background-image: radial-gradient(#3B3038 30%, #574D4B 45%, transparent 65%),
+    radial-gradient(#2E232B 30%, #524846 50%, transparent 65%),
+    linear-gradient(
+        #A29899,
+        #C1B7B5,
+        #C5BBB9,
+        #C8BEBC 26%,
+        #AAA09E 29%, /* End highlight */
+        #A19D92 32%, /* start key */
+        #A19C98,
+        #9D9990 77%, /* end key */
+        #65605C 81%, /* start shadow */
+        #393335
+    );
+    background-size: 20px 70px, 25px 70px, 100% 100%;
+    background-position: calc(100% + 14px) -10px, -19px -10px, top left;
+    background-repeat: no-repeat;
+    box-shadow: 3px 10px 12px -3px rgba(0, 0, 0, 0.45),
+    2px 20px 14px -2px rgba(0, 0, 0, 0.2),
+    0 0 1px 0.25px #383129,
+    0.5px 0 1px -0.25px #453D3A inset,
+    0 -1.25px 1.5px -0.75px #22171B inset,
+    0 1px 1.25px -0.75px #AEA4A3 inset;
+}
+
+.pause-container .key:first-child {
+    background-image: radial-gradient(#3B3038 30%, #574D4B 45%, transparent 65%),
+    radial-gradient(#77726E 30%, #9A968D 50%, transparent 65%),
+    linear-gradient(
+        #A29899,
+        #C1B7B5,
+        #C5BBB9,
+        #C8BEBC 26%,
+        #AAA09E 29%, /* End highlight */
+        #A19D92 32%, /* start key */
+        #A19C98,
+        #9D9990 77%, /* end key */
+        #65605C 81%, /* start shadow */
+        #393335
+    );
+    background-size: 20px 70px, 25px 70px, 100% 100%;
+    background-position: calc(100% + 14px) -10px, -19px -10px, top left;
+}
+
+.pause-container .key:last-child {
+    background-image: radial-gradient(#706756 30%, #9C958B 50%, transparent 65%),
+    radial-gradient(#2E232B 30%, #524846 50%, transparent 65%),
+    linear-gradient(
+        #A29899,
+        #C1B7B5,
+        #C5BBB9,
+        #C8BEBC 26%,
+        #AAA09E 29%, /* End highlight */
+        #A19D92 32%, /* start key */
+        #A19C98,
+        #9D9990 77%, /* end key */
+        #65605C 81%, /* start shadow */
+        #393335
+    );
+    background-size: 20px 70px, 25px 70px, 100% 100%;
+    background-position: calc(100% + 14px) -10px, -19px -10px, top left;
+}
+
+.pause-container .key p {
+    font-size: 7px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 22px;
+    font-weight: 600;
+    letter-spacing: 0.25px;
+    color: #DFD6D7;
+    text-shadow: 0 0 0.5px #CAC3C3,
+    0 0 0.75px #B2ADAA,
+    0 0 1px #9E9596,
+    0 0 1.5px #9C9291;
+}
+
+.pause-container.top {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    bottom: 132px;
+}
+
+.pause-container.top .key:first-child p {
+    font-size: 5px;
+    letter-spacing: -1px;
+    margin-left: -1px;
+}
+
+.pause-container-txt {
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    left: 40px;
+    display: grid;
+    text-align: center;
+}
+
+.pause-container-txt.top {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    bottom: 107px;
+}
+
+.pause-container-txt .txt {
+    letter-spacing: 0.5px;
+}
+
+.pause-container-txt.bottom {
+    grid-template-columns: 1fr 1fr;
+    bottom: 27px;
+}
